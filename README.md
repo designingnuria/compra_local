@@ -37,6 +37,9 @@ python3 -m http.server 8000
 # luego abre http://localhost:8000
 ```
 
+Si usas `npx http-server`, añádele `-c-1`. Por defecto manda cabeceras de caché de una
+hora y acabas probando el JavaScript de hace tres cambios sin enterarte.
+
 ## Estructura
 
 ```

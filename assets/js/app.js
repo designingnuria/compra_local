@@ -331,16 +331,28 @@
     return Math.max(0, caja.top <= 0 ? caja.bottom : 0);
   }
 
-  /* Al filtrar, la lista se encoge y el documento con ella: si no se hace
-     nada, te quedas mirando el pie de página sin entender qué ha pasado.
-     Sólo se corrige cuando los resultados se han ido por encima de la
-     ventana; si ya los estás viendo, no se toca el scroll. */
-  function reencuadrar() {
+  /* Al filtrar, la lista se encoge y el documento con ella. Si estabas más
+     abajo de lo que mide la página nueva, el navegador te recoloca solo y
+     acabas mirando el pie sin entender qué ha pasado: ahí sí hay que volver
+     a los resultados.
+
+     La condición es esa y sólo esa. Antes bastaba con que el principio de
+     la lista quedara por encima de la ventana, que es lo normal en cuanto
+     bajas un poco, y el resultado era que leyendo a media lista y pulsando
+     una sola tecla la página te devolvía al principio de golpe. Ahora, si
+     la página sigue siendo igual de larga, no se toca el scroll: estés
+     donde estés, te quedas donde estabas. */
+  function reencuadrar(yAntes) {
+    var alto = window.innerHeight || document.documentElement.clientHeight;
+    var maxAhora = Math.max(0, document.documentElement.scrollHeight - alto);
+    if (yAntes <= maxAhora) return;
+
     var arriba = els.resultados.getBoundingClientRect().top - alturaBarra() - 16;
     if (arriba < -1) window.scrollTo(0, Math.max(0, window.scrollY + arriba));
   }
 
   function pintar(reencuadra) {
+    var yAntes = window.scrollY;
     var lista = filtrar();
     var ts = terminos();
     // Para subrayar también lo que se encontró por la raíz de la palabra.
@@ -363,7 +375,7 @@
     actualizarContadoresChips();
     guardarEnURL();
     medirBarra();
-    if (reencuadra) reencuadrar();
+    if (reencuadra) reencuadrar(yAntes);
   }
 
   /* --------------------------------------------------------- controles */
