@@ -17,7 +17,7 @@ const crypto = require("crypto");
 
 const raiz = path.join(__dirname, "..");
 const INDICE = path.join(raiz, "index.html");
-const ASSETS = ["assets/css/styles.css", "assets/js/app.js", "data/negocios.js"];
+const ASSETS = ["assets/css/styles.css", "assets/js/app.js", "assets/js/analitica.js", "data/negocios.js"];
 
 function hash(rel) {
   const buf = fs.readFileSync(path.join(raiz, rel));

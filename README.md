@@ -49,12 +49,14 @@ hora y acabas probando el JavaScript de hace tres cambios sin enterarte.
 index.html              La página entera
 assets/css/styles.css   Estilos, con paleta en variables CSS
 assets/js/app.js        Buscador, filtros y pintado de tarjetas
+assets/js/analitica.js  Envío de eventos a Tinybird (apagado hasta configurarlo)
 data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
 scripts/revisar.js      Genera REVISAR.md: qué negocios toca comprobar
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
 scripts/versionar.js    Sella los assets de index.html con ?v=<hash> (caché)
 scripts/dominio.js      Cambia la dirección de la web en todos los sitios a la vez
+tinybird/               Esquema del Data Source e instrucciones de la analítica
 assets/og.html          Plantilla de la imagen que sale al compartir el enlace
 assets/og.png           Esa imagen ya generada, a 1200x630
 sitemap.xml, robots.txt Para los buscadores

@@ -304,6 +304,8 @@
     var cat = catPorId[negocio.categoria];
     var li = document.createElement("li");
     li.className = "card";
+    /* Lo usa la analítica para saber qué ficha se ha pulsado. */
+    li.dataset.id = negocio.id;
 
     var html = '<div class="card__top">' +
       '<h3 class="card__name">' + resaltar(negocio.nombre, ts) + "</h3>";
