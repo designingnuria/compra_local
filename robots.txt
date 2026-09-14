@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://compra-local-two.vercel.app/sitemap.xml
+Sitemap: https://consume-local-two.vercel.app/sitemap.xml
