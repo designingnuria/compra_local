@@ -40,8 +40,9 @@ const CATEGORIAS = [
     sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "bebidas", "beber",
       "cerveza", "cervezas", "artesana", "birra", "licor", "licores", "destilados",
       "vermut", "sidra", "ginebra", "coctel", "catas"] },
-  { id: "hogar", nombre: "Cerámica y hogar", icono: "🏺",
-    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta"] },
+  { id: "hogar", nombre: "Casa y decoración", icono: "🏺",
+    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta", "interiorismo", "lampara", "lamparas",
+      "textil", "mueble", "muebles", "jarron", "objetos", "regalo"] },
   { id: "papeleria", nombre: "Papel y arte", icono: "✏️",
     sinonimos: ["papel", "papeleria", "cuaderno", "libreta", "boligrafo", "pluma", "escribir",
       "postal", "bellas artes", "dibujar", "pintura", "pigmentos", "acuarela",
@@ -2309,8 +2310,8 @@ const NEGOCIOS = [
     verificado: true
   },
   {
-    id: "casa-silveriro",
-    nombre: "Casa Silveriro",
+    id: "casa-silverio",
+    nombre: "Casa Silverio",
     categoria: "hogar",
     descripcion: "Tienda de decoración de 1921 en la calle Imperial, con género clásico y mucho fondo.",
     barrio: "Centro",
@@ -2654,6 +2655,63 @@ const NEGOCIOS = [
     descripcion: "Peluquería orgánica de trato muy personal, con cosmética natural y color adaptado a cada pelo en vez de a una carta cerrada.",
     web: "https://artistteomadridpeluqueria.com",
     etiquetas: ["peluquería", "orgánica", "color", "natural"],
+    verificado: false
+  },
+
+  /* ----------------------------------------------- decoración */
+  {
+    id: "hijo-de-epigmenio",
+    nombre: "Hijo de Epigmenio",
+    categoria: "hogar",
+    descripcion: "Tienda de esquina en Malasaña donde los utensilios más costumbristas de España —botijos, morteros, cestas, loza de pueblo— encuentran su sitio como objeto de casa.",
+    barrio: "Malasaña",
+    etiquetas: ["decoración", "artesanía", "tradicional", "menaje", "regalo"],
+    verificado: false
+  },
+  {
+    id: "real-fabrica-espanola",
+    nombre: "Real Fábrica Española",
+    categoria: "hogar",
+    descripcion: "Producto y marcas españolas de toda la vida reunidas en una sola tienda del Barrio de las Letras, de las que llevan décadas fabricando lo mismo y bien.",
+    barrio: "Las Letras",
+    etiquetas: ["decoración", "marcas españolas", "regalo", "menaje"],
+    verificado: false
+  },
+  {
+    id: "hecho-chamberi",
+    nombre: "Hecho",
+    categoria: "hogar",
+    descripcion: "Tienda de diseño abierta en 2021 con una idea corta y clara: objetos cotidianos honestos. Trabajan con Santa & Cole, Ferm Living o Serax, y asesoran proyectos de casa.",
+    barrio: "Chamberí",
+    desde: 2021,
+    etiquetas: ["diseño", "decoración", "objetos", "interiorismo"],
+    verificado: false
+  },
+  {
+    id: "ofelia-home-decor",
+    nombre: "Ofelia Home & Decor",
+    categoria: "hogar",
+    descripcion: "Estudio de interiorismo con tienda propia en Salesas: producto de diseño propio, flores secas, lámparas, jarrones y terracotas, sin seguir la moda del año.",
+    barrio: "Salesas",
+    etiquetas: ["decoración", "interiorismo", "lámparas", "flores secas", "diseño propio"],
+    verificado: false
+  },
+  {
+    id: "monkey-home",
+    nombre: "Monkey Home",
+    categoria: "hogar",
+    descripcion: "Mesas de ratán, cerámica de autor española y mantas de Teixidors. Selección con mucho criterio y bastantes piezas de una sola unidad.",
+    etiquetas: ["decoración", "cerámica", "textil", "ratán", "autor"],
+    verificado: false
+  },
+  {
+    id: "do-design",
+    nombre: "Do Design",
+    categoria: "hogar",
+    descripcion: "Concept store en Fernando VI donde se mezclan decoración, papelería y regalo, con café al fondo para quedarse mirando las estanterías.",
+    barrio: "Chueca",
+    direccion: "C/ de Fernando VI",
+    etiquetas: ["decoración", "concept store", "regalo", "papelería", "café"],
     verificado: false
   }
 

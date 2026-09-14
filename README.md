@@ -218,8 +218,8 @@ la dirección hasta confirmar dónde está.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Comprobar en Google Maps las 220 fichas sin revisar (`node scripts/revisar.js`).
-- [ ] Verificar las 56 fichas que están «por confirmar».
+- [ ] Comprobar en Google Maps las 232 fichas sin revisar (`node scripts/revisar.js`).
+- [ ] Verificar las 68 fichas que están «por confirmar».
 - [ ] Recuperar la vista de mapa. Ya hay 88 fichas con coordenada exacta, así que esta vez
       puede ser un mapa de calles de verdad y no un esquema de barrios.
 - [ ] Mapa con todos los negocios situados.

@@ -227,13 +227,13 @@
     "tienda", "tiendas", "sitio", "sitios", "local", "locales", "negocio", "negocios",
     "comprar", "compro", "busco", "quiero", "algo", "cosas", "cosa",
     "producto", "productos", "tipico", "tipica", "tipicos", "tipicas",
-    "mejor", "mejores"];
+    "mejor", "mejores", "bonito", "bonita", "bonitos", "bonitas", "chulo", "chula"];
 
   /* Los términos tal cual se escribieron, sin quitar tildes. */
   function terminosConTilde() {
     var brutos = String(estado.q).toLowerCase().split(/\s+/).filter(Boolean);
     var utiles = brutos.filter(function (t) {
-      return VACIAS.indexOf(normalizar(t)) === -1 && t.length > 1;
+      return VACIAS.indexOf(t) === -1 && t.length > 1;
     });
     return (utiles.length ? utiles : brutos).filter(function (t) {
       return normalizar(t) !== t;
@@ -241,12 +241,17 @@
   }
 
   function terminos() {
-    var brutos = normalizar(estado.q).split(/\s+/).filter(Boolean);
+    /* Las palabras vacías se descartan mirando lo que se escribió, con sus
+       tildes: normalizando primero, «uñas» se convertía en «unas», que está
+       en la lista, y la búsqueda acababa enseñando el directorio entero. */
+    var brutos = String(estado.q).toLowerCase().split(/\s+/).filter(Boolean);
     var utiles = brutos.filter(function (t) {
       return VACIAS.indexOf(t) === -1 && t.length > 1;
-    });
-    // Si al limpiar no queda nada («de», «la»), se busca lo que se escribió.
-    return utiles.length ? utiles : brutos;
+    }).map(normalizar);
+    /* Si al limpiar no queda ninguna palabra con contenido («tiendas
+       bonitas»), se enseña todo. Buscarlas literalmente devolvía cero, que
+       es la respuesta menos útil posible a alguien que solo está mirando. */
+    return utiles;
   }
 
   function filtrar() {
