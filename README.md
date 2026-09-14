@@ -1,6 +1,6 @@
 # Consume Local
 
-Directorio de **211 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **206 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -60,7 +60,8 @@ fuente. Al cruzarlas aparecieron errores que arrastrábamos: Casa Hernanz no abr
 en 1840, Casa Yustas no en 1894 sino en 1886, y la Rejillería López lleva desde 1877, no 1911.
 
 El resto son fichas reunidas a mano, cada una con su campo `verificado` diciendo si se ha
-comprobado o no.
+comprobado o no. La procedencia se cita en el pie de la web, como pide la licencia de reutilización
+del portal.
 
 Del registro oficial se dejaron fuera a propósito los bares y restaurantes, los hoteles, las
 farmacias, las administraciones de lotería y las asociaciones profesionales, además de las
@@ -136,7 +137,7 @@ contrastado con una fuente fiable (la web del propio negocio, el registro de com
 centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
 `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
 
-De las 211 fichas, 162 están verificadas y 49 siguen pendientes.
+De las 206 fichas, 157 están verificadas y 49 siguen pendientes.
 El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
 este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
 Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que

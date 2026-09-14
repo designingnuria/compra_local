@@ -62,8 +62,6 @@ const CATEGORIAS = [
     sinonimos: ["vintage", "antiguedades", "anticuario", "mueble", "muebles", "segunda mano", "retro", "decoracion", "rastro"] },
   { id: "joyeria", nombre: "Joyería", icono: "💍",
     sinonimos: ["joya", "joyas", "joyeria", "anillo", "pendientes", "collar", "plata", "oro", "bisuteria", "a medida"] },
-  { id: "perfumeria", nombre: "Perfumería", icono: "🌸",
-    sinonimos: ["perfume", "perfumes", "perfumeria", "fragancia", "colonia", "nicho"] },
   { id: "carniceria", nombre: "Carnicería y pescadería", icono: "🥩",
     sinonimos: ["carniceria", "carnicero", "carne", "pescaderia", "pescado", "marisco", "pollo", "embutido", "casqueria", "charcuteria"] },
   { id: "belleza", nombre: "Peluquería y estética", icono: "💈",
@@ -1452,54 +1450,6 @@ const NEGOCIOS = [
     verificado: true
   },
 
-  /* ----------------------------------------------------- perfumería */
-  {
-    id: "le-secret-du-marais",
-    nombre: "Le Secret du Marais",
-    categoria: "perfumeria",
-    descripcion: "Perfumería de autor con más de quince años trayendo marcas que no está casi nadie más en España. Te dejan probar sin prisa.",
-    etiquetas: ["perfume", "nicho", "fragancias", "autor"],
-    verificado: true
-  },
-  {
-    id: "perfumeria-nadia",
-    nombre: "Perfumería Nadia",
-    categoria: "perfumeria",
-    descripcion: "Más de trescientas marcas de perfumería nicho y cosmética de autor, con asesoramiento de quien se ha olido todas.",
-    barrio: "Salamanca",
-    direccion: "C/ de Velázquez",
-    web: "https://www.nadiaperfumeria.com",
-    etiquetas: ["perfume", "nicho", "cosmética", "fragancias"],
-    verificado: true
-  },
-  {
-    id: "nefertum-parfums",
-    nombre: "Nefertum Parfums",
-    categoria: "perfumeria",
-    descripcion: "Perfumería nicho y de autor, con casas pequeñas y fragancias de producción corta que no llegan a la distribución grande.",
-    web: "https://nefertumparfums.com",
-    etiquetas: ["perfume", "nicho", "autor", "fragancias"],
-    verificado: true
-  },
-  {
-    id: "perfumeria-rosi",
-    nombre: "Perfumería Rosi",
-    categoria: "perfumeria",
-    descripcion: "Boutique de referencia para perfume nicho en Gran Vía, siempre con las casas más nuevas antes que nadie.",
-    barrio: "Centro",
-    web: "https://www.rosigranvia.es",
-    etiquetas: ["perfume", "nicho", "fragancias", "novedades"],
-    verificado: true
-  },
-  {
-    id: "lattar-parfums",
-    nombre: "L'ATTAR",
-    categoria: "perfumeria",
-    descripcion: "Perfumería nicho con equipo formado en fragancia, fuerte en perfumería árabe y en attars y aceites concentrados.",
-    web: "https://lattarparfums.com",
-    etiquetas: ["perfume", "nicho", "attar", "aceites", "árabe"],
-    verificado: true
-  },
 
   /* ------------------------------------------ carnicería y pescadería */
   {
