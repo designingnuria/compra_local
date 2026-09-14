@@ -23,7 +23,9 @@
     empty: $("#empty"),
     heroCount: $("#hero-count"),
     controles: $(".controls"),
-    centinela: $("#centinela")
+    centinela: $("#centinela"),
+    controles: $(".controls"),
+    resultados: $("#resultados")
   };
 
   var estado = { q: "", categoria: "", barrio: "", orden: "relevancia" };
@@ -319,7 +321,24 @@
     return li;
   }
 
-  function pintar() {
+  /* Cuánto tapa la barra fija por arriba ahora mismo. Sirve para no dejar
+     nada escondido debajo de ella al desplazarse. */
+  function alturaBarra() {
+    var caja = els.controles.getBoundingClientRect();
+    // En móvil la barra no va fija: se desplaza con la página y no tapa nada.
+    return Math.max(0, caja.top <= 0 ? caja.bottom : 0);
+  }
+
+  /* Al filtrar, la lista se encoge y el documento con ella: si no se hace
+     nada, te quedas mirando el pie de página sin entender qué ha pasado.
+     Sólo se corrige cuando los resultados se han ido por encima de la
+     ventana; si ya los estás viendo, no se toca el scroll. */
+  function reencuadrar() {
+    var arriba = els.resultados.getBoundingClientRect().top - alturaBarra() - 16;
+    if (arriba < -1) window.scrollTo(0, Math.max(0, window.scrollY + arriba));
+  }
+
+  function pintar(reencuadra) {
     var lista = filtrar();
     var ts = terminos();
     // Para subrayar también lo que se encontró por la raíz de la palabra.
@@ -341,6 +360,8 @@
 
     actualizarContadoresChips();
     guardarEnURL();
+    medirBarra();
+    if (reencuadra) reencuadrar();
   }
 
   /* --------------------------------------------------------- controles */
@@ -388,17 +409,26 @@
       var chip = e.target.closest(".chip");
       if (!chip) return;
       estado.categoria = chip.dataset.cat === estado.categoria ? "" : chip.dataset.cat;
-      pintar();
+      pintar(true);
     });
   }
 
   var pegada = false;
 
+  /* El CSS necesita saber cuánto mide la barra para que los enlaces internos
+     no dejen los títulos escondidos debajo (scroll-margin-top). */
+  function medirBarra() {
+    var alto = Math.round(els.controles.getBoundingClientRect().height);
+    document.documentElement.style.setProperty("--barra", alto + "px");
+  }
+
   function ajustarChips() {
     var tira = pegada || window.innerWidth <= 760;
     els.chips.classList.toggle("es-tira", tira);
+    els.controles.classList.toggle("es-pegada", pegada);
     if (!tira) els.chips.removeAttribute("data-borde");
     else marcarBordesChips();
+    medirBarra();
   }
 
   /* Cuando las categorías van en una tira, el degradado de los extremos avisa
@@ -483,14 +513,14 @@
   function enlazarEventos() {
     els.q.addEventListener("input", conRetardo(function () {
       estado.q = els.q.value.trim();
-      pintar();
+      pintar(true);
     }, 120));
 
     els.q.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && els.q.value) {
         els.q.value = "";
         estado.q = "";
-        pintar();
+        pintar(true);
       }
     });
 
@@ -498,17 +528,17 @@
       els.q.value = "";
       estado.q = "";
       els.q.focus();
-      pintar();
+      pintar(true);
     });
 
     els.barrio.addEventListener("change", function () {
       estado.barrio = els.barrio.value;
-      pintar();
+      pintar(true);
     });
 
     els.orden.addEventListener("change", function () {
       estado.orden = els.orden.value;
-      pintar();
+      pintar(true);
     });
 
     els.reset.addEventListener("click", function () {
@@ -517,7 +547,7 @@
       estado.barrio = "";
       els.q.value = "";
       els.barrio.value = "";
-      pintar();
+      pintar(true);
       els.q.focus();
     });
 

@@ -139,11 +139,20 @@ a:hover { text-decoration-color: var(--accent); }
   top: 0;
   z-index: 20;
   padding-block: 18px 14px;
+  /* Pegada arriba se aprieta un poco: ya se come bastante pantalla. El cambio
+     es instantáneo a propósito: con transición, la medida de --barra se queda
+     desfasada mientras dura y los enlaces internos caen mal. */
   margin-bottom: 8px;
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
+
+.controls.es-pegada { padding-block: 10px 8px; }
+.controls.es-pegada .chips { margin-top: 10px; }
+.controls.es-pegada .toolbar { margin-top: 10px; }
+
+#resultados { scroll-margin-top: calc(var(--barra, 200px) + 24px); }
 
 .search { position: relative; display: flex; align-items: center; }
 
@@ -428,7 +437,8 @@ mark {
 .prose {
   max-width: 68ch;
   margin-block: clamp(64px, 10vw, 104px);
-  scroll-margin-top: 180px;
+  /* La altura real de la barra fija la escribe app.js en --barra. */
+  scroll-margin-top: calc(var(--barra, 200px) + 24px);
 }
 .prose h2 {
   font-family: var(--font-display);
@@ -641,6 +651,9 @@ p code { font-size: .9em; background: var(--surface-alt); padding: 2px 5px; bord
 
 @media (max-width: 560px) {
   .controls { position: static; backdrop-filter: none; }
+  /* Aquí la barra se desplaza con la página, así que no hay nada que esquivar. */
+  .prose,
+  #resultados { scroll-margin-top: 24px; }
   .count { width: 100%; margin-left: 0; }
   .grid { grid-template-columns: 1fr; }
 }
