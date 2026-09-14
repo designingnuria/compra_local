@@ -5,30 +5,38 @@ que se cuidan mucho dos cosas: **qué negocios entran** y **que los datos sean c
 
 ## Criterios
 
+Este directorio existe para que el dinero del barrio se quede en el barrio. Hay una sola
+pregunta que decide si un negocio entra: **¿hay alguien detrás?** Alguien que sea el dueño,
+que decida lo que se vende y que responda por ello.
+
 ### Sí entra
 
-- Tiendas y talleres de **propiedad independiente**, con uno o muy pocos locales, donde
-  quien atiende tiene algo que ver con el negocio.
-- **Oficios y servicios de barrio**: encuadernar, enmarcar, afinar, reparar, tallar, coser,
-  tostar, afilar, afeitar. Una barbería de las de navaja entra; una peluquería de cadena no.
-- Producto **seleccionado con criterio propio**, no por catálogo de una central.
-- **Comercios históricos** que siguen en manos de la familia.
-- **Proyectos jóvenes** con una idea clara detrás.
+- **Propiedad independiente**: de una persona, una familia, unos socios.
+- **Conocimiento**: quien atiende sabe de lo que vende, porque lo hace, lo elige o lleva años.
+- **Oficios y servicios de barrio**: encuadernar, enmarcar, afinar, coser, reparar, tostar,
+  afeitar. Una barbería de las de navaja entra; una peluquería de cadena no.
+- **Criterio propio** al elegir el producto, no un catálogo que llega de una central.
+- **Comercios de toda la vida** que siguen en la familia, y **proyectos nuevos** con una idea clara.
 
 ### No entra
 
-- **Franquicias y cadenas**, por pequeñas o bonitas que parezcan. Si puedes abrir una
-  pagando un canon, no entra.
-- Negocios de mero paso: **locutorios, bazares, kebabs, tiendas de souvenirs**.
-- Locales sin nada propio que contar, aunque sean independientes.
-- **Restaurantes y bares**: esto va de comprar y de oficios, no de salir a cenar. Una cafetería
+- **Franquicias y cadenas**: si se puede abrir una pagando un canon, no entra.
+- **Sucursales de marcas grandes**, por bonita que sea la tienda.
+- **Negocios sin nada propio**: ni oficio, ni selección, ni una idea detrás.
+- **Bares y restaurantes**: esto va de comprar y de oficios, no de salir a cenar. Una cafetería
   que tuesta y vende su café sí entra; un bar de tapas no.
+
+### Lo que no se mira
+
+El tipo de negocio ni de quién es. Una tienda pequeña puede ser mediocre y un obrador humilde
+puede ser extraordinario. Lo que cuenta es si hay oficio y criterio propio, se venda lo que se
+venda. No hacemos listas de negocios buenos y malos por el ramo al que pertenecen.
 
 ### La duda razonable
 
-Si no sabes si algo es franquicia, busca «*nombre* + franquicia» o mira si su web tiene
-sección de «únete a nosotros». Ante la duda, mejor dejarlo fuera: una ficha de más
-estropea el directorio más de lo que una de menos lo empobrece.
+Si no sabes si algo es franquicia, busca «*nombre* + franquicia» o mira si su web tiene sección
+de «únete a nosotros». Ante la duda, mejor dejarlo fuera: una ficha de más estropea el
+directorio más de lo que una de menos lo empobrece.
 
 ## Cómo se añade
 

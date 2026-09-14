@@ -7,7 +7,7 @@
 
    Genera dos versiones en dist/:
 
-     compra-local.html  Página completa y autónoma. Se puede abrir con
+     consume-local.html  Página completa y autónoma. Se puede abrir con
                         doble clic, mandar por correo o subir a cualquier
                         sitio sin llevarse la carpeta de assets detrás.
 
@@ -71,11 +71,11 @@ ${js}
 </body>
 </html>
 `;
-fs.writeFileSync(path.join(dist, "compra-local.html"), autonoma);
+fs.writeFileSync(path.join(dist, "consume-local.html"), autonoma);
 
 /* --- versión para Artifact (sin html/head/body propios) ----------------- */
 /* En la galería de Artifacts el título es un nombre, no un titular: se queda
-   con lo de antes del separador («Compra Local»), sin el subtítulo. */
+   con lo de antes del separador («Consume Local»), sin el subtítulo. */
 const tituloCorto = titulo.replace(/(<title>[^·<]*).*(<\/title>)/i, (_, a, b) => a.trim() + b);
 
 const artefacto = `${tituloCorto}
@@ -90,5 +90,5 @@ ${js}
 fs.writeFileSync(path.join(dist, "artefacto.html"), artefacto);
 
 const kb = (f) => (fs.statSync(path.join(dist, f)).size / 1024).toFixed(0) + " KB";
-console.log(`dist/compra-local.html  ${kb("compra-local.html")}  (autónoma)`);
+console.log(`dist/consume-local.html  ${kb("consume-local.html")}  (autónoma)`);
 console.log(`dist/artefacto.html     ${kb("artefacto.html")}  (para Artifact)`);

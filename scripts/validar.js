@@ -8,7 +8,6 @@
    --------------------------------------------------------------- */
 
 const { CATEGORIAS, NEGOCIOS } = require("../data/negocios.js");
-const { BARRIOS } = require("../data/barrios.js");
 
 const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion"];
 const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado", "coords"];
@@ -72,6 +71,8 @@ NEGOCIOS.forEach((n, i) => {
     }
   }
 
+  /* Se guardan aunque ahora mismo no se pinte ningún mapa: son datos
+     costosos de reunir y estarán ahí el día que el mapa vuelva. */
   if (n.coords !== undefined) {
     const c = n.coords;
     const valida = Array.isArray(c) && c.length === 2 &&
@@ -100,22 +101,10 @@ const huerfanas = CATEGORIAS.filter(
 if (huerfanas.length) avisos.push(`Categorías sin ningún negocio: ${huerfanas.join(", ")}`);
 
 const sinVerificar = NEGOCIOS.filter((n) => n.verificado === false).length;
-// Un barrio sin coordenada sale en el listado pero desaparece del mapa.
-const barriosUsados = [...new Set(NEGOCIOS.map((n) => n.barrio).filter(Boolean))];
-const sinCoordenada = barriosUsados.filter((b) => !BARRIOS[b]);
-if (sinCoordenada.length) {
-  errores.push(
-    `Barrios sin coordenada en data/barrios.js (no saldrían en el mapa): ${sinCoordenada.join(", ")}`
-  );
-}
-
-const sobranBarrios = Object.keys(BARRIOS).filter((b) => !barriosUsados.includes(b));
-if (sobranBarrios.length) avisos.push(`Barrios con coordenada pero sin negocios: ${sobranBarrios.join(", ")}`);
-
 const sinBarrio = NEGOCIOS.filter((n) => !n.barrio).length;
 if (sinBarrio) avisos.push(`Fichas sin barrio (se muestran solo como "Madrid"): ${sinBarrio}`);
 
-console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}  ·  barrios: ${barriosUsados.length}`);
+console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}`);
 console.log(
   `Verificados: ${NEGOCIOS.length - sinVerificar}  ·  pendientes de comprobar: ${sinVerificar}`
 );
