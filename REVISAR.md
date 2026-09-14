@@ -11,14 +11,15 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 
 | | |
 |---|---|
-| Negocios en el directorio | 223 |
-| Sin comprobar nunca | 220 |
+| Negocios en el directorio | 229 |
+| Sin comprobar nunca | 226 |
 | Comprobados hace un año o más | 0 |
 | Al día | 3 |
 
-## Sin comprobar nunca (220)
+## Sin comprobar nunca (226)
 
 - [ ] [Arrebato Libros](https://www.google.com/maps/search/?api=1&query=Arrebato%20Libros%2C%20C%2F%20de%20la%20Palma%2C%2021%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · C/ de la Palma, 21 · **datos sin verificar**
+- [ ] [Artistteo](https://www.google.com/maps/search/?api=1&query=Artistteo%2C%20Madrid) — Peluquería y estética · **datos sin verificar**
 - [ ] [Azymun](https://www.google.com/maps/search/?api=1&query=Azymun%2C%20C%2F%20del%20General%20Per%C3%B3n%2C%2022%2C%20Tetu%C3%A1n%2C%20Madrid) — Pan y dulces · Tetuán · C/ del General Perón, 22 · **datos sin verificar**
 - [ ] [Be Hoppy](https://www.google.com/maps/search/?api=1&query=Be%20Hoppy%2C%20La%20Latina%2C%20Madrid) — Vinos y bebidas · La Latina · **datos sin verificar**
 - [ ] [Bodega Santa Cecilia](https://www.google.com/maps/search/?api=1&query=Bodega%20Santa%20Cecilia%2C%20C%2F%20de%20Blasco%20de%20Garay%2C%2074%2C%20Chamber%C3%AD%2C%20Madrid) — Vinos y bebidas · Chamberí · C/ de Blasco de Garay, 74 · **datos sin verificar**
@@ -34,6 +35,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Clan Obrador](https://www.google.com/maps/search/?api=1&query=Clan%20Obrador%2C%20C%2F%20del%20Gas%C3%B3metro%2C%2011%2C%20Arganzuela%2C%20Madrid) — Pan y dulces · Arganzuela · C/ del Gasómetro, 11 · **datos sin verificar**
 - [ ] [Columelas Floristería](https://www.google.com/maps/search/?api=1&query=Columelas%20Florister%C3%ADa%2C%20Madrid) — Plantas y flores · **datos sin verificar**
 - [ ] [Creaciones Caspiel](https://www.google.com/maps/search/?api=1&query=Creaciones%20Caspiel%2C%20Madrid) — Moda y complementos · **datos sin verificar**
+- [ ] [Cristina Agüera](https://www.google.com/maps/search/?api=1&query=Cristina%20Ag%C3%BCera%2C%20Chamber%C3%AD%2C%20Madrid) — Peluquería y estética · Chamberí · **datos sin verificar**
 - [ ] [Delicatessen N](https://www.google.com/maps/search/?api=1&query=Delicatessen%20N%2C%20Cerca%20de%20la%20Puerta%20de%20Alcal%C3%A1%2C%20Madrid) — Alimentación · Cerca de la Puerta de Alcalá · **datos sin verificar**
 - [ ] [Desperate Literature](https://www.google.com/maps/search/?api=1&query=Desperate%20Literature%2C%20Centro%2C%20Madrid) — Librerías · Centro · **datos sin verificar**
 - [ ] [El Horno de Babette](https://www.google.com/maps/search/?api=1&query=El%20Horno%20de%20Babette%2C%20Malasa%C3%B1a%2C%20Madrid) — Pan y dulces · Malasaña · **datos sin verificar**
@@ -41,6 +43,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [El Rincón de Lectura](https://www.google.com/maps/search/?api=1&query=El%20Rinc%C3%B3n%20de%20Lectura%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · **datos sin verificar**
 - [ ] [Enclave de Libros](https://www.google.com/maps/search/?api=1&query=Enclave%20de%20Libros%2C%20Centro%2C%20Madrid) — Librerías · Centro · **datos sin verificar**
 - [ ] [Formaje](https://www.google.com/maps/search/?api=1&query=Formaje%2C%20Chamber%C3%AD%2C%20Madrid) — Alimentación · Chamberí · **datos sin verificar**
+- [ ] [Hair Experience CTQ](https://www.google.com/maps/search/?api=1&query=Hair%20Experience%20CTQ%2C%20C%2F%20de%20Bastero%2C%2014%2C%20La%20Latina%2C%20Madrid) — Peluquería y estética · La Latina · C/ de Bastero, 14 · **datos sin verificar**
 - [ ] [HanSo Café](https://www.google.com/maps/search/?api=1&query=HanSo%20Caf%C3%A9%2C%20C%2F%20del%20Pez%2C%2020%2C%20Malasa%C3%B1a%2C%20Madrid) — Café y té · Malasaña · C/ del Pez, 20 · **datos sin verificar**
 - [ ] [Heladería Los Alpes](https://www.google.com/maps/search/?api=1&query=Helader%C3%ADa%20Los%20Alpes%2C%20Chamber%C3%AD%2C%20Madrid) — Pan y dulces · Chamberí · **datos sin verificar**
 - [ ] [Kamchatka Magic Toys](https://www.google.com/maps/search/?api=1&query=Kamchatka%20Magic%20Toys%2C%20Centro%2C%20Madrid) — Juguetes y regalos · Centro · **datos sin verificar**
@@ -54,6 +57,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Librería Berkana](https://www.google.com/maps/search/?api=1&query=Librer%C3%ADa%20Berkana%2C%20Chueca%2C%20Madrid) — Librerías · Chueca · **datos sin verificar**
 - [ ] [Librería Mujeres](https://www.google.com/maps/search/?api=1&query=Librer%C3%ADa%20Mujeres%2C%20C%2F%20de%20la%20Uni%C3%B3n%2C%203%2C%20Centro%2C%20Madrid) — Librerías · Centro · C/ de la Unión, 3 · **datos sin verificar**
 - [ ] [Librería Pérez Galdós](https://www.google.com/maps/search/?api=1&query=Librer%C3%ADa%20P%C3%A9rez%20Gald%C3%B3s%2C%20Chueca%2C%20Madrid) — Librerías · Chueca · **datos sin verificar**
+- [ ] [Lobelia Sagasta](https://www.google.com/maps/search/?api=1&query=Lobelia%20Sagasta%2C%20Chamber%C3%AD%2C%20Madrid) — Peluquería y estética · Chamberí · **datos sin verificar**
 - [ ] [Mantequerías Bravo](https://www.google.com/maps/search/?api=1&query=Mantequer%C3%ADas%20Bravo%2C%20C%2F%20de%20Ayala%2C%2024%2C%20Salamanca%2C%20Madrid) — Alimentación · Salamanca · C/ de Ayala, 24 · **datos sin verificar**
 - [ ] [Moss Floristas](https://www.google.com/maps/search/?api=1&query=Moss%20Floristas%2C%20Chamber%C3%AD%2C%20Madrid) — Plantas y flores · Chamberí · **datos sin verificar**
 - [ ] [Novo Mundo](https://www.google.com/maps/search/?api=1&query=Novo%20Mundo%2C%20C%2F%20del%20Carnero%2C%20La%20Latina%2C%20Madrid) — Pan y dulces · La Latina · C/ del Carnero · **datos sin verificar**
@@ -67,6 +71,8 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Raza Nostra](https://www.google.com/maps/search/?api=1&query=Raza%20Nostra%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
 - [ ] [Reserva y Cata](https://www.google.com/maps/search/?api=1&query=Reserva%20y%20Cata%2C%20C%2F%20del%20Conde%20de%20Xiquena%2C%2013%2C%20Chueca%2C%20Madrid) — Vinos y bebidas · Chueca · C/ del Conde de Xiquena, 13 · **datos sin verificar**
 - [ ] [Restore7](https://www.google.com/maps/search/?api=1&query=Restore7%2C%20C%2F%20de%20Vallehermoso%2C%2041%2C%20Chamber%C3%AD%2C%20Madrid) — Peluquería y estética · Chamberí · C/ de Vallehermoso, 41 · **datos sin verificar**
+- [ ] [Satori Estilistas](https://www.google.com/maps/search/?api=1&query=Satori%20Estilistas%2C%20Madrid) — Peluquería y estética · **datos sin verificar**
+- [ ] [Sofía Studio](https://www.google.com/maps/search/?api=1&query=Sof%C3%ADa%20Studio%2C%20Madrid) — Peluquería y estética · **datos sin verificar**
 - [ ] [Sportivo](https://www.google.com/maps/search/?api=1&query=Sportivo%2C%20Conde%20Duque%2C%20Madrid) — Moda y complementos · Conde Duque · **datos sin verificar**
 - [ ] [Taller Puntera](https://www.google.com/maps/search/?api=1&query=Taller%20Puntera%2C%20Plaza%20del%20Conde%20de%20Barajas%2C%204%2C%20La%20Latina%2C%20Madrid) — Oficios y talleres · La Latina · Plaza del Conde de Barajas, 4 · **datos sin verificar**
 - [ ] [Toma Café](https://www.google.com/maps/search/?api=1&query=Toma%20Caf%C3%A9%2C%20C%2F%20de%20la%20Palma%2C%2049%2C%20Malasa%C3%B1a%2C%20Madrid) — Café y té · Malasaña · C/ de la Palma, 49 · **datos sin verificar**

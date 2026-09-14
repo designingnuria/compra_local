@@ -67,7 +67,8 @@ const CATEGORIAS = [
   { id: "carniceria", nombre: "Carnicería y pescadería", icono: "🥩",
     sinonimos: ["carniceria", "carnicero", "carne", "pescaderia", "pescado", "marisco", "pollo", "embutido", "casqueria", "charcuteria"] },
   { id: "belleza", nombre: "Peluquería y estética", icono: "💈",
-    sinonimos: ["peluqueria", "peluquero", "barberia", "barbero", "corte de pelo", "estetica", "cosmetica", "jabon", "navaja", "barba", "herbolario"] }
+    sinonimos: ["peluqueria", "peluquero", "barberia", "barbero", "corte de pelo", "estetica", "cosmetica", "jabon", "navaja", "barba", "herbolario",
+      "manicura", "unas", "pedicura", "cejas", "pestanas", "depilacion", "facial", "masaje", "spa"] }
 ];
 
 const NEGOCIOS = [
@@ -2597,6 +2598,62 @@ const NEGOCIOS = [
     categoria: "carniceria",
     descripcion: "Casa de carnes con mucho oficio detrás del mostrador: te preparan la pieza como se la pidas y aconsejan según cómo la vayas a hacer.",
     etiquetas: ["carnicería", "despiece", "vacuno", "cordero"],
+    verificado: false
+  },
+
+  /* ------------------------------------------------- estética */
+  {
+    id: "hair-experience-ctq",
+    nombre: "Hair Experience CTQ",
+    categoria: "belleza",
+    descripcion: "Salón pequeño de Marta de la Torre en La Latina, de entrada discreta y suelo de madera. Trabajan cita a cita, sin prisa y sin música a todo volumen.",
+    barrio: "La Latina",
+    direccion: "C/ de Bastero, 14",
+    etiquetas: ["peluquería", "de autor", "corte", "color"],
+    verificado: false
+  },
+  {
+    id: "lobelia-sagasta",
+    nombre: "Lobelia Sagasta",
+    categoria: "belleza",
+    descripcion: "Peluquería de diseño en Chamberí, de las que se toman el corte y el color como un encargo a medida en vez de como un turno.",
+    barrio: "Chamberí",
+    etiquetas: ["peluquería", "color", "de autor", "tratamientos"],
+    verificado: false
+  },
+  {
+    id: "sofia-studio",
+    nombre: "Sofía Studio",
+    categoria: "belleza",
+    descripcion: "Estudio de manicura de autor: nivelado, uñas de gel y nail art dibujado a mano alzada, en un espacio de una sola clienta a la vez.",
+    etiquetas: ["manicura", "uñas", "nail art", "de autor"],
+    verificado: false
+  },
+  {
+    id: "cristina-aguera",
+    nombre: "Cristina Agüera",
+    categoria: "belleza",
+    descripcion: "Salón de Chamberí donde el pelo se trabaja de forma artesanal: cortes muy estructurados, color de precisión y rituales botánicos.",
+    barrio: "Chamberí",
+    etiquetas: ["peluquería", "artesanal", "color", "botánico"],
+    verificado: false
+  },
+  {
+    id: "satori-estilistas",
+    nombre: "Satori Estilistas",
+    categoria: "belleza",
+    descripcion: "Peluquería orgánica que trabaja sin parabenos ni sulfatos, con cosmética vegana y mucho cuidado del cuero cabelludo.",
+    web: "https://satoriestilistas.com",
+    etiquetas: ["peluquería", "orgánica", "vegana", "cuero cabelludo"],
+    verificado: false
+  },
+  {
+    id: "artistteo-madrid",
+    nombre: "Artistteo",
+    categoria: "belleza",
+    descripcion: "Peluquería orgánica de trato muy personal, con cosmética natural y color adaptado a cada pelo en vez de a una carta cerrada.",
+    web: "https://artistteomadridpeluqueria.com",
+    etiquetas: ["peluquería", "orgánica", "color", "natural"],
     verificado: false
   }
 

@@ -121,6 +121,12 @@
         partes.lugar, partes.descripcion
       ].join(" ");
       partes.todo = partes.propio + " " + partes.sinonimos;
+      /* El mismo texto sin quitar las tildes: hace falta para distinguir
+         «uñas» de «unas», que normalizados son la misma palabra. */
+      partes.acentuado = [
+        negocio.nombre, (negocio.etiquetas || []).join(" "), cat.nombre,
+        negocio.barrio, negocio.direccion, negocio.descripcion
+      ].filter(Boolean).join(" ").toLowerCase();
       negocio._partes = partes;
     }
     return negocio._partes;
@@ -157,11 +163,24 @@
       var propio = partesDe(n).propio;
       return ts.every(function (t) { return contiene(propio, t); });
     });
-    if (estricto.length) return estricto;
-    return base.filter(function (n) {
+    var res = estricto.length ? estricto : base.filter(function (n) {
       var todo = partesDe(n).todo;
       return ts.every(function (t) { return contiene(todo, t); });
     });
+    return afinarPorTildes(res);
+  }
+
+  /* Si lo escrito lleva tildes o eñes, se exige esa forma exacta: sin esto,
+     buscar «uñas» se convierte en buscar «unas» y saca media web. Nunca deja
+     la búsqueda a cero: si nadie la cumple, se devuelve lo que había. */
+  function afinarPorTildes(lista) {
+    var conTilde = terminosConTilde();
+    if (!conTilde.length || !lista.length) return lista;
+    var afinada = lista.filter(function (n) {
+      var acc = partesDe(n).acentuado;
+      return conTilde.every(function (t) { return contiene(acc, t); });
+    });
+    return afinada.length ? afinada : lista;
   }
 
   var PESOS = [
@@ -208,6 +227,17 @@
     "comprar", "compro", "busco", "quiero", "algo", "cosas", "cosa",
     "producto", "productos", "tipico", "tipica", "tipicos", "tipicas",
     "mejor", "mejores"];
+
+  /* Los términos tal cual se escribieron, sin quitar tildes. */
+  function terminosConTilde() {
+    var brutos = String(estado.q).toLowerCase().split(/\s+/).filter(Boolean);
+    var utiles = brutos.filter(function (t) {
+      return VACIAS.indexOf(normalizar(t)) === -1 && t.length > 1;
+    });
+    return (utiles.length ? utiles : brutos).filter(function (t) {
+      return normalizar(t) !== t;
+    });
+  }
 
   function terminos() {
     var brutos = normalizar(estado.q).split(/\s+/).filter(Boolean);
@@ -342,6 +372,10 @@
      una sola tecla la página te devolvía al principio de golpe. Ahora, si
      la página sigue siendo igual de larga, no se toca el scroll: estés
      donde estés, te quedas donde estabas. */
+  /* Nota: en pantallas estrechas la barra no va fija (ver styles.css), así
+     que el buscador se queda arriba del todo. Si se escribe con el campo
+     enfocado pero fuera de la ventana, el navegador sube solo a enseñar el
+     cursor. Eso es comportamiento nativo, no de aquí. */
   function reencuadrar(yAntes) {
     var alto = window.innerHeight || document.documentElement.clientHeight;
     var maxAhora = Math.max(0, document.documentElement.scrollHeight - alto);
