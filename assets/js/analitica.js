@@ -24,7 +24,9 @@
   "use strict";
 
   var API    = "https://api.europe-west2.gcp.tinybird.co";
-  var TOKEN  = "";                   // token de append, no de admin
+  var TOKEN  = "p.eyJ1IjogIjAwNzIwOGFjLTIyMmQtNGNkNi04NmIxLTVkZmM0OTNmZDgxYSIsICJpZCI6ICJlZmExMGVmMC1mMzk5LTQ5ODYtYTFiOC1kNGEyYTU2YWFlMzUiLCAiaG9zdCI6ICJnY3AtZXVyb3BlLXdlc3QyIn0.iPqeCsgn-Gz7R9dAKWJ-FhBSOSD0bH6TkNgAO7L9MH4";
+  /* Es el token "tracker web": solo puede añadir filas a analytics_events.
+     Está a la vista a propósito, como en cualquier analítica de navegador. */
   var FUENTE = "analytics_events";   // nombre del Data Source
   var VERSION = "1";
 
