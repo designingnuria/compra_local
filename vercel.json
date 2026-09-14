@@ -3,15 +3,10 @@
   "cleanUrls": true,
   "headers": [
     {
-      "source": "/assets/(.*)",
+      "comment": "Los archivos no llevan hash en el nombre, así que no pueden marcarse como inmutables: un visitante que volviera se quedaría con el CSS y el JavaScript viejos durante un año. Diez minutos de frescura y, a partir de ahí, se sirve la copia guardada mientras se descarga la nueva por detrás.",
+      "source": "/(assets|data)/(.*)",
       "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
-      ]
-    },
-    {
-      "source": "/data/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=0, must-revalidate" }
+        { "key": "Cache-Control", "value": "public, max-age=600, stale-while-revalidate=86400" }
       ]
     },
     {

@@ -53,6 +53,9 @@ data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
 scripts/revisar.js      Genera REVISAR.md: qué negocios toca comprobar
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
+assets/og.html          Plantilla de la imagen que sale al compartir el enlace
+assets/og.png           Esa imagen ya generada, a 1200x630
+sitemap.xml, robots.txt Para los buscadores
 vercel.json             Cabeceras de caché para el despliegue
 ```
 
@@ -101,6 +104,15 @@ Tres cambios lo explican:
 - **`content-visibility: auto`** en las fichas: el navegador se salta la maquetación y el
   pintado de lo que queda fuera de pantalla. Ojo con `contain-intrinsic-size`, que aplica la
   medida a los dos ejes; aquí hay que fijar solo la altura o las fichas se salen de la pantalla.
+
+## La imagen al compartir
+
+Al pegar el enlace en WhatsApp o Twitter sale una tarjeta con `assets/og.png`. Se genera
+abriendo `assets/og.html` a 1200x630 y haciendo una captura; lleva el número de negocios, así
+que conviene rehacerla cuando la cifra cambie mucho.
+
+Usa Georgia y no la tipografía de la web a propósito: la imagen se genera sin conexión y una
+fuente que no cargue estropearía la captura.
 
 ## El formulario de propuestas
 
