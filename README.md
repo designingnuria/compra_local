@@ -1,6 +1,6 @@
 # Compra Local
 
-Directorio de **132 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **144 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -16,6 +16,8 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
 - Resultados **ordenados por relevancia**: acertar en el nombre pesa más que aparecer de
   pasada en una descripción.
 - **Filtros** por categoría y por barrio, con contadores que se actualizan solos.
+- **Vista de mapa**, con un interruptor junto a los filtros: cada barrio es un círculo del
+  tamaño de sus negocios, y al pulsarlo se filtra por él.
 - **Orden** alfabético, por antigüedad del negocio o aleatorio, para descubrir sin buscar.
 - **Fichas** con nombre, descripción, categoría, barrio, dirección, web y enlace al mapa.
 - Los filtros viven en la URL, así que cualquier búsqueda se puede compartir tal cual.
@@ -41,6 +43,7 @@ index.html              La página entera
 assets/css/styles.css   Estilos, con paleta en variables CSS
 assets/js/app.js        Buscador, filtros y pintado de tarjetas
 data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
+data/barrios.js         Posición de cada barrio, para la vista de mapa
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
 vercel.json             Cabeceras de caché para el despliegue
@@ -48,6 +51,21 @@ vercel.json             Cabeceras de caché para el despliegue
 
 Todo es HTML, CSS y JavaScript sin dependencias. Se puede publicar tal cual en GitHub Pages,
 Netlify, Vercel o cualquier hosting estático.
+
+## La vista de mapa
+
+Está dibujada a mano en SVG, sin librería de mapas ni teselas: cada barrio es un círculo
+colocado en su posición real, con el tamaño proporcional a cuántos negocios tiene. Es
+deliberadamente esquemático, porque **no tenemos la coordenada exacta de cada tienda** y es
+más honesto decir «esto está en Malasaña» que clavar una chincheta en un portal equivocado.
+
+Las fichas admiten un campo opcional `coords: [latitud, longitud]`. Las que lo traigan se
+dibujan en su punto exacto en vez de sumarse al círculo del barrio. Cuando haya suficientes
+coordenadas reales —el conjunto de datos de comercios centenarios del Ayuntamiento las
+incluye— tendrá sentido pasar a un mapa de calles de verdad con Leaflet y OpenStreetMap.
+
+Si añades un barrio nuevo, añádelo también a `data/barrios.js`. El validador falla si no lo
+haces, para que ninguna ficha desaparezca del mapa sin avisar.
 
 ## El formulario de propuestas
 
@@ -115,7 +133,7 @@ contrastado con una fuente fiable (la web del propio negocio, el registro de com
 centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
 `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
 
-De las 132 fichas, 84 están verificadas y 48 siguen pendientes.
+De las 144 fichas, 89 están verificadas y 55 siguen pendientes.
 El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
 este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
 Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que
@@ -126,7 +144,7 @@ corrígelo: es la contribución más valiosa que se puede hacer aquí.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Verificar las 48 fichas que están «por confirmar».
+- [ ] Verificar las 55 fichas que están «por confirmar».
 - [ ] Importar el listado oficial de comercios centenarios del Portal de Datos Abiertos del
       Ayuntamiento (`datos.madrid.es`), que daría decenas de fichas con dirección contrastada.
 - [ ] Mapa con todos los negocios situados.

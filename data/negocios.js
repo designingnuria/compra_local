@@ -63,7 +63,11 @@ const CATEGORIAS = [
   { id: "joyeria", nombre: "Joyería", icono: "💍",
     sinonimos: ["joya", "joyas", "joyeria", "anillo", "pendientes", "collar", "plata", "oro", "bisuteria", "a medida"] },
   { id: "perfumeria", nombre: "Perfumería", icono: "🌸",
-    sinonimos: ["perfume", "perfumes", "perfumeria", "fragancia", "colonia", "cosmetica", "nicho", "jabon"] }
+    sinonimos: ["perfume", "perfumes", "perfumeria", "fragancia", "colonia", "nicho"] },
+  { id: "carniceria", nombre: "Carnicería y pescadería", icono: "🥩",
+    sinonimos: ["carniceria", "carnicero", "carne", "pescaderia", "pescado", "marisco", "pollo", "embutido", "casqueria", "charcuteria"] },
+  { id: "belleza", nombre: "Peluquería y estética", icono: "💈",
+    sinonimos: ["peluqueria", "peluquero", "barberia", "barbero", "corte de pelo", "estetica", "cosmetica", "jabon", "navaja", "barba", "herbolario"] }
 ];
 
 const NEGOCIOS = [
@@ -1458,6 +1462,117 @@ const NEGOCIOS = [
     web: "https://lattarparfums.com",
     etiquetas: ["perfume", "nicho", "attar", "aceites", "árabe"],
     verificado: true
+  },
+
+  /* ------------------------------------------ carnicería y pescadería */
+  {
+    id: "carnes-moran",
+    nombre: "Carnes Morán",
+    categoria: "carniceria",
+    descripcion: "Carnicería que abrió Agapito Morán hace más de cincuenta años y siguen llevando sus herederos. Cortes tradicionales y carne de pueblo, con el despiece hecho en la tienda.",
+    web: "https://carnesmoran.com",
+    etiquetas: ["carnicería", "familiar", "despiece", "carne"],
+    verificado: false
+  },
+  {
+    id: "saboli-taboli",
+    nombre: "Saboli Taboli",
+    categoria: "carniceria",
+    descripcion: "Puesto de carnicería que Jesús Rodríguez abrió en 1964 en el Mercado de los Mostenses y que lleva desde 1980 con su hijo. Dos generaciones detrás del mismo mostrador.",
+    barrio: "Centro",
+    direccion: "Mercado de los Mostenses, puestos 35 y 36",
+    desde: 1964,
+    etiquetas: ["carnicería", "mercado", "familiar", "cordero"],
+    verificado: true
+  },
+  {
+    id: "raza-nostra",
+    nombre: "Raza Nostra",
+    categoria: "carniceria",
+    descripcion: "Carnicería especializada en razas autóctonas españolas, con maduraciones largas y piezas que te preparan como se las pidas.",
+    etiquetas: ["carnicería", "razas autóctonas", "madurada", "chuletón"],
+    verificado: false
+  },
+  {
+    id: "cesareo-gomez",
+    nombre: "Cesáreo Gómez",
+    categoria: "carniceria",
+    descripcion: "Casa de carnes veterana que surte a buena parte de los restaurantes de Madrid y vende también al público. Selección muy exigente de vacuno.",
+    etiquetas: ["carnicería", "vacuno", "selección", "restauración"],
+    verificado: false
+  },
+  {
+    id: "las-viandas-de-julian",
+    nombre: "Las Viandas de Julián",
+    categoria: "carniceria",
+    descripcion: "Carnicería de barrio con producto escogido y trato de los de antes: te aconsejan el corte según lo que vayas a cocinar.",
+    etiquetas: ["carnicería", "barrio", "embutidos", "carne"],
+    verificado: false
+  },
+  {
+    id: "pescaderias-corunesas",
+    nombre: "Pescaderías Coruñesas",
+    categoria: "carniceria",
+    descripcion: "Pescadería familiar con más de un siglo de oficio, que trae a diario pescado de lonja del norte. De las que te limpian la pieza como es debido.",
+    etiquetas: ["pescadería", "pescado", "marisco", "lonja", "familiar"],
+    verificado: false
+  },
+
+  /* ----------------------------------------- peluquería y estética */
+  {
+    id: "blackstone-barberia",
+    nombre: "Blackstone",
+    categoria: "belleza",
+    descripcion: "Barbería de estética eduardiana con el aire de los clubes de principios del siglo XX. Afeitado a navaja, toalla caliente y corte clásico.",
+    barrio: "Chamberí",
+    direccion: "C/ de Monte Esquinza, 36",
+    etiquetas: ["barbería", "navaja", "afeitado", "clásica"],
+    verificado: true
+  },
+  {
+    id: "chamberi-5",
+    nombre: "Chamberí 5",
+    categoria: "belleza",
+    descripcion: "Barbería de Daniel Perales, con más de veinte años de oficio y tradición familiar detrás. Afeitado a navaja, arreglo de barba y cortes de la vieja escuela.",
+    barrio: "Chamberí",
+    etiquetas: ["barbería", "navaja", "barba", "clásica"],
+    verificado: true
+  },
+  {
+    id: "la-barberia-de-vergara",
+    nombre: "La Barbería de Vergara",
+    categoria: "belleza",
+    descripcion: "Barbería de barrio que mezcla el oficio de siempre con corte actual, sin prisa y con mucha atención al detalle.",
+    etiquetas: ["barbería", "corte", "barba", "barrio"],
+    verificado: false
+  },
+  {
+    id: "ecotelier-natural",
+    nombre: "Ecotelier Natural",
+    categoria: "belleza",
+    descripcion: "Centro de estética natural con herbolario propio: tratamientos con cosmética bio y venta de suplementos, plantas y aceites.",
+    direccion: "C/ del Príncipe de Vergara, 215",
+    web: "https://ecoteliernatural.es",
+    etiquetas: ["estética", "cosmética natural", "herbolario", "bio"],
+    verificado: true
+  },
+  {
+    id: "la-canela",
+    nombre: "La Canela",
+    categoria: "belleza",
+    descripcion: "Tienda ecológica de arriba abajo: cosmética natural, alimentación y material de yoga, con marcas pequeñas y mucho granel.",
+    etiquetas: ["cosmética natural", "ecológico", "jabones", "granel"],
+    verificado: true
+  },
+  {
+    id: "restore7",
+    nombre: "Restore7",
+    categoria: "belleza",
+    descripcion: "Tienda de cosmética e higiene sostenible con formato sólido y recargable, pensada para no generar envase.",
+    barrio: "Chamberí",
+    direccion: "C/ de Vallehermoso, 41",
+    etiquetas: ["cosmética", "sostenible", "jabones", "sin plástico"],
+    verificado: false
   }
 
 ];

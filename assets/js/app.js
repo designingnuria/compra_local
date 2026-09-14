@@ -22,11 +22,15 @@
     grid: $("#grid"),
     empty: $("#empty"),
     heroCount: $("#hero-count"),
+    vistas: document.querySelectorAll(".vista__btn"),
+    mapa: $("#mapa"),
+    mapaSvg: $("#mapa-svg"),
+    mapaHuerfanos: $("#mapa-huerfanos"),
     controles: $(".controls"),
     centinela: $("#centinela")
   };
 
-  var estado = { q: "", categoria: "", barrio: "", orden: "relevancia" };
+  var estado = { q: "", categoria: "", barrio: "", orden: "relevancia", vista: "listado" };
 
   /* Orden aleatorio estable durante toda la visita: si se recalculara en
      cada tecla, las tarjetas bailarían mientras escribes. */
@@ -207,6 +211,156 @@
     return lista;
   }
 
+
+  /* ------------------------------------------------------------ mapa
+
+     Un mapa dibujado a mano en SVG, sin librería ni teselas: cada barrio
+     es un círculo colocado en su posición real y escalado según cuántos
+     negocios tiene. Es deliberadamente esquemático, porque no tenemos la
+     coordenada exacta de cada tienda y es preferible decir «esto está en
+     Malasaña» a clavar una chincheta en un portal equivocado.
+
+     Las fichas que traigan `coords` sí se dibujan en su punto exacto. */
+
+  var VB = { ancho: 1000, alto: 730 };
+
+  /* Proyección plana: a la escala de una ciudad la curvatura no se nota,
+     basta con corregir la longitud por el coseno de la latitud. */
+  function proyectar(lat, lon) {
+    var l = MAPA.limites;
+    var k = Math.cos(((l.norte + l.sur) / 2) * Math.PI / 180);
+    return {
+      x: ((lon - l.oeste) * k) / ((l.este - l.oeste) * k) * VB.ancho,
+      y: ((l.norte - lat) / (l.norte - l.sur)) * VB.alto
+    };
+  }
+
+  function camino(puntos, cerrado) {
+    var d = puntos.map(function (pt, i) {
+      var p = proyectar(pt[0], pt[1]);
+      return (i ? "L" : "M") + p.x.toFixed(1) + " " + p.y.toFixed(1);
+    }).join(" ");
+    return cerrado ? d + " Z" : d;
+  }
+
+  function svgEl(nombre, atributos) {
+    var el = document.createElementNS("http://www.w3.org/2000/svg", nombre);
+    Object.keys(atributos).forEach(function (k) { el.setAttribute(k, atributos[k]); });
+    return el;
+  }
+
+  function dibujarFondo() {
+    var g = svgEl("g", { class: "mapa__fondo" });
+    g.appendChild(svgEl("path", { class: "mapa__parque", d: camino(MAPA.retiro, true) }));
+    g.appendChild(svgEl("path", { class: "mapa__rio", d: camino(MAPA.manzanares) }));
+
+    var retiro = proyectar(40.4180, -3.6820);
+    var etiqueta = svgEl("text", { class: "mapa__referencia", x: retiro.x, y: retiro.y });
+    etiqueta.textContent = "El Retiro";
+    g.appendChild(etiqueta);
+    return g;
+  }
+
+  function pintarMapa(lista) {
+    var svg = els.mapaSvg;
+    svg.setAttribute("viewBox", "0 0 " + VB.ancho + " " + VB.alto);
+    svg.innerHTML = "";
+    svg.appendChild(dibujarFondo());
+
+    var porBarrio = {};
+    var sueltos = [];
+    var sinSitio = 0;
+
+    lista.forEach(function (n) {
+      if (n.coords) { sueltos.push(n); return; }
+      if (!n.barrio || !BARRIOS[n.barrio]) { sinSitio++; return; }
+      (porBarrio[n.barrio] = porBarrio[n.barrio] || []).push(n);
+    });
+
+    var nombres = Object.keys(porBarrio);
+    var mayor = nombres.reduce(function (m, b) {
+      return Math.max(m, porBarrio[b].length);
+    }, 1);
+
+    var grupo = svgEl("g", { class: "mapa__barrios" });
+    /* Los nombres van en su propia capa, encima de todos los círculos: en el
+       centro se amontonan y, si no, unos tapan a otros. */
+    var capaNombres = svgEl("g", { class: "mapa__nombres" });
+
+    // Los más pequeños se dibujan encima, para que no queden tapados.
+    nombres.sort(function (a, b) { return porBarrio[b].length - porBarrio[a].length; });
+
+    nombres.forEach(function (barrio) {
+      var negocios = porBarrio[barrio];
+      var p = proyectar(BARRIOS[barrio][0], BARRIOS[barrio][1]);
+      // Área proporcional al número de negocios: el radio va con la raíz.
+      var r = 14 + Math.sqrt(negocios.length / mayor) * 34;
+      var activo = estado.barrio === barrio;
+
+      var g = svgEl("g", {
+        class: "barrio" + (activo ? " es-activo" : ""),
+        tabindex: "0",
+        role: "button",
+        "aria-label": barrio + ", " + negocios.length +
+          (negocios.length === 1 ? " negocio" : " negocios")
+      });
+      g.dataset.barrio = barrio;
+
+      g.appendChild(svgEl("circle", { class: "barrio__halo", cx: p.x, cy: p.y, r: r + 6 }));
+      g.appendChild(svgEl("circle", { class: "barrio__disco", cx: p.x, cy: p.y, r: r }));
+
+      var n = svgEl("text", { class: "barrio__n", x: p.x, y: p.y + 1 });
+      n.textContent = negocios.length;
+      g.appendChild(n);
+
+      var etiqueta = svgEl("text", {
+        class: "barrio__nombre" + (activo ? " es-activo" : ""),
+        x: p.x, y: p.y + r + 17
+      });
+      etiqueta.textContent = barrio;
+      capaNombres.appendChild(etiqueta);
+
+      grupo.appendChild(g);
+    });
+
+    sueltos.forEach(function (n) {
+      var p = proyectar(n.coords[0], n.coords[1]);
+      var g = svgEl("g", { class: "punto", tabindex: "0", role: "button", "aria-label": n.nombre });
+      g.dataset.id = n.id;
+      g.appendChild(svgEl("circle", { class: "punto__disco", cx: p.x, cy: p.y, r: 6 }));
+      grupo.appendChild(g);
+    });
+
+    svg.appendChild(grupo);
+    svg.appendChild(capaNombres);
+
+    els.mapaHuerfanos.textContent = sinSitio
+      ? (sinSitio === 1
+          ? "Hay 1 negocio sin barrio confirmado, que no sale en el mapa."
+          : "Hay " + sinSitio + " negocios sin barrio confirmado, que no salen en el mapa.")
+      : "";
+  }
+
+  function alPulsarBarrio(e) {
+    var g = e.target.closest ? e.target.closest(".barrio") : null;
+    if (!g) return;
+    var barrio = g.dataset.barrio;
+    estado.barrio = estado.barrio === barrio ? "" : barrio;
+    els.barrio.value = estado.barrio;
+    pintar();
+  }
+
+  function cambiarVista(vista) {
+    estado.vista = vista === "mapa" ? "mapa" : "listado";
+    var esMapa = estado.vista === "mapa";
+    els.mapa.hidden = !esMapa;
+    els.grid.hidden = esMapa;
+    Array.prototype.forEach.call(els.vistas, function (b) {
+      b.setAttribute("aria-pressed", String(b.dataset.vista === estado.vista));
+    });
+    pintar();
+  }
+
   /* ---------------------------------------------------------- pintado */
 
   var ICONO_WEB =
@@ -282,12 +436,16 @@
     var lista = filtrar();
     var ts = terminos();
 
-    els.grid.innerHTML = "";
-    var fragmento = document.createDocumentFragment();
-    lista.forEach(function (n) { fragmento.appendChild(tarjeta(n, ts)); });
-    els.grid.appendChild(fragmento);
+    if (estado.vista === "mapa") {
+      pintarMapa(lista);
+    } else {
+      els.grid.innerHTML = "";
+      var fragmento = document.createDocumentFragment();
+      lista.forEach(function (n) { fragmento.appendChild(tarjeta(n, ts)); });
+      els.grid.appendChild(fragmento);
+    }
 
-    els.empty.hidden = lista.length > 0;
+    els.empty.hidden = lista.length > 0 || estado.vista === "mapa";
     els.count.textContent = lista.length === 0
       ? "Ningún negocio"
       : lista.length === 1 ? "1 negocio" : lista.length + " negocios";
@@ -408,6 +566,8 @@
     estado.q = p.get("q") || "";
     estado.categoria = catPorId[p.get("cat")] ? p.get("cat") : "";
     estado.barrio = p.get("barrio") || "";
+    if (p.get("vista") === "mapa") estado.vista = "mapa";
+
     var orden = p.get("orden");
     if (["alfabetico", "antiguos", "azar"].indexOf(orden) !== -1) estado.orden = orden;
 
@@ -425,6 +585,7 @@
     if (estado.categoria) p.set("cat", estado.categoria);
     if (estado.barrio) p.set("barrio", estado.barrio);
     if (estado.orden !== "relevancia") p.set("orden", estado.orden);
+    if (estado.vista !== "listado") p.set("vista", estado.vista);
     var qs = p.toString();
     history.replaceState(null, "", qs ? "?" + qs : location.pathname);
   }
@@ -478,6 +639,18 @@
       els.barrio.value = "";
       pintar();
       els.q.focus();
+    });
+
+    els.mapaSvg.addEventListener("click", alPulsarBarrio);
+    els.mapaSvg.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        alPulsarBarrio(e);
+      }
+    });
+
+    Array.prototype.forEach.call(els.vistas, function (b) {
+      b.addEventListener("click", function () { cambiarVista(b.dataset.vista); });
     });
 
     // "/" enfoca el buscador, como en tantas webs de documentación.
@@ -700,5 +873,5 @@
   prepararFormulario();
   leerDeURL();
   enlazarEventos();
-  pintar();
+  cambiarVista(estado.vista);
 })();

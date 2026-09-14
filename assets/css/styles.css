@@ -41,6 +41,10 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
+/* `hidden` tiene que ganar siempre: si no, un `display: grid` puesto en una
+   clase lo anula y el elemento se queda a la vista. */
+[hidden] { display: none !important; }
+
 html { -webkit-text-size-adjust: 100%; }
 
 body {
@@ -403,6 +407,155 @@ mark {
   color: inherit;
   border-radius: 3px;
   padding: 0 1px;
+}
+
+/* ---------------------------------------------------------- vista */
+
+.vista {
+  display: inline-flex;
+  padding: 3px;
+  background: var(--surface-alt);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.vista__btn {
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--muted);
+  padding: 5px 14px;
+  background: none;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease;
+}
+.vista__btn:hover { color: var(--ink); }
+.vista__btn[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .08);
+}
+
+/* ----------------------------------------------------------- mapa */
+
+.mapa { margin-top: 24px; }
+
+.mapa__lienzo {
+  padding: 12px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.mapa__lienzo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.mapa__pie {
+  margin: 12px 2px 0;
+  font-size: 13.5px;
+  color: var(--muted);
+}
+
+/* Referencias para orientarse. Trazos, no cartografía. */
+.mapa__parque {
+  fill: color-mix(in srgb, var(--green) 16%, transparent);
+  stroke: color-mix(in srgb, var(--green) 30%, transparent);
+  stroke-width: 1.5;
+}
+.mapa__rio {
+  fill: none;
+  stroke: color-mix(in srgb, #4A7FA5 45%, transparent);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.mapa__referencia {
+  fill: color-mix(in srgb, var(--green) 75%, var(--muted));
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3.5;
+  stroke-linejoin: round;
+  font-family: var(--font-body);
+  font-size: 15px;
+  letter-spacing: .06em;
+  text-anchor: middle;
+  text-transform: uppercase;
+}
+
+/* Cada barrio, un círculo proporcional a sus negocios. */
+.barrio { cursor: pointer; }
+
+.barrio__halo {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+  opacity: 0;
+  transition: opacity .15s ease;
+}
+.barrio:hover .barrio__halo,
+.barrio:focus-visible .barrio__halo,
+.barrio.es-activo .barrio__halo { opacity: .55; }
+
+.barrio__disco {
+  fill: color-mix(in srgb, var(--accent) 22%, var(--surface));
+  stroke: color-mix(in srgb, var(--accent) 55%, transparent);
+  stroke-width: 1.5;
+  transition: fill .15s ease;
+}
+.barrio:hover .barrio__disco { fill: color-mix(in srgb, var(--accent) 36%, var(--surface)); }
+.barrio.es-activo .barrio__disco {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.barrio__n {
+  fill: var(--ink);
+  font-family: var(--font-body);
+  font-size: 17px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+.barrio.es-activo .barrio__n { fill: var(--accent-ink); }
+
+.barrio__nombre {
+  fill: var(--muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-anchor: middle;
+  pointer-events: none;
+  /* Contorno del color del fondo: en el centro los nombres caen sobre los
+     círculos vecinos y sin esto no hay quien los lea. */
+  paint-order: stroke fill;
+  stroke: var(--surface);
+  stroke-width: 3.5;
+  stroke-linejoin: round;
+}
+.barrio__nombre.es-activo { fill: var(--ink); font-weight: 600; }
+
+.barrio:focus-visible { outline: none; }
+
+/* Fichas con coordenada propia: punto exacto en vez de círculo de barrio. */
+.punto__disco {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 2;
+}
+
+@media (max-width: 560px) {
+  .vista { order: -1; }
+  .mapa__lienzo { padding: 6px; }
+  .barrio__nombre { font-size: 19px; }
+  .barrio__n { font-size: 22px; }
+  .mapa__referencia { font-size: 20px; }
 }
 
 /* --------------------------------------------------------- vacío */

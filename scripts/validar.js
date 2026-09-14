@@ -8,9 +8,10 @@
    --------------------------------------------------------------- */
 
 const { CATEGORIAS, NEGOCIOS } = require("../data/negocios.js");
+const { BARRIOS } = require("../data/barrios.js");
 
 const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion"];
-const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado"];
+const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado", "coords"];
 const PERMITIDOS = new Set([...OBLIGATORIOS, ...OPCIONALES]);
 
 const errores = [];
@@ -71,6 +72,16 @@ NEGOCIOS.forEach((n, i) => {
     }
   }
 
+  if (n.coords !== undefined) {
+    const c = n.coords;
+    const valida = Array.isArray(c) && c.length === 2 &&
+      typeof c[0] === "number" && typeof c[1] === "number" &&
+      c[0] > 40.2 && c[0] < 40.7 && c[1] > -4.0 && c[1] < -3.4;
+    if (!valida) {
+      errores.push(`${donde}: "coords" debe ser [latitud, longitud] dentro de Madrid`);
+    }
+  }
+
   if (n.etiquetas !== undefined) {
     if (!Array.isArray(n.etiquetas) || n.etiquetas.some((t) => typeof t !== "string")) {
       errores.push(`${donde}: "etiquetas" debe ser una lista de textos`);
@@ -89,10 +100,22 @@ const huerfanas = CATEGORIAS.filter(
 if (huerfanas.length) avisos.push(`Categorías sin ningún negocio: ${huerfanas.join(", ")}`);
 
 const sinVerificar = NEGOCIOS.filter((n) => n.verificado === false).length;
+// Un barrio sin coordenada sale en el listado pero desaparece del mapa.
+const barriosUsados = [...new Set(NEGOCIOS.map((n) => n.barrio).filter(Boolean))];
+const sinCoordenada = barriosUsados.filter((b) => !BARRIOS[b]);
+if (sinCoordenada.length) {
+  errores.push(
+    `Barrios sin coordenada en data/barrios.js (no saldrían en el mapa): ${sinCoordenada.join(", ")}`
+  );
+}
+
+const sobranBarrios = Object.keys(BARRIOS).filter((b) => !barriosUsados.includes(b));
+if (sobranBarrios.length) avisos.push(`Barrios con coordenada pero sin negocios: ${sobranBarrios.join(", ")}`);
+
 const sinBarrio = NEGOCIOS.filter((n) => !n.barrio).length;
 if (sinBarrio) avisos.push(`Fichas sin barrio (se muestran solo como "Madrid"): ${sinBarrio}`);
 
-console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}`);
+console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}  ·  barrios: ${barriosUsados.length}`);
 console.log(
   `Verificados: ${NEGOCIOS.length - sinVerificar}  ·  pendientes de comprobar: ${sinVerificar}`
 );

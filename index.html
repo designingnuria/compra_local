@@ -69,6 +69,12 @@
         </select>
       </div>
       <button id="reset" class="btn-ghost" type="button" hidden>Limpiar filtros</button>
+
+      <div class="vista" role="group" aria-label="Forma de ver los resultados">
+        <button type="button" class="vista__btn" data-vista="listado" aria-pressed="true">Listado</button>
+        <button type="button" class="vista__btn" data-vista="mapa" aria-pressed="false">Mapa</button>
+      </div>
+
       <p class="count" id="count" role="status" aria-live="polite"></p>
     </div>
   </section>
@@ -78,6 +84,17 @@
 
   <section id="resultados" aria-label="Resultados">
     <ul class="grid" id="grid"></ul>
+
+    <div class="mapa" id="mapa" hidden>
+      <div class="mapa__lienzo">
+        <svg id="mapa-svg" role="img" aria-labelledby="mapa-titulo"></svg>
+        <h2 id="mapa-titulo" class="visually-hidden">Mapa de los negocios por barrio</h2>
+      </div>
+      <p class="mapa__pie">
+        Mapa esquemático: cada círculo es un barrio y su tamaño, el número de negocios.
+        Pulsa uno para ver los suyos. <span id="mapa-huerfanos"></span>
+      </p>
+    </div>
 
     <div class="empty" id="empty" hidden>
       <p class="empty__title">Aquí todavía no hay nada</p>
@@ -100,7 +117,7 @@
         <h3>Sí</h3>
         <ul>
           <li>Tiendas y talleres de propiedad independiente, con uno o muy pocos locales.</li>
-          <li>Oficios: encuadernar, enmarcar, afinar, reparar, tallar, coser.</li>
+          <li>Oficios: encuadernar, enmarcar, afinar, reparar, tallar, coser, afeitar.</li>
           <li>Producto seleccionado con criterio propio, no por catálogo de central.</li>
           <li>Comercios históricos que siguen en manos de la familia.</li>
           <li>Proyectos jóvenes con una idea clara detrás.</li>
@@ -112,7 +129,7 @@
           <li>Franquicias y cadenas, por pequeñas o bonitas que parezcan.</li>
           <li>Negocios de mero paso: locutorios, bazares, kebabs, tiendas de souvenirs.</li>
           <li>Locales sin nada propio que contar, aunque sean independientes.</li>
-          <li>Puro restaurante o bar: esto va de comprar cosas, no de salir a cenar.</li>
+          <li>Restaurantes y bares: esto va de comprar y de oficios, no de salir a cenar.</li>
         </ul>
       </div>
     </div>
@@ -224,6 +241,7 @@
 </footer>
 
 <script src="data/negocios.js"></script>
+<script src="data/barrios.js"></script>
 <script src="assets/js/app.js"></script>
 </body>
 </html>

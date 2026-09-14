@@ -9,7 +9,8 @@ que se cuidan mucho dos cosas: **qué negocios entran** y **que los datos sean c
 
 - Tiendas y talleres de **propiedad independiente**, con uno o muy pocos locales, donde
   quien atiende tiene algo que ver con el negocio.
-- **Oficios**: encuadernar, enmarcar, afinar, reparar, tallar, coser, tostar, afilar.
+- **Oficios y servicios de barrio**: encuadernar, enmarcar, afinar, reparar, tallar, coser,
+  tostar, afilar, afeitar. Una barbería de las de navaja entra; una peluquería de cadena no.
 - Producto **seleccionado con criterio propio**, no por catálogo de una central.
 - **Comercios históricos** que siguen en manos de la familia.
 - **Proyectos jóvenes** con una idea clara detrás.
@@ -20,7 +21,7 @@ que se cuidan mucho dos cosas: **qué negocios entran** y **que los datos sean c
   pagando un canon, no entra.
 - Negocios de mero paso: **locutorios, bazares, kebabs, tiendas de souvenirs**.
 - Locales sin nada propio que contar, aunque sean independientes.
-- **Restaurantes y bares**: esto va de comprar cosas, no de salir a cenar. Una cafetería
+- **Restaurantes y bares**: esto va de comprar y de oficios, no de salir a cenar. Una cafetería
   que tuesta y vende su café sí entra; un bar de tapas no.
 
 ### La duda razonable
@@ -39,8 +40,10 @@ Para añadirlo tú al directorio:
 1. Abre `data/negocios.js`.
 2. Copia una ficha existente y cámbiale los datos. El `id` tiene que ser único, en
    minúsculas y con guiones.
-3. Ejecuta `node scripts/validar.js` y arregla lo que salga.
-4. Abre una propuesta de cambio explicando de dónde sacaste los datos.
+3. Si el barrio no estaba todavía en el directorio, añádelo también a `data/barrios.js` con
+   su latitud y longitud aproximadas. Si no, sus negocios no aparecerán en el mapa.
+4. Ejecuta `node scripts/validar.js` y arregla lo que salga.
+5. Abre una propuesta de cambio explicando de dónde sacaste los datos.
 
 ## Los campos
 
@@ -56,6 +59,7 @@ Para añadirlo tú al directorio:
 | `instagram` | No | Solo el usuario, sin arroba |
 | `desde` | No | Año de apertura, si se conoce con certeza |
 | `etiquetas` | No | Palabras sueltas para el buscador |
+| `coords` | No | `[latitud, longitud]` si la conoces con precisión. La ficha saldrá en su punto exacto del mapa en vez de sumarse al círculo de su barrio |
 | `verificado` | Sí | `true` **solo** si has comprobado los datos hoy en una fuente fiable |
 
 ## Sobre `verificado`
