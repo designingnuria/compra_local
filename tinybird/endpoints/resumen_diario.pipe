@@ -17,3 +17,6 @@ SQL >
     ORDER BY dia DESC
 
 TYPE ENDPOINT
+
+# Token del panel: solo puede leer estos tres endpoints.
+TOKEN "panel" READ
