@@ -23,7 +23,6 @@
     empty: $("#empty"),
     heroCount: $("#hero-count"),
     controles: $(".controls"),
-    centinela: $("#centinela"),
     controles: $(".controls"),
     resultados: $("#resultados"),
     mas: $("#mas")
@@ -378,10 +377,6 @@
      una sola tecla la página te devolvía al principio de golpe. Ahora, si
      la página sigue siendo igual de larga, no se toca el scroll: estés
      donde estés, te quedas donde estabas. */
-  /* Nota: en pantallas estrechas la barra no va fija (ver styles.css), así
-     que el buscador se queda arriba del todo. Si se escribe con el campo
-     enfocado pero fuera de la ventana, el navegador sube solo a enseñar el
-     cursor. Eso es comportamiento nativo, no de aquí. */
   function reencuadrar(yAntes) {
     var alto = window.innerHeight || document.documentElement.clientHeight;
     var maxAhora = Math.max(0, document.documentElement.scrollHeight - alto);
@@ -423,6 +418,18 @@
       if (els.mas.hidden) return;
       var alto = window.innerHeight || document.documentElement.clientHeight;
       if (els.mas.getBoundingClientRect().top < alto + 600) seguirPintando();
+    });
+  }
+
+  var pendiente = false;
+  function alDesplazarse() {
+    if (pendiente || els.mas.hidden) return;
+    pendiente = true;
+    requestAnimationFrame(function () {
+      pendiente = false;
+      if (els.mas.hidden) return;
+      var alto = window.innerHeight || document.documentElement.clientHeight;
+      if (els.mas.getBoundingClientRect().top < alto + 800) pintarTanda();
     });
   }
 
@@ -483,18 +490,13 @@
 
     els.chips.appendChild(frag);
 
-    ajustarChips();
+    marcarBordesChips();
+    medirBarra();
     els.chips.addEventListener("scroll", marcarBordesChips, { passive: true });
-    window.addEventListener("resize", ajustarChips);
-
-    /* El centinela va justo encima de la barra: en cuanto sale por arriba,
-       sabemos que la barra se ha quedado pegada y toca recoger las categorías. */
-    if (window.IntersectionObserver) {
-      new IntersectionObserver(function (entradas) {
-        pegada = !entradas[0].isIntersecting;
-        ajustarChips();
-      }).observe(els.centinela);
-    }
+    window.addEventListener("resize", function () {
+      marcarBordesChips();
+      medirBarra();
+    });
 
     els.chips.addEventListener("click", function (e) {
       var chip = e.target.closest(".chip");
@@ -504,26 +506,17 @@
     });
   }
 
-  var pegada = false;
-
   /* El CSS necesita saber cuánto mide la barra para que los enlaces internos
-     no dejen los títulos escondidos debajo (scroll-margin-top). */
+     no dejen los títulos escondidos debajo (scroll-margin-top). Ahora su
+     altura es constante, así que basta con medirla al cargar y al cambiar el
+     tamaño de la ventana. */
   function medirBarra() {
     var alto = Math.round(els.controles.getBoundingClientRect().height);
     document.documentElement.style.setProperty("--barra", alto + "px");
   }
 
-  function ajustarChips() {
-    var tira = pegada || window.innerWidth <= 760;
-    els.chips.classList.toggle("es-tira", tira);
-    els.controles.classList.toggle("es-pegada", pegada);
-    if (!tira) els.chips.removeAttribute("data-borde");
-    else marcarBordesChips();
-    medirBarra();
-  }
-
-  /* Cuando las categorías van en una tira, el degradado de los extremos avisa
-     de que hay más fuera de la pantalla. */
+  /* El degradado de los extremos avisa de que hay más categorías fuera de
+     la pantalla. */
   function marcarBordesChips() {
     var el = els.chips;
     var sobra = el.scrollWidth - el.clientWidth;
@@ -643,11 +636,12 @@
     });
 
     els.mas.addEventListener("click", seguirPintando);
-    if (window.IntersectionObserver) {
-      new IntersectionObserver(function (entradas) {
-        if (entradas[0].isIntersecting) seguirPintando();
-      }, { rootMargin: "600px 0px" }).observe(els.mas);
-    }
+
+    /* El disparador es el propio scroll, no un IntersectionObserver: el
+       observador sólo avisa cuando el centinela *entra* en la zona, y si se
+       queda dentro sin salir deja de notificar y la lista se planta a medias.
+       Mirar la posición en cada scroll no puede atascarse. */
+    window.addEventListener("scroll", alDesplazarse, { passive: true });
 
     // "/" enfoca el buscador, como en tantas webs de documentación.
     document.addEventListener("keydown", function (e) {

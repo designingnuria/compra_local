@@ -53,9 +53,13 @@
   </div>
 </header>
 
-<div id="centinela" aria-hidden="true"></div>
+<!-- Barra fija: buscador y categorías. Su altura no cambia nunca, a
+     propósito. Cuando cambiaba (recogiendo las categorías al pegarse), el
+     documento se acortaba, el navegador compensaba el scroll, el centinela
+     volvía a verse y la barra se expandía: un bucle que hacía temblar la
+     página y volvía imposible bajar. -->
 <div class="controls">
-  <section class="wrap" aria-label="Buscador y filtros">
+  <section class="wrap" aria-label="Buscador y categorías">
     <div class="search">
       <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path>
@@ -65,29 +69,32 @@
              autocapitalize="off" autocorrect="off" enterkeyhint="search"
              placeholder="Busca por nombre, oficio o barrio… («quesos», «enmarcar cuadros», «Lavapiés»)">
       <button id="q-clear" class="search__clear" type="button" hidden aria-label="Borrar búsqueda">&times;</button>
+      <button id="reset" class="search__reset" type="button" hidden>Limpiar</button>
     </div>
 
     <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
-
-    <div class="toolbar">
-      <div class="field">
-        <label for="barrio">Barrio</label>
-        <select id="barrio"></select>
-      </div>
-      <div class="field">
-        <label for="orden">Ordenar</label>
-        <select id="orden">
-          <option value="relevancia">Relevancia</option>
-          <option value="alfabetico">A–Z</option>
-          <option value="antiguos">Más veteranos primero</option>
-          <option value="azar">Sorpréndeme</option>
-        </select>
-      </div>
-      <button id="reset" class="btn-ghost" type="button" hidden>Limpiar filtros</button>
-
-      <p class="count" id="count" role="status" aria-live="polite"></p>
-    </div>
   </section>
+</div>
+
+<!-- Estos se van con la página: no son de uso constante y meterlos en la
+     barra fija se comía un cuarto de la pantalla del móvil. -->
+<div class="herramientas">
+  <div class="wrap toolbar">
+    <div class="field">
+      <label for="barrio">Barrio</label>
+      <select id="barrio"></select>
+    </div>
+    <div class="field">
+      <label for="orden">Ordenar</label>
+      <select id="orden">
+        <option value="relevancia">Relevancia</option>
+        <option value="alfabetico">A–Z</option>
+        <option value="antiguos">Más veteranos primero</option>
+        <option value="azar">Sorpréndeme</option>
+      </select>
+    </div>
+    <p class="count" id="count" role="status" aria-live="polite"></p>
+  </div>
 </div>
 
 <main class="wrap">

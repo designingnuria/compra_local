@@ -26,8 +26,8 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
   correo. Si el envío falla, enseña el texto para copiarlo y no perder la propuesta.
 - Modo claro y oscuro, sin cookies ni rastreo.
 - **Pensada para el móvil**, que es desde donde se mira casi siempre: el buscador se queda
-  fijo arriba, las fichas se pintan de veinticuatro en veinticuatro según bajas y las fuentes
-  no bloquean el pintado.
+  fijo arriba con altura constante, las fichas se pintan de veinticuatro en veinticuatro según
+  bajas y las fuentes no bloquean el pintado.
 
 ## Cómo se usa
 
@@ -113,6 +113,25 @@ que conviene rehacerla cuando la cifra cambie mucho.
 
 Usa Georgia y no la tipografía de la web a propósito: la imagen se genera sin conexión y una
 fuente que no cargue estropearía la captura.
+
+## La barra fija no cambia de altura, y es a propósito
+
+Las categorías van siempre en una sola tira que se desplaza, aunque en una pantalla ancha
+cupieran en varias filas. Antes se repartían en filas y se recogían al pegarse la barra, y eso
+provocaba un bucle que hacía temblar la página y volvía imposible bajar:
+
+1. la barra se pegaba y recogía las categorías, perdiendo 166 px de alto;
+2. el documento se acortaba esos mismos 166 px;
+3. el navegador, para que no se moviera lo que estabas mirando, compensaba el scroll 166 px
+   hacia arriba (*scroll anchoring*);
+4. con eso la barra volvía a despegarse, las categorías se expandían… y vuelta al punto 1.
+
+Se medían diecinueve cambios de estado en dos segundos de rueda. La lección: **una barra fija
+que cambia de altura mueve el documento entero**, y el navegador va a pelearse con ella. Si
+hay que esconder algo al bajar, que no esté dentro del elemento pegado.
+
+Por eso el botón de limpiar filtros vive dentro de la fila del buscador y es más bajo que el
+campo: aparece y desaparece sin alterar la altura de nada.
 
 ## El formulario de propuestas
 

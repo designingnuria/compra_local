@@ -139,18 +139,11 @@ a:hover { text-decoration-color: var(--accent); }
   top: 0;
   z-index: 20;
   padding-block: 18px 14px;
-  /* Pegada arriba se aprieta un poco: ya se come bastante pantalla. El cambio
-     es instantáneo a propósito: con transición, la medida de --barra se queda
-     desfasada mientras dura y los enlaces internos caen mal. */
   margin-bottom: 8px;
   background: color-mix(in srgb, var(--paper) 92%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
-
-.controls.es-pegada { padding-block: 10px 8px; }
-.controls.es-pegada .chips { margin-top: 10px; }
-.controls.es-pegada .toolbar { margin-top: 10px; }
 
 #resultados { scroll-margin-top: calc(var(--barra, 200px) + 24px); }
 
@@ -190,34 +183,52 @@ a:hover { text-decoration-color: var(--accent); }
 }
 .search__clear:hover { background: var(--surface-alt); color: var(--ink); }
 
-/* En reposo las categorías se reparten en varias filas. Cuando la barra se
-   queda pegada arriba —o en pantallas estrechas— se recogen en una sola tira
-   que se desplaza, para que el buscador no se coma media pantalla.
-   La clase `es-tira` la pone app.js. */
+/* Va dentro de la fila del buscador y es más bajo que el campo, así que
+   aparecer o desaparecer no cambia la altura de la barra. */
+.search__reset {
+  position: absolute;
+  right: 8px;
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--accent);
+  padding: 7px 14px;
+  background: var(--accent-soft);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.search__reset:hover { filter: brightness(.96); }
+.search:has(.search__reset:not([hidden])) input { padding-right: 104px; }
+.search:has(.search__clear:not([hidden])) .search__reset { right: 44px; }
+.search:has(.search__clear:not([hidden])):has(.search__reset:not([hidden])) input { padding-right: 140px; }
+
+/* Las categorías van siempre en una sola tira que se desplaza. Antes se
+   repartían en filas y se recogían al pegarse la barra, pero eso cambiaba su
+   altura, y una barra fija que cambia de altura mueve el documento entero:
+   el navegador compensaba el scroll y se entraba en bucle. Altura constante,
+   cero temblor. */
 .chips {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 8px;
   margin-top: 14px;
-}
-
-.chips.es-tira {
-  flex-wrap: nowrap;
   overflow-x: auto;
   padding-bottom: 4px;
   scrollbar-width: none;
+  overscroll-behavior-x: contain;
 }
-.chips.es-tira::-webkit-scrollbar { display: none; }
+.chips::-webkit-scrollbar { display: none; }
 
-.chips.es-tira[data-borde~="derecha"] {
+.chips[data-borde~="derecha"] {
   -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
   mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
 }
-.chips.es-tira[data-borde~="izquierda"][data-borde~="derecha"] {
+.chips[data-borde~="izquierda"][data-borde~="derecha"] {
   -webkit-mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent);
   mask-image: linear-gradient(to right, transparent, #000 36px, #000 calc(100% - 36px), transparent);
 }
-.chips.es-tira[data-borde="izquierda"] {
+.chips[data-borde="izquierda"] {
   -webkit-mask-image: linear-gradient(to right, transparent, #000 36px);
   mask-image: linear-gradient(to right, transparent, #000 36px);
 }
@@ -251,14 +262,17 @@ a:hover { text-decoration-color: var(--accent); }
 }
 .chip[aria-pressed="true"] .chip__n { color: inherit; opacity: .75; }
 
-#centinela { height: 1px; margin-bottom: -1px; }
+.herramientas {
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+}
 
 .toolbar {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   gap: 10px 18px;
-  margin-top: 14px;
+  padding-block: 12px;
 }
 
 .field { display: flex; align-items: center; gap: 8px; }
@@ -673,20 +687,6 @@ p code { font-size: .9em; background: var(--surface-alt); padding: 2px 5px; bord
 /* --------------------------------------------------------- móvil */
 
 @media (max-width: 560px) {
-  /* El buscador se queda arriba también en el móvil: con doscientas y pico
-     fichas, tener que subir la lista entera para buscar era impracticable.
-     Al quedarse pegada, la barra suelta los desplegables y deja solo el
-     campo de búsqueda y las categorías, que es lo que se usa de verdad. */
-  .controls.es-pegada { padding-block: 8px 6px; }
-  .controls.es-pegada .chips { margin-top: 8px; }
-  /* Se recogen los desplegables y el contador, pero nunca el botón de
-     limpiar: es la salida de emergencia cuando te has liado con los filtros,
-     y esconderlo te obligaba a subir la lista entera para deshacerlos. */
-  .controls.es-pegada .field,
-  .controls.es-pegada .count { display: none; }
-  .controls.es-pegada .toolbar:empty { display: none; }
-  .controls.es-pegada .toolbar { margin-top: 8px; }
-
   .count { width: 100%; margin-left: 0; }
   .grid { grid-template-columns: 1fr; }
 
