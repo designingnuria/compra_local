@@ -7,6 +7,8 @@
    Sale con código 1 si encuentra errores, para que el CI lo detenga.
    --------------------------------------------------------------- */
 
+const fs = require("fs");
+const path = require("path");
 const { CATEGORIAS, NEGOCIOS } = require("../data/negocios.js");
 
 const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion"];
@@ -103,6 +105,31 @@ const huerfanas = CATEGORIAS.filter(
   (c) => !NEGOCIOS.some((n) => n.categoria === c.id)
 ).map((c) => c.id);
 if (huerfanas.length) avisos.push(`Categorías sin ningún negocio: ${huerfanas.join(", ")}`);
+
+/* vercel.json no admite claves que no estén en su esquema, y una sola de más
+   hace que el despliegue falle entero: la web se queda en la última versión
+   buena sin avisar de nada. Pasó con un "comment" puesto a modo de nota, que
+   dejó cuatro cambios sin publicar. JSON no tiene comentarios. */
+const CLAVES_VERCEL = new Set(["$schema", "cleanUrls", "trailingSlash", "headers",
+  "redirects", "rewrites", "cleanUrlsRedirect", "regions", "framework",
+  "buildCommand", "outputDirectory", "installCommand", "devCommand", "ignoreCommand", "public"]);
+const CLAVES_REGLA = new Set(["source", "headers", "has", "missing", "destination", "permanent", "statusCode"]);
+
+try {
+  const vercel = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "vercel.json"), "utf8"));
+  Object.keys(vercel).forEach((k) => {
+    if (!CLAVES_VERCEL.has(k)) errores.push(`vercel.json: la clave "${k}" no está en el esquema de Vercel`);
+  });
+  (vercel.headers || []).concat(vercel.redirects || [], vercel.rewrites || []).forEach((regla, i) => {
+    Object.keys(regla).forEach((k) => {
+      if (!CLAVES_REGLA.has(k)) {
+        errores.push(`vercel.json: la regla #${i + 1} lleva una clave "${k}" que Vercel no acepta`);
+      }
+    });
+  });
+} catch (e) {
+  errores.push(`vercel.json no se puede leer: ${e.message}`);
+}
 
 const sinVerificar = NEGOCIOS.filter((n) => n.verificado === false).length;
 const sinRevisar = NEGOCIOS.filter((n) => !n.revisado).length;
