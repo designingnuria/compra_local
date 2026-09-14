@@ -1,6 +1,6 @@
 # Compra Local
 
-Directorio de **106 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **132 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -19,8 +19,8 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
 - **Orden** alfabético, por antigüedad del negocio o aleatorio, para descubrir sin buscar.
 - **Fichas** con nombre, descripción, categoría, barrio, dirección, web y enlace al mapa.
 - Los filtros viven en la URL, así que cualquier búsqueda se puede compartir tal cual.
-- **Formulario para proponer negocios**, que compone el correo y lo manda a quien mantiene
-  el directorio. Sin servidor y sin pasar los datos de nadie por un servicio de terceros.
+- **Formulario para proponer negocios** que se envía solo, sin abrirle a nadie el programa de
+  correo. Si el envío falla, enseña el texto para copiarlo y no perder la propuesta.
 - Modo claro y oscuro, responsive, sin cookies ni rastreo.
 
 ## Cómo se usa
@@ -48,6 +48,26 @@ vercel.json             Cabeceras de caché para el despliegue
 
 Todo es HTML, CSS y JavaScript sin dependencias. Se puede publicar tal cual en GitHub Pages,
 Netlify, Vercel o cualquier hosting estático.
+
+## El formulario de propuestas
+
+Las propuestas se envían a través de [FormSubmit](https://formsubmit.co), que reenvía el
+formulario al correo del directorio. No hace falta registrarse, pero **sí hay que activarlo una
+vez**: con la primera propuesta que llegue, FormSubmit manda un correo de activación a la
+dirección de destino; se pulsa el enlace y ya queda funcionando para siempre.
+
+Está montado para poder cambiarlo sin dolor. En `assets/js/app.js`:
+
+```js
+var ENVIO_URL = "https://formsubmit.co/ajax/" + DESTINO;
+```
+
+Cambiando esa línea (y como mucho el cuerpo de `enviar()`) se pasa a Formspree, Web3Forms o a
+una función propia en Vercel. Si la petición falla por lo que sea, el formulario no pierde lo
+escrito: enseña el texto para copiarlo y un enlace de correo.
+
+Hay un campo trampa oculto para los robots: si viene relleno, la propuesta se descarta sin
+enviar nada y sin decírselo al robot.
 
 ## Publicar la web
 
@@ -95,7 +115,7 @@ contrastado con una fuente fiable (la web del propio negocio, el registro de com
 centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
 `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
 
-De las 106 fichas, 61 están verificadas y 45 siguen pendientes.
+De las 132 fichas, 84 están verificadas y 48 siguen pendientes.
 El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
 este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
 Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que
@@ -106,7 +126,9 @@ corrígelo: es la contribución más valiosa que se puede hacer aquí.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Verificar las 45 fichas que están «por confirmar».
+- [ ] Verificar las 48 fichas que están «por confirmar».
+- [ ] Importar el listado oficial de comercios centenarios del Portal de Datos Abiertos del
+      Ayuntamiento (`datos.madrid.es`), que daría decenas de fichas con dirección contrastada.
 - [ ] Mapa con todos los negocios situados.
 - [ ] Página propia por negocio, con fotos y horarios.
 - [ ] Formulario para proponer negocios sin pasar por GitHub.

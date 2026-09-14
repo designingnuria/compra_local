@@ -59,7 +59,11 @@ const CATEGORIAS = [
   { id: "foto", nombre: "Fotografía", icono: "📷",
     sinonimos: ["foto", "fotografia", "analogica", "carrete", "revelar", "revelado", "camara", "camaras", "pelicula"] },
   { id: "vintage", nombre: "Vintage y anticuarios", icono: "🪑",
-    sinonimos: ["vintage", "antiguedades", "anticuario", "mueble", "muebles", "segunda mano", "retro", "decoracion", "rastro"] }
+    sinonimos: ["vintage", "antiguedades", "anticuario", "mueble", "muebles", "segunda mano", "retro", "decoracion", "rastro"] },
+  { id: "joyeria", nombre: "Joyería", icono: "💍",
+    sinonimos: ["joya", "joyas", "joyeria", "anillo", "pendientes", "collar", "plata", "oro", "bisuteria", "a medida"] },
+  { id: "perfumeria", nombre: "Perfumería", icono: "🌸",
+    sinonimos: ["perfume", "perfumes", "perfumeria", "fragancia", "colonia", "cosmetica", "nicho", "jabon"] }
 ];
 
 const NEGOCIOS = [
@@ -485,7 +489,6 @@ const NEGOCIOS = [
     nombre: "Kino Marcos y Molduras",
     categoria: "arte",
     descripcion: "Artesanos de la moldura con más de treinta años de oficio: trabajan los marcos a mano, uno a uno, incluida la caja americana.",
-    barrio: "Madrid",
     web: "https://www.kinomarcosmolduras.com",
     etiquetas: ["enmarcación", "molduras", "artesano", "caja americana"],
     verificado: true
@@ -838,7 +841,6 @@ const NEGOCIOS = [
     nombre: "Revelab Studio",
     categoria: "foto",
     descripcion: "Laboratorio y tienda de fotografía química: película de todo tipo, revelado en color y blanco y negro, y accesorios de analógico.",
-    barrio: "Madrid",
     web: "https://www.revelab.es",
     etiquetas: ["analógica", "película", "revelado", "blanco y negro"],
     verificado: true
@@ -916,7 +918,6 @@ const NEGOCIOS = [
     nombre: "Brando",
     categoria: "panaderia",
     descripcion: "Heladería abierta en 2021 que elabora el cien por cien de sus helados en obrador propio, con producto de temporada y muy poca azúcar añadida.",
-    barrio: "Madrid",
     web: "https://www.brandohelado.com",
     desde: 2021,
     etiquetas: ["helado", "artesano", "obrador", "temporada"],
@@ -1161,7 +1162,6 @@ const NEGOCIOS = [
     nombre: "Cacto Cacto",
     categoria: "plantas",
     descripcion: "Floristería especializada en cactus y suculentas, con variedades raras y consejo honesto sobre cuánta luz y cuánta agua aguanta cada una.",
-    barrio: "Madrid",
     etiquetas: ["cactus", "suculentas", "plantas", "macetas"],
     verificado: true
   },
@@ -1170,7 +1170,6 @@ const NEGOCIOS = [
     nombre: "Columelas Floristería",
     categoria: "plantas",
     descripcion: "Floristería de barrio con ramos, plantas de interior y reparto a domicilio el mismo día. Trabajan mucho la flor de temporada.",
-    barrio: "Madrid",
     web: "https://columelas.com",
     etiquetas: ["flores", "ramos", "plantas", "a domicilio"],
     verificado: false
@@ -1205,6 +1204,259 @@ const NEGOCIOS = [
     barrio: "Malasaña",
     direccion: "C/ de San Mateo, 28",
     etiquetas: ["juguetes", "educativo", "infantil", "madera"],
+    verificado: true
+  },
+
+  /* ------------------------------------------- alimentación gourmet */
+  {
+    id: "coalla-gourmet",
+    nombre: "Coalla Gourmet",
+    categoria: "alimentacion",
+    descripcion: "Dos plantas de producto selecto: quesos, charcutería, conservas y una bodega larga. Tienen barra al fondo para catar lo mismo que venden.",
+    etiquetas: ["gourmet", "quesos", "conservas", "charcutería", "vinos"],
+    verificado: true
+  },
+  {
+    id: "petramora",
+    nombre: "Petramora",
+    categoria: "alimentacion",
+    descripcion: "Delicatessen pequeño donde mandan las carnes y los lácteos de oveja churra de la Dehesa de la Guadaña. También vermuts, ahumados y conservas escogidas una a una.",
+    etiquetas: ["gourmet", "lácteos", "carne", "ahumados", "vermut"],
+    verificado: true
+  },
+  {
+    id: "delicatessen-picoteo",
+    nombre: "Delicatessen + Picoteo",
+    categoria: "alimentacion",
+    descripcion: "Producto de pequeños productores de toda España: conservas difíciles de ver fuera de su provincia, embutidos, jamones y quesos de vaca, oveja y cabra.",
+    etiquetas: ["gourmet", "conservas", "embutidos", "quesos", "jamón"],
+    verificado: true
+  },
+  {
+    id: "delicatessen-n",
+    nombre: "Delicatessen N",
+    categoria: "alimentacion",
+    descripcion: "Tienda de comestibles selectos abierta en 2017 cerca de la Puerta de Alcalá, con un catálogo corto y muy mirado de marcas pequeñas.",
+    direccion: "Cerca de la Puerta de Alcalá",
+    desde: 2017,
+    etiquetas: ["gourmet", "delicatessen", "conservas", "selecto"],
+    verificado: false
+  },
+  {
+    id: "mercado-de-vallehermoso",
+    nombre: "Mercado de Vallehermoso",
+    categoria: "alimentacion",
+    descripcion: "El único mercado de productores artesanos de Madrid. Carnicerías, pescaderías y fruterías de siempre conviviendo con puestos nuevos que traen producto de pequeña escala.",
+    barrio: "Chamberí",
+    web: "https://mercadovallehermoso.es",
+    etiquetas: ["mercado", "productores", "carnicería", "pescadería", "frutería"],
+    verificado: true
+  },
+  {
+    id: "mercado-de-anton-martin",
+    nombre: "Mercado de Antón Martín",
+    categoria: "alimentacion",
+    descripcion: "Mercado de barrio de tres plantas, con pescado, carne y fruta en los puestos de siempre y una parte buena de producto ecológico.",
+    barrio: "Lavapiés",
+    web: "https://www.mercadoantonmartin.com",
+    etiquetas: ["mercado", "pescadería", "carnicería", "ecológico", "barrio"],
+    verificado: true
+  },
+  {
+    id: "el-granel-de-corredera",
+    nombre: "El Granel de Corredera",
+    categoria: "alimentacion",
+    descripcion: "Legumbres, pasta, frutos secos, harinas y especias al peso, casi todo ecológico. Llevas tus botes y te los rellenan.",
+    barrio: "Malasaña",
+    etiquetas: ["granel", "legumbres", "frutos secos", "especias", "ecológico"],
+    verificado: true
+  },
+  {
+    id: "granel-madrid",
+    nombre: "Granel Madrid",
+    categoria: "alimentacion",
+    descripcion: "Tienda de venta a granel en pleno centro: legumbres, frutos secos, harinas y especias pesadas al momento y sin envase de más.",
+    barrio: "Centro",
+    web: "https://granelmadrid.com",
+    etiquetas: ["granel", "legumbres", "harinas", "especias", "sin plástico"],
+    verificado: true
+  },
+  {
+    id: "la-esquina-del-granel",
+    nombre: "La Esquina del Granel",
+    categoria: "alimentacion",
+    descripcion: "Granel cien por cien ecológico y cero envases de plástico: legumbres, fruta deshidratada, algas, especias y también higiene y limpieza.",
+    web: "https://laesquinadelgranel.es",
+    etiquetas: ["granel", "ecológico", "sin plástico", "algas", "especias"],
+    verificado: true
+  },
+
+  /* ------------------------------------------ chocolate y bombones */
+  {
+    id: "bomboneria-santa",
+    nombre: "Bombonería Santa",
+    categoria: "panaderia",
+    descripcion: "Bombonería de los años veinte en el barrio de Salamanca. Sus rocas de almendra y avellana, los rizados y los troncos de chocolate siguen haciéndose igual.",
+    barrio: "Salamanca",
+    etiquetas: ["bombones", "chocolate", "histórica", "regalo"],
+    verificado: false
+  },
+  {
+    id: "24-onzas",
+    nombre: "24 Onzas",
+    categoria: "panaderia",
+    descripcion: "Tienda diminuta donde Carmen Capote elabora cada día en su obrador los bombones, tabletas, trufas y helados que vende.",
+    barrio: "Salamanca",
+    direccion: "C/ de Espartinas",
+    etiquetas: ["bombones", "chocolate", "obrador", "trufas"],
+    verificado: true
+  },
+  {
+    id: "mon-chocolate",
+    nombre: "Mon Chocolate",
+    categoria: "panaderia",
+    descripcion: "Chocolates de origen —Ghana, Uganda, Costa Rica, Brasil—, turrones artesanos, marrones glacés y caramelos, en una tienda de barrio de Chamberí.",
+    barrio: "Chamberí",
+    direccion: "C/ de Lucio del Valle, 12",
+    etiquetas: ["chocolate", "turrón", "marrón glacé", "origen"],
+    verificado: true
+  },
+
+  /* -------------------------------------- complementos y marroquinería */
+  {
+    id: "nella",
+    nombre: "Nella",
+    categoria: "moda",
+    descripcion: "Taller de marroquinería donde diseñan y cosen bolsos de piel a mano, en series cortas y por encargo. Se puede pedir una pieza a medida.",
+    web: "https://nella.soy",
+    etiquetas: ["bolsos", "piel", "hecho a mano", "a medida", "complementos"],
+    verificado: true
+  },
+  {
+    id: "curticon",
+    nombre: "Curticón",
+    categoria: "moda",
+    descripcion: "Bolsos, mochilas, monederos y cinturones de piel hechos en su propio taller, cada pieza distinta de la anterior.",
+    web: "https://artesaniaenpielmadrid.com",
+    etiquetas: ["bolsos", "cinturones", "piel", "artesano", "complementos"],
+    verificado: true
+  },
+  {
+    id: "creaciones-caspiel",
+    nombre: "Creaciones Caspiel",
+    categoria: "moda",
+    descripcion: "Desde 1975 fabricando bolsos de señora y artículos de piel en Madrid, con la hechura y los acabados de la marroquinería de antes.",
+    desde: 1975,
+    etiquetas: ["bolsos", "piel", "marroquinería", "complementos"],
+    verificado: false
+  },
+  {
+    id: "piel-para-artesanos",
+    nombre: "Piel para Artesanos",
+    categoria: "oficios",
+    descripcion: "Almacén de piel curtida para quien trabaja el cuero: vaquetas, napas, serrajes y herramienta. Te cortan la pieza que necesites.",
+    barrio: "La Latina",
+    direccion: "C/ de la Colegiata, 14",
+    web: "https://pielparaartesanos.com",
+    etiquetas: ["cuero", "piel", "materiales", "marroquinería", "herramienta"],
+    verificado: true
+  },
+
+  /* -------------------------------------------------------- joyería */
+  {
+    id: "aktual-taller",
+    nombre: "Aktual Taller de Joyería",
+    categoria: "joyeria",
+    descripcion: "Diseñan y fabrican cada pieza en su taller del barrio de Palacio. También dan cursos para que te hagas tú la joya desde el lingote.",
+    barrio: "Palacio",
+    web: "https://aktualtaller.com",
+    etiquetas: ["joyas", "taller", "cursos", "hecho a mano", "plata"],
+    verificado: true
+  },
+  {
+    id: "jampe-joyeros",
+    nombre: "JAMPE Maestros Joyeros",
+    categoria: "joyeria",
+    descripcion: "Taller abierto en 1995 por Miguel Martínez, heredero de una familia con más de cincuenta años de oficio. Joyas por encargo y arreglos difíciles.",
+    web: "https://www.jampe.es",
+    desde: 1995,
+    etiquetas: ["joyas", "a medida", "taller", "encargo", "arreglos"],
+    verificado: true
+  },
+  {
+    id: "joyeria-mirayo",
+    nombre: "Joyería Mirayo",
+    categoria: "joyeria",
+    descripcion: "Taller de joyería con más de cien años de historia en el centro, que además acoge a diseñadores de joya contemporánea.",
+    barrio: "Centro",
+    web: "https://www.mirayo.com",
+    etiquetas: ["joyas", "taller", "centenario", "diseñadores"],
+    verificado: true
+  },
+  {
+    id: "la-sanchez",
+    nombre: "La Sánchez",
+    categoria: "joyeria",
+    descripcion: "Joyería de autor en el Barrio de las Letras, con diseño propio y producción artesanal. Piezas pensadas de una en una.",
+    barrio: "Las Letras",
+    etiquetas: ["joyas", "autor", "artesanal", "diseño propio"],
+    verificado: true
+  },
+  {
+    id: "tiahra",
+    nombre: "Tiahra",
+    categoria: "joyeria",
+    descripcion: "Atelier de joyería de piezas únicas en plata, cuero, cristal checo, piedras semipreciosas y esmaltes hechos a mano.",
+    etiquetas: ["joyas", "plata", "esmalte", "piezas únicas", "atelier"],
+    verificado: true
+  },
+
+  /* ----------------------------------------------------- perfumería */
+  {
+    id: "le-secret-du-marais",
+    nombre: "Le Secret du Marais",
+    categoria: "perfumeria",
+    descripcion: "Perfumería de autor con más de quince años trayendo marcas que no está casi nadie más en España. Te dejan probar sin prisa.",
+    etiquetas: ["perfume", "nicho", "fragancias", "autor"],
+    verificado: true
+  },
+  {
+    id: "perfumeria-nadia",
+    nombre: "Perfumería Nadia",
+    categoria: "perfumeria",
+    descripcion: "Más de trescientas marcas de perfumería nicho y cosmética de autor, con asesoramiento de quien se ha olido todas.",
+    barrio: "Salamanca",
+    direccion: "C/ de Velázquez",
+    web: "https://www.nadiaperfumeria.com",
+    etiquetas: ["perfume", "nicho", "cosmética", "fragancias"],
+    verificado: true
+  },
+  {
+    id: "nefertum-parfums",
+    nombre: "Nefertum Parfums",
+    categoria: "perfumeria",
+    descripcion: "Perfumería nicho y de autor, con casas pequeñas y fragancias de producción corta que no llegan a la distribución grande.",
+    web: "https://nefertumparfums.com",
+    etiquetas: ["perfume", "nicho", "autor", "fragancias"],
+    verificado: true
+  },
+  {
+    id: "perfumeria-rosi",
+    nombre: "Perfumería Rosi",
+    categoria: "perfumeria",
+    descripcion: "Boutique de referencia para perfume nicho en Gran Vía, siempre con las casas más nuevas antes que nadie.",
+    barrio: "Centro",
+    web: "https://www.rosigranvia.es",
+    etiquetas: ["perfume", "nicho", "fragancias", "novedades"],
+    verificado: true
+  },
+  {
+    id: "lattar-parfums",
+    nombre: "L'ATTAR",
+    categoria: "perfumeria",
+    descripcion: "Perfumería nicho con equipo formado en fragancia, fuerte en perfumería árabe y en attars y aceites concentrados.",
+    web: "https://lattarparfums.com",
+    etiquetas: ["perfume", "nicho", "attar", "aceites", "árabe"],
     verificado: true
   }
 

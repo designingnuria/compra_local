@@ -169,24 +169,37 @@
         <input id="f-quien" name="quien" type="text" placeholder="Por si hay que preguntarte algo">
       </p>
 
+      <p class="campo campo--trampa" aria-hidden="true">
+        <label for="f-web2">No rellenes esto</label>
+        <input id="f-web2" name="_honey" type="text" tabindex="-1" autocomplete="off">
+      </p>
+
       <p class="form__error" id="form-error" role="alert" hidden></p>
 
       <div class="form__pie">
         <button class="btn" type="submit">Enviar propuesta</button>
-        <span class="form__nota">Se abrirá tu programa de correo con el mensaje ya escrito.</span>
+        <span class="form__nota">La propuesta se envía directamente. No hace falta hacer nada más.</span>
       </div>
     </form>
 
+    <div class="aviso aviso--ok" id="form-ok" hidden>
+      <p class="aviso__titulo">Propuesta enviada</p>
+      <p id="form-ok-texto">Gracias. Le echamos un ojo y, si encaja con los criterios, entra en el directorio.</p>
+      <p class="aviso__acciones">
+        <button class="btn btn--secundario" type="button" id="form-otra">Proponer otro negocio</button>
+      </p>
+    </div>
+
     <div class="aviso" id="form-hecho" hidden>
-      <p class="aviso__titulo">Ya casi está</p>
+      <p class="aviso__titulo">No hemos podido enviarlo</p>
       <p>
-        Debería haberse abierto tu programa de correo con la propuesta escrita; solo queda darle
-        a enviar. Si no se ha abierto nada, copia este texto y mándalo a mano:
+        Algo ha fallado por el camino y la propuesta no ha salido. Puedes intentarlo otra vez,
+        o copiar este texto y mandarlo por correo a mano:
       </p>
       <pre id="form-texto"></pre>
       <p class="aviso__acciones">
         <button class="btn btn--secundario" type="button" id="form-copiar">Copiar el texto</button>
-        <a class="btn btn--secundario" id="form-correo" href="#">Abrir el correo otra vez</a>
+        <a class="btn btn--secundario" id="form-correo" href="#">Escribir el correo</a>
       </p>
     </div>
 

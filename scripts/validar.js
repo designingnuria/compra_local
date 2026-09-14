@@ -9,8 +9,8 @@
 
 const { CATEGORIAS, NEGOCIOS } = require("../data/negocios.js");
 
-const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion", "barrio"];
-const OPCIONALES = ["direccion", "web", "instagram", "desde", "etiquetas", "verificado"];
+const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion"];
+const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado"];
 const PERMITIDOS = new Set([...OBLIGATORIOS, ...OPCIONALES]);
 
 const errores = [];
@@ -49,6 +49,10 @@ NEGOCIOS.forEach((n, i) => {
     );
   }
 
+  if (n.barrio !== undefined && (typeof n.barrio !== "string" || !n.barrio.trim())) {
+    errores.push(`${donde}: si pones "barrio", que no vaya vacío`);
+  }
+
   if (typeof n.verificado !== "boolean") {
     errores.push(`${donde}: "verificado" debe ser true o false`);
   }
@@ -85,6 +89,8 @@ const huerfanas = CATEGORIAS.filter(
 if (huerfanas.length) avisos.push(`Categorías sin ningún negocio: ${huerfanas.join(", ")}`);
 
 const sinVerificar = NEGOCIOS.filter((n) => n.verificado === false).length;
+const sinBarrio = NEGOCIOS.filter((n) => !n.barrio).length;
+if (sinBarrio) avisos.push(`Fichas sin barrio (se muestran solo como "Madrid"): ${sinBarrio}`);
 
 console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}`);
 console.log(

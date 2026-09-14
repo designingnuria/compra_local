@@ -579,6 +579,15 @@ p code { font-size: .9em; background: var(--surface-alt); padding: 2px 5px; bord
 }
 .btn--secundario:hover { border-color: var(--accent); color: var(--accent); filter: none; }
 
+/* Campo trampa: invisible para las personas, irresistible para los robots. */
+.campo--trampa {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
 .aviso {
   margin: 28px 0;
   padding: 22px 24px;
@@ -586,6 +595,12 @@ p code { font-size: .9em; background: var(--surface-alt); padding: 2px 5px; bord
   border: 1px solid color-mix(in srgb, var(--accent) 30%, var(--line));
   border-radius: var(--radius);
 }
+.aviso--ok {
+  background: color-mix(in srgb, var(--green) 12%, var(--surface));
+  border-color: color-mix(in srgb, var(--green) 40%, var(--line));
+}
+.aviso--ok .aviso__titulo { color: var(--green); }
+
 .aviso__titulo {
   font-family: var(--font-display);
   font-size: 24px;

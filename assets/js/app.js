@@ -241,9 +241,18 @@
 
     html += '<p class="card__desc">' + resaltar(negocio.descripcion, ts) + "</p>";
 
-    var donde = negocio.direccion
-      ? resaltar(negocio.direccion, ts) + " <span>· " + resaltar(negocio.barrio, ts) + "</span>"
-      : "<span>" + resaltar(negocio.barrio, ts) + "</span>";
+    /* Ni el barrio ni la dirección son obligatorios: cuando no se sabe con
+       certeza, es preferible dejarlo en blanco a inventárselo. */
+    var donde;
+    if (negocio.direccion && negocio.barrio) {
+      donde = resaltar(negocio.direccion, ts) + " <span>· " + resaltar(negocio.barrio, ts) + "</span>";
+    } else if (negocio.direccion) {
+      donde = resaltar(negocio.direccion, ts);
+    } else if (negocio.barrio) {
+      donde = "<span>" + resaltar(negocio.barrio, ts) + "</span>";
+    } else {
+      donde = "<span>Madrid</span>";
+    }
     html += '<p class="card__where">' + donde + "</p>";
 
     if (negocio.etiquetas && negocio.etiquetas.length) {
@@ -484,25 +493,37 @@
 
   /* ------------------------------------------------------- formulario
 
-     Las propuestas se mandan por correo. Es la única forma de que esto
-     funcione en una web sin servidor sin meter por medio un servicio de
-     terceros al que enviarle los datos de quien rellena el formulario.
-     Si algún día hay backend, basta con cambiar `enviar()`. */
+     La propuesta se envía sola, sin abrirle a nadie el programa de correo.
+     Como esto es una web estática y no hay servidor propio, quien reenvía el
+     formulario al buzón de destino es FormSubmit, que no pide registro: la
+     primera vez que alguien envía algo llega un correo de activación a la
+     dirección de destino, se pulsa el enlace una vez y queda funcionando.
+
+     Para cambiar de servicio (Formspree, Web3Forms, una función propia en
+     Vercel) solo hay que tocar ENVIO_URL y, como mucho, el cuerpo de enviar().
+     Si la petición falla —sin red, o un navegador que la bloquee— el
+     formulario no se pierde: se enseña el texto para copiarlo y un enlace de
+     correo, para que la propuesta pueda llegar igualmente. */
 
   var DESTINO = ["designingnuria", "gmail.com"].join("@");
+  var ENVIO_URL = "https://formsubmit.co/ajax/" + DESTINO;
 
   var form = {
     raiz: $("#form-propuesta"),
     categoria: $("#f-categoria"),
     error: $("#form-error"),
+    ok: $("#form-ok"),
+    otra: $("#form-otra"),
     hecho: $("#form-hecho"),
     texto: $("#form-texto"),
     copiar: $("#form-copiar"),
-    correo: $("#form-correo")
+    correo: $("#form-correo"),
+    boton: null
   };
 
   function prepararFormulario() {
     if (!form.raiz) return;
+    form.boton = form.raiz.querySelector('button[type="submit"]');
 
     form.categoria.innerHTML = '<option value="">Elige una…</option>' +
       CATEGORIAS.map(function (c) {
@@ -512,6 +533,7 @@
 
     form.raiz.addEventListener("submit", alEnviar);
     form.copiar.addEventListener("click", copiarTexto);
+    form.otra.addEventListener("click", otraPropuesta);
 
     // Al corregir un campo se le quita la marca de error.
     form.raiz.addEventListener("input", function (e) {
@@ -536,8 +558,12 @@
       direccion: valor("f-direccion"),
       web: valor("f-web"),
       descripcion: valor("f-descripcion"),
-      quien: valor("f-quien")
+      quien: valor("f-quien"),
+      trampa: valor("f-web2")
     };
+
+    // Si el campo oculto viene relleno, es un robot. Se finge que todo va bien.
+    if (datos.trampa) { exito(); return; }
 
     var faltan = [];
     [["f-nombre", datos.nombre, "el nombre"],
@@ -584,17 +610,65 @@
   }
 
   function enviar(d) {
+    ocupado(true);
+    form.ok.hidden = true;
+    form.hecho.hidden = true;
+
+    var envio = {
+      _subject: "Compra Local · propuesta: " + d.nombre,
+      _template: "table",
+      _captcha: "false",
+      Negocio: d.nombre,
+      Categoria: d.categoria,
+      Barrio: d.barrio,
+      Direccion: d.direccion || "—",
+      Web: d.web || "—",
+      "Que lo hace especial": d.descripcion,
+      "Lo propone": d.quien || "—"
+    };
+
+    fetch(ENVIO_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      body: JSON.stringify(envio)
+    })
+      .then(function (r) {
+        if (!r.ok) throw new Error("respuesta " + r.status);
+        return r.json();
+      })
+      .then(function () { exito(); })
+      .catch(function () { fallo(d); })
+      .then(function () { ocupado(false); }, function () { ocupado(false); });
+  }
+
+  function ocupado(si) {
+    if (!form.boton) return;
+    form.boton.disabled = si;
+    form.boton.textContent = si ? "Enviando…" : "Enviar propuesta";
+  }
+
+  function exito() {
+    form.raiz.reset();
+    form.hecho.hidden = true;
+    form.ok.hidden = false;
+    form.ok.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function otraPropuesta() {
+    form.ok.hidden = true;
+    $("#f-nombre").focus();
+  }
+
+  /* Plan B cuando el envío no sale: que al menos la propuesta escrita no se
+     pierda y se pueda mandar a mano. */
+  function fallo(d) {
     var cuerpo = redactar(d);
-    var enlace = "mailto:" + DESTINO +
+    form.texto.textContent = "Para: " + DESTINO + "\n\n" + cuerpo;
+    form.correo.href = "mailto:" + DESTINO +
       "?subject=" + encodeURIComponent("Compra Local · propuesta: " + d.nombre) +
       "&body=" + encodeURIComponent(cuerpo);
-
-    form.texto.textContent = "Para: " + DESTINO + "\n\n" + cuerpo;
-    form.correo.href = enlace;
-    form.hecho.hidden = false;
     form.copiar.textContent = "Copiar el texto";
-
-    window.location.href = enlace;
+    form.hecho.hidden = false;
     form.hecho.scrollIntoView({ behavior: "smooth", block: "nearest" });
   }
 

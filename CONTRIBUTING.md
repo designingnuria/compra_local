@@ -32,7 +32,7 @@ estropea el directorio más de lo que una de menos lo empobrece.
 ## Cómo se añade
 
 Si solo quieres proponer un negocio y no te apetece tocar código, usa el formulario del final
-de la web: rellenas cuatro campos y te deja el correo escrito.
+de la web: rellenas cuatro campos y se envía solo.
 
 Para añadirlo tú al directorio:
 
@@ -50,7 +50,7 @@ Para añadirlo tú al directorio:
 | `nombre` | Sí | Como se llama, tal cual aparece en la fachada |
 | `categoria` | Sí | Uno de los `id` de `CATEGORIAS`, arriba del mismo archivo |
 | `descripcion` | Sí | Una o dos frases: qué venden y por qué merece la pena |
-| `barrio` | Sí | Barrio o zona reconocible: `Malasaña`, `Chamberí`, `La Latina` |
+| `barrio` | No | Barrio o zona reconocible: `Malasaña`, `Chamberí`, `La Latina`. **Déjalo vacío si no estás seguro**: la ficha aparecerá solo como «Madrid», que es mejor que situarla mal |
 | `direccion` | No | **Déjalo vacío si no estás seguro.** Una dirección mala es peor que ninguna |
 | `web` | No | URL completa con `https://` |
 | `instagram` | No | Solo el usuario, sin arroba |
