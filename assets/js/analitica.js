@@ -23,7 +23,7 @@
 (function () {
   "use strict";
 
-  var API    = "";                   // https://api.<region>.tinybird.co
+  var API    = "https://api.europe-west2.gcp.tinybird.co";
   var TOKEN  = "";                   // token de append, no de admin
   var FUENTE = "analytics_events";   // nombre del Data Source
   var VERSION = "1";
