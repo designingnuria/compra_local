@@ -429,7 +429,9 @@
       pendiente = false;
       if (els.mas.hidden) return;
       var alto = window.innerHeight || document.documentElement.clientHeight;
-      if (els.mas.getBoundingClientRect().top < alto + 800) pintarTanda();
+      // seguirPintando y no pintarTanda: si con una tanda no se llena la
+      // ventana, encadena las que hagan falta en vez de esperar otro scroll.
+      if (els.mas.getBoundingClientRect().top < alto + 800) seguirPintando();
     });
   }
 

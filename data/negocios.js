@@ -31,45 +31,48 @@ const CATEGORIAS = [
   { id: "librerias", nombre: "Librerías", icono: "📚",
     sinonimos: ["libro", "libros", "leer", "lectura", "novela", "ensayo", "poesia", "comic", "libreria"] },
   { id: "alimentacion", nombre: "Alimentación", icono: "🧀",
-    sinonimos: ["comida", "comer", "despensa", "gourmet", "ultramarinos", "colmado", "delicatessen", "queseria", "charcuteria"] },
+    sinonimos: ["comida", "comer", "despensa", "gourmet", "ultramarinos", "colmado", "delicatessen",
+      "queseria", "charcuteria", "carniceria", "carnicero", "carne", "pescaderia", "pescado",
+      "marisco", "pollo", "embutido", "casqueria", "mercado"] },
   { id: "panaderia", nombre: "Pan y dulces", icono: "🥐",
-    sinonimos: ["pan", "panaderia", "obrador", "masa madre", "dulce", "dulces", "pasteleria", "confiteria", "postre", "tarta", "bolleria", "horno"] },
-  { id: "cafe", nombre: "Café y té", icono: "☕",
-    sinonimos: ["cafe", "cafeteria", "tostador", "tueste", "grano", "cafetera", "te", "teteria"] },
-  { id: "vinos", nombre: "Vinos y bebidas", icono: "🍷",
-    sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "bebidas", "beber",
+    sinonimos: ["pan", "panaderia", "obrador", "masa madre", "dulce", "dulces", "pasteleria",
+      "confiteria", "postre", "tarta", "bolleria", "horno", "chocolate", "helado"] },
+  { id: "bebidas", nombre: "Bebidas", icono: "🍷",
+    sinonimos: ["bebida", "bebidas", "beber", "vino", "vinos", "bodega", "vinoteca",
       "cerveza", "cervezas", "artesana", "birra", "licor", "licores", "destilados",
-      "vermut", "sidra", "ginebra", "coctel", "catas"] },
-  { id: "hogar", nombre: "Casa y decoración", icono: "🏺",
-    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta", "interiorismo", "lampara", "lamparas",
-      "textil", "mueble", "muebles", "jarron", "objetos", "regalo"] },
+      "vermut", "sidra", "ginebra", "coctel", "catas",
+      "cafe", "cafeteria", "tostador", "tueste", "grano", "cafetera", "te", "teteria"] },
+  { id: "hogar", nombre: "Hogar", icono: "🏺",
+    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza",
+      "artesania", "alfareria", "ceramica", "ferreteria", "drogueria", "herramienta",
+      "interiorismo", "lampara", "lamparas", "textil", "mueble", "muebles", "jarron", "objetos",
+      "vintage", "antiguedades", "anticuario", "retro", "rastro", "segunda mano", "casa"] },
   { id: "papeleria", nombre: "Papel y arte", icono: "✏️",
     sinonimos: ["papel", "papeleria", "cuaderno", "libreta", "boligrafo", "pluma", "escribir",
       "postal", "bellas artes", "dibujar", "pintura", "pigmentos", "acuarela",
       "enmarcar", "enmarcacion", "marco", "marcos", "cuadro", "cuadros", "lamina", "laminas",
       "poster", "espejo", "arte", "grabado",
-      "comic", "comics", "tebeo", "manga", "juegos de mesa", "rol", "cartas", "coleccionismo"] },
-  { id: "moda", nombre: "Moda y complementos", icono: "🧣",
-    sinonimos: ["ropa", "vestir", "moda", "complementos", "accesorios", "zapatos", "calzado", "sombrero", "sombreria", "bolso", "sastre", "sastreria", "guanteria"] },
-  { id: "musica", nombre: "Música y discos", icono: "🎵",
-    sinonimos: ["musica", "disco", "discos", "vinilo", "vinilos", "cd", "tocadiscos", "instrumento", "tienda de musica"] },
-  { id: "oficios", nombre: "Oficios y talleres", icono: "🔨",
-    sinonimos: ["taller", "artesano", "artesania", "oficio", "reparar", "reparacion", "arreglar", "a medida", "hecho a mano", "coser", "luthier", "guitarreria", "cuero", "piel", "encuadernar", "encuadernacion", "restaurar"] },
-  { id: "plantas", nombre: "Plantas y flores", icono: "🌿",
-    sinonimos: ["planta", "plantas", "flor", "flores", "floristeria", "jardin", "maceta", "ramo"] },
-  { id: "juguetes", nombre: "Juguetes y regalos", icono: "🧸",
+      "comic", "comics", "tebeo", "manga", "juegos de mesa", "rol", "cartas", "coleccionismo",
+      "foto", "fotografia", "analogica", "carrete", "revelar", "revelado", "camara", "camaras", "pelicula"] },
+  { id: "moda", nombre: "Moda", icono: "🧣",
+    sinonimos: ["ropa", "vestir", "moda", "complementos", "accesorios", "zapatos", "calzado",
+      "sombrero", "sombreria", "bolso", "sastre", "sastreria", "guanteria",
+      "joya", "joyas", "joyeria", "anillo", "pendientes", "collar", "plata", "oro", "bisuteria",
+      "reloj", "relojeria", "a medida"] },
+  { id: "musica", nombre: "Música", icono: "🎵",
+    sinonimos: ["musica", "disco", "discos", "vinilo", "vinilos", "cd", "tocadiscos", "instrumento", "tienda de musica", "discos"] },
+  { id: "oficios", nombre: "Oficios", icono: "🔨",
+    sinonimos: ["taller", "artesano", "artesania", "oficio", "reparar", "reparacion", "arreglar",
+      "a medida", "hecho a mano", "coser", "luthier", "guitarreria", "cuero", "piel",
+      "encuadernar", "encuadernacion", "restaurar"] },
+  { id: "plantas", nombre: "Plantas", icono: "🌿",
+    sinonimos: ["planta", "plantas", "flor", "flores", "floristeria", "jardin", "maceta", "ramo", "flores"] },
+  { id: "juguetes", nombre: "Juguetes", icono: "🧸",
     sinonimos: ["juguete", "juguetes", "juego", "juegos", "regalo", "regalos", "ninos"] },
-  { id: "foto", nombre: "Fotografía", icono: "📷",
-    sinonimos: ["foto", "fotografia", "analogica", "carrete", "revelar", "revelado", "camara", "camaras", "pelicula"] },
-  { id: "vintage", nombre: "Vintage y anticuarios", icono: "🪑",
-    sinonimos: ["vintage", "antiguedades", "anticuario", "mueble", "muebles", "segunda mano", "retro", "decoracion", "rastro"] },
-  { id: "joyeria", nombre: "Joyería", icono: "💍",
-    sinonimos: ["joya", "joyas", "joyeria", "anillo", "pendientes", "collar", "plata", "oro", "bisuteria", "a medida"] },
-  { id: "carniceria", nombre: "Carnicería y pescadería", icono: "🥩",
-    sinonimos: ["carniceria", "carnicero", "carne", "pescaderia", "pescado", "marisco", "pollo", "embutido", "casqueria", "charcuteria"] },
-  { id: "belleza", nombre: "Peluquería y estética", icono: "💈",
-    sinonimos: ["peluqueria", "peluquero", "barberia", "barbero", "corte de pelo", "estetica", "cosmetica", "jabon", "navaja", "barba", "herbolario",
-      "manicura", "unas", "pedicura", "cejas", "pestanas", "depilacion", "facial", "masaje", "spa"] }
+  { id: "belleza", nombre: "Belleza", icono: "💈",
+    sinonimos: ["peluqueria", "peluquero", "barberia", "barbero", "corte de pelo", "estetica",
+      "cosmetica", "jabon", "navaja", "barba", "herbolario", "manicura", "unas", "pedicura",
+      "cejas", "pestanas", "depilacion", "facial", "masaje", "spa", "belleza", "peluqueria y estetica"] }
 ];
 
 const NEGOCIOS = [
@@ -335,7 +338,7 @@ const NEGOCIOS = [
   {
     id: "toma-cafe",
     nombre: "Toma Café",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Los que trajeron el café de especialidad a Madrid. Tuestan su propio grano y lo venden en bolsa para llevártelo a casa.",
     barrio: "Malasaña",
     direccion: "C/ de la Palma, 49",
@@ -346,7 +349,7 @@ const NEGOCIOS = [
   {
     id: "hola-coffee",
     nombre: "Hola Coffee",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Tostador y cafetería de referencia en la ciudad. Venden su café en grano y explican con paciencia qué origen le va mejor a tu cafetera.",
     barrio: "Lavapiés",
     direccion: "C/ del Doctor Fourquet, 33",
@@ -357,7 +360,7 @@ const NEGOCIOS = [
   {
     id: "mision-cafe",
     nombre: "Misión Café",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Cafetería de especialidad con baristas formados en casa y una barra donde se puede preguntar sin miedo. Café propio para llevar.",
     barrio: "Conde Duque",
     direccion: "C/ de los Reyes, 5",
@@ -367,7 +370,7 @@ const NEGOCIOS = [
   {
     id: "hanso-cafe",
     nombre: "HanSo Café",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Café de especialidad con alma japonesa y tostadero propio en el barrio de Lucero. Matcha, filtros y grano en bolsa.",
     barrio: "Malasaña",
     direccion: "C/ del Pez, 20",
@@ -379,7 +382,7 @@ const NEGOCIOS = [
   {
     id: "bodega-santa-cecilia",
     nombre: "Bodega Santa Cecilia",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Bodega familiar con miles de referencias, desde lo cotidiano hasta rarezas de bodegas minúsculas. Organizan catas y cursos todo el año.",
     barrio: "Chamberí",
     direccion: "C/ de Blasco de Garay, 74",
@@ -390,7 +393,7 @@ const NEGOCIOS = [
   {
     id: "reserva-y-cata",
     nombre: "Reserva y Cata",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Vinoteca pequeña y muy bien seleccionada, fuerte en vinos de productores independientes y naturales. Te aciertan con lo que buscas.",
     barrio: "Chueca",
     direccion: "C/ del Conde de Xiquena, 13",
@@ -811,7 +814,7 @@ const NEGOCIOS = [
   {
     id: "la-peliculera",
     nombre: "La Peliculera",
-    categoria: "foto",
+    categoria: "papeleria",
     descripcion: "Tienda y laboratorio de fotografía analógica: revelan carrete, hacen copias y venden cámaras lomográficas y de segunda mano.",
     barrio: "Chueca",
     web: "https://lapeliculera.com",
@@ -821,7 +824,7 @@ const NEGOCIOS = [
   {
     id: "cuarto-color-lab",
     nombre: "Cuarto Color Lab",
-    categoria: "foto",
+    categoria: "papeleria",
     descripcion: "Laboratorio de analógico con revelado profesional, venta de película, reparación de cámaras y talleres. Atienden carrete a carrete.",
     barrio: "Centro",
     web: "https://cuartocolorlab.com",
@@ -831,7 +834,7 @@ const NEGOCIOS = [
   {
     id: "sales-de-plata",
     nombre: "Sales de Plata",
-    categoria: "foto",
+    categoria: "papeleria",
     descripcion: "Tienda, estudio y laboratorio en el Barrio de las Letras: compra-venta de cámaras, cursos, alquiler de equipo y reparación.",
     barrio: "Las Letras",
     web: "https://www.salesdeplata.com",
@@ -841,7 +844,7 @@ const NEGOCIOS = [
   {
     id: "lab35",
     nombre: "Lab35",
-    categoria: "foto",
+    categoria: "papeleria",
     descripcion: "Laboratorio de revelado en Malasaña donde dejas el carrete y lo recoges escaneado en un par de horas. Precios claros y sin misterio.",
     barrio: "Malasaña",
     etiquetas: ["revelado", "escaneado", "carrete", "analógica"],
@@ -850,7 +853,7 @@ const NEGOCIOS = [
   {
     id: "revelab",
     nombre: "Revelab Studio",
-    categoria: "foto",
+    categoria: "papeleria",
     descripcion: "Laboratorio y tienda de fotografía química: película de todo tipo, revelado en color y blanco y negro, y accesorios de analógico.",
     web: "https://www.revelab.es",
     etiquetas: ["analógica", "película", "revelado", "blanco y negro"],
@@ -950,7 +953,7 @@ const NEGOCIOS = [
   {
     id: "golden-tips",
     nombre: "Golden Tips",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Tienda de té a granel con fondo largo de tés de origen y accesorios para prepararlos. Aconsejan según cómo lo vayas a hacer en casa.",
     barrio: "Chueca",
     direccion: "C/ de Argensola, 6",
@@ -960,7 +963,7 @@ const NEGOCIOS = [
   {
     id: "la-chaiteca",
     nombre: "La Chaiteca",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Té y café a granel en Chamberí, pesado delante de ti. Tienda pequeña, catálogo largo y explicaciones sin prisa.",
     barrio: "Chamberí",
     etiquetas: ["té", "café", "granel", "chai"],
@@ -969,7 +972,7 @@ const NEGOCIOS = [
   {
     id: "cafetearte",
     nombre: "CaféTéArte",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Tienda especializada en tés e infusiones de calidad, con asesoramiento de verdad sobre orígenes, cortes y temperaturas.",
     barrio: "Chamberí",
     direccion: "Avenida de la Reina Victoria, 52",
@@ -1010,7 +1013,7 @@ const NEGOCIOS = [
   {
     id: "marantikk",
     nombre: "Marantikk",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "Más de 250 metros en pleno Rastro con muebles de diseño, antigüedades y piezas de decoración de casi cualquier década del siglo XX.",
     barrio: "Rastro",
     web: "https://www.marantikk.com",
@@ -1020,7 +1023,7 @@ const NEGOCIOS = [
   {
     id: "indoors-madrid",
     nombre: "Indoors Madrid",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "Anticuario de setenta metros en el Rastro con mobiliario y decoración desde el siglo XIX hasta los años setenta, seleccionado pieza a pieza.",
     barrio: "Rastro",
     web: "http://indoorsmadrid.com",
@@ -1030,7 +1033,7 @@ const NEGOCIOS = [
   {
     id: "juanma-lizana",
     nombre: "Juanma Lizana",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "Anticuario con un revoltijo estupendo de aparadores mid-century, sillas tubulares de los setenta y lámparas imposibles de encontrar en otro sitio.",
     barrio: "Rastro",
     direccion: "C/ de Mira el Río Alta, 16",
@@ -1040,7 +1043,7 @@ const NEGOCIOS = [
   {
     id: "rastroarte",
     nombre: "RastroArte",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "Antigüedades, arte decorativo y piezas de colección conviviendo en el mismo local, con mobiliario clásico y objetos singulares.",
     barrio: "Rastro",
     direccion: "Ribera de Curtidores, 26",
@@ -1050,7 +1053,7 @@ const NEGOCIOS = [
   {
     id: "la-recova",
     nombre: "La Recova",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "De las primeras del Rastro en apostar por la estética nórdica: muebles y decoración de mediados del siglo XX, restaurados con criterio.",
     barrio: "Rastro",
     etiquetas: ["nórdico", "mid-century", "muebles", "restaurado"],
@@ -1059,7 +1062,7 @@ const NEGOCIOS = [
   {
     id: "el-8-rastro",
     nombre: "El 8",
-    categoria: "vintage",
+    categoria: "hogar",
     descripcion: "Local mítico y minúsculo que regenta Máximo, donde mezcla muebles vintage restaurados con diseños propios. Poca pieza y muy escogida.",
     barrio: "Rastro",
     etiquetas: ["vintage", "muebles", "restauración", "diseño propio"],
@@ -1389,7 +1392,7 @@ const NEGOCIOS = [
   {
     id: "aktual-taller",
     nombre: "Aktual Taller de Joyería",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Diseñan y fabrican cada pieza en su taller del barrio de Palacio. También dan cursos para que te hagas tú la joya desde el lingote.",
     barrio: "Palacio",
     web: "https://aktualtaller.com",
@@ -1399,7 +1402,7 @@ const NEGOCIOS = [
   {
     id: "jampe-joyeros",
     nombre: "JAMPE Maestros Joyeros",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Taller abierto en 1995 por Miguel Martínez, heredero de una familia con más de cincuenta años de oficio. Joyas por encargo y arreglos difíciles.",
     web: "https://www.jampe.es",
     desde: 1995,
@@ -1409,7 +1412,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-mirayo",
     nombre: "Joyería Mirayo",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Taller de joyería con más de cien años de historia en el centro, que además acoge a diseñadores de joya contemporánea.",
     barrio: "Centro",
     web: "https://www.mirayo.com",
@@ -1419,7 +1422,7 @@ const NEGOCIOS = [
   {
     id: "la-sanchez",
     nombre: "La Sánchez",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de autor en el Barrio de las Letras, con diseño propio y producción artesanal. Piezas pensadas de una en una.",
     barrio: "Las Letras",
     etiquetas: ["joyas", "autor", "artesanal", "diseño propio"],
@@ -1428,7 +1431,7 @@ const NEGOCIOS = [
   {
     id: "tiahra",
     nombre: "Tiahra",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Atelier de joyería de piezas únicas en plata, cuero, cristal checo, piedras semipreciosas y esmaltes hechos a mano.",
     etiquetas: ["joyas", "plata", "esmalte", "piezas únicas", "atelier"],
     verificado: true
@@ -1439,7 +1442,7 @@ const NEGOCIOS = [
   {
     id: "carnes-moran",
     nombre: "Carnes Morán",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Carnicería que abrió Agapito Morán hace más de cincuenta años y siguen llevando sus herederos. Cortes tradicionales y carne de pueblo, con el despiece hecho en la tienda.",
     web: "https://carnesmoran.com",
     etiquetas: ["carnicería", "familiar", "despiece", "carne"],
@@ -1448,7 +1451,7 @@ const NEGOCIOS = [
   {
     id: "saboli-taboli",
     nombre: "Saboli Taboli",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Puesto de carnicería que Jesús Rodríguez abrió en 1964 en el Mercado de los Mostenses y que lleva desde 1980 con su hijo. Dos generaciones detrás del mismo mostrador.",
     barrio: "Centro",
     direccion: "Mercado de los Mostenses, puestos 35 y 36",
@@ -1459,7 +1462,7 @@ const NEGOCIOS = [
   {
     id: "raza-nostra",
     nombre: "Raza Nostra",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Carnicería especializada en razas autóctonas españolas, con maduraciones largas y piezas que te preparan como se las pidas.",
     etiquetas: ["carnicería", "razas autóctonas", "madurada", "chuletón"],
     verificado: false
@@ -1467,7 +1470,7 @@ const NEGOCIOS = [
   {
     id: "cesareo-gomez",
     nombre: "Cesáreo Gómez",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Casa de carnes veterana que surte a buena parte de los restaurantes de Madrid y vende también al público. Selección muy exigente de vacuno.",
     etiquetas: ["carnicería", "vacuno", "selección", "restauración"],
     verificado: false
@@ -1475,7 +1478,7 @@ const NEGOCIOS = [
   {
     id: "las-viandas-de-julian",
     nombre: "Las Viandas de Julián",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Carnicería de barrio con producto escogido y trato de los de antes: te aconsejan el corte según lo que vayas a cocinar.",
     etiquetas: ["carnicería", "barrio", "embutidos", "carne"],
     verificado: false
@@ -1483,7 +1486,7 @@ const NEGOCIOS = [
   {
     id: "pescaderias-corunesas",
     nombre: "Pescaderías Coruñesas",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Pescadería familiar con más de un siglo de oficio, que trae a diario pescado de lonja del norte. De las que te limpian la pieza como es debido.",
     barrio: "Moncloa",
     direccion: "C/ Juan Montalvo, 14",
@@ -1556,7 +1559,7 @@ const NEGOCIOS = [
   {
     id: "bodegas-mariano-madrueno",
     nombre: "Bodegas Mariano Madrueño",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Bodega de 1895 con la estantería original hasta el techo: vinos, licores y vermut de elaboración propia.",
     barrio: "Centro",
     direccion: "C/ Postigo de San Martín, 6",
@@ -1569,7 +1572,7 @@ const NEGOCIOS = [
   {
     id: "casa-bartolome-carnes",
     nombre: "Casa Bartolomé Carnes",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Carnicería de 1837 en la calle de la Sal, de las más antiguas que siguen abiertas en Madrid.",
     barrio: "Centro",
     direccion: "C/ Sal, 2",
@@ -1696,7 +1699,7 @@ const NEGOCIOS = [
   {
     id: "la-mexicana",
     nombre: "La Mexicana",
-    categoria: "cafe",
+    categoria: "bebidas",
     descripcion: "Tostadero de café y té desde 1837, de los primeros de Madrid. Se huele la tienda desde la calle.",
     barrio: "Centro",
     direccion: "C/ Preciados, 24",
@@ -2131,7 +2134,7 @@ const NEGOCIOS = [
   {
     id: "antigua-relojeria-de-la-sal",
     nombre: "Antigua Relojería de la Sal",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Relojería de 1880 donde siguen arreglando mecánicos y cuerdas que nadie más toca.",
     barrio: "Centro",
     direccion: "C/ Sal, 2",
@@ -2144,7 +2147,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-ansorena",
     nombre: "Joyería Ansorena",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de 1845 con taller propio, de las casas de más oficio de Madrid en joya a medida.",
     barrio: "Retiro",
     direccion: "C/ Alcalá, 52",
@@ -2157,7 +2160,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-duran",
     nombre: "Joyería Durán",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de 1886 en Goya, con taller, tasación y subastas de joya antigua.",
     barrio: "Salamanca",
     direccion: "C/ Goya, 19",
@@ -2170,7 +2173,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-yanes",
     nombre: "Joyería Yanes",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de 1881 con diseño y fabricación propios, en el barrio de Salamanca.",
     barrio: "Salamanca",
     direccion: "C/ Goya, 27",
@@ -2183,7 +2186,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-granados",
     nombre: "Joyería Granados",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de 1899 en la calle de Alcalá, con arreglos y encargos hechos en casa.",
     barrio: "Salamanca",
     direccion: "C/ Alcalá, 105",
@@ -2195,7 +2198,7 @@ const NEGOCIOS = [
   {
     id: "joyeria-perez",
     nombre: "Joyería Pérez",
-    categoria: "joyeria",
+    categoria: "moda",
     descripcion: "Joyería de 1914 en la calle de Ayala, de barrio y con taller detrás del mostrador.",
     barrio: "Salamanca",
     direccion: "C/ Ayala, 15",
@@ -2494,7 +2497,7 @@ const NEGOCIOS = [
   {
     id: "labirratorium",
     nombre: "Labirratorium",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Unas quinientas referencias de cerveza artesana desde 2012, con catas, charlas y talleres. De las que te preguntan qué te gusta antes de recomendarte nada.",
     barrio: "Chamberí",
     direccion: "C/ de Vallehermoso, 34",
@@ -2505,7 +2508,7 @@ const NEGOCIOS = [
   {
     id: "la-cervecista",
     nombre: "La Cervecista",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Más de cuatrocientas cervezas entre artesanas nacionales e importación difícil de encontrar, en una tienda pequeña y bien ordenada.",
     barrio: "Chueca",
     direccion: "C/ de Mejía Lequerica, 3",
@@ -2515,7 +2518,7 @@ const NEGOCIOS = [
   {
     id: "mas-que-cervezas",
     nombre: "Más que Cervezas",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Unas quinientas cervezas en un local mínimo del Barrio de las Letras, y además vinos, licores y lo que haga falta para una coctelera.",
     barrio: "Las Letras",
     etiquetas: ["cerveza", "artesana", "licores", "coctelería"],
@@ -2524,7 +2527,7 @@ const NEGOCIOS = [
   {
     id: "la-buena-pinta",
     nombre: "La Buena Pinta",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Puesto en el Mercado de San Fernando con más de doscientas cervezas artesanas nacionales e importadas. Se puede beber allí mismo.",
     barrio: "Lavapiés",
     direccion: "Mercado de San Fernando",
@@ -2534,7 +2537,7 @@ const NEGOCIOS = [
   {
     id: "hidden-beers",
     nombre: "Hidden Beers",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Selección corta y muy escogida de cerveza artesana nacional e internacional, con rotación constante de novedades.",
     barrio: "Lavapiés",
     direccion: "C/ de Embajadores, 23",
@@ -2545,7 +2548,7 @@ const NEGOCIOS = [
   {
     id: "be-hoppy",
     nombre: "Be Hoppy",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Cerveza artesana española de microcervecerías pequeñas, muchas de ellas de productores que no distribuyen fuera de su provincia.",
     barrio: "La Latina",
     etiquetas: ["cerveza", "artesana", "española", "microcervecería"],
@@ -2556,7 +2559,7 @@ const NEGOCIOS = [
   {
     id: "bodegabierta",
     nombre: "Bodegabierta",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Vinoteca de Malasaña con más de doscientas referencias, casi todas de productores pequeños que no llegan a las grandes superficies.",
     barrio: "Malasaña",
     web: "https://www.bodegabierta.es",
@@ -2566,7 +2569,7 @@ const NEGOCIOS = [
   {
     id: "root-concept",
     nombre: "Root Concept",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Tienda de vino natural en Malasaña donde dejan probar y cuentan quién hay detrás de cada botella. Trabajan con viticultores minúsculos.",
     barrio: "Malasaña",
     web: "https://rootconcept.eu",
@@ -2576,7 +2579,7 @@ const NEGOCIOS = [
   {
     id: "bendito-vinos",
     nombre: "Bendito",
-    categoria: "vinos",
+    categoria: "bebidas",
     descripcion: "Puesto de vinos en el Mercado de San Fernando con una selección muy personal, fuerte en natural y en botellas de poca tirada.",
     barrio: "Lavapiés",
     direccion: "Mercado de San Fernando, C/ de Embajadores, 41",
@@ -2588,7 +2591,7 @@ const NEGOCIOS = [
   {
     id: "carne-nostra",
     nombre: "Carne Nostra",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Carnicería que trabaja razas y ganaderías concretas, con maduraciones propias y despiece hecho en la tienda.",
     etiquetas: ["carnicería", "madurada", "ganadería", "despiece"],
     verificado: false
@@ -2596,7 +2599,7 @@ const NEGOCIOS = [
   {
     id: "pena-maestros-carniceros",
     nombre: "Peña Maestros Carniceros",
-    categoria: "carniceria",
+    categoria: "alimentacion",
     descripcion: "Casa de carnes con mucho oficio detrás del mostrador: te preparan la pieza como se la pidas y aconsejan según cómo la vayas a hacer.",
     etiquetas: ["carnicería", "despiece", "vacuno", "cordero"],
     verificado: false

@@ -18,7 +18,7 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
   sinónimos y las palabras de relleno («una», «para», «tienda») se descartan.
 - Resultados **ordenados por relevancia**: acertar en el nombre pesa más que aparecer de
   pasada en una descripción.
-- **Filtros** por categoría y por barrio, con contadores que se actualizan solos.
+- **Filtros** por doce categorías y por barrio, con contadores que se actualizan solos.
 - **Orden** alfabético, por antigüedad del negocio o aleatorio, para descubrir sin buscar.
 - **Fichas** con nombre, descripción, categoría, barrio, dirección, web y enlace al mapa.
 - Los filtros viven en la URL, así que cualquier búsqueda se puede compartir tal cual.
@@ -114,6 +114,16 @@ que conviene rehacerla cuando la cifra cambie mucho.
 Usa Georgia y no la tipografía de la web a propósito: la imagen se genera sin conexión y una
 fuente que no cargue estropearía la captura.
 
+## Doce categorías, y con motivo
+
+Llegaron a ser diecisiete y no cabían: en la tira solo se veían siete, y las diez restantes
+existían sin que nadie las viera. Se unieron las que se buscan en el mismo viaje —la carnicería
+y la pescadería van con alimentación, el café con las bebidas, los anticuarios con la
+decoración, la fotografía con papel y arte, la joyería con moda— y los nombres se acortaron.
+
+Nada se pierde por el camino: los términos de las categorías absorbidas siguen en `sinonimos`,
+así que «carnicería», «anticuario» o «revelar un carrete» siguen encontrando lo suyo.
+
 ## La barra fija no cambia de altura, y es a propósito
 
 Las categorías van siempre en una sola tira que se desplaza, aunque en una pantalla ancha
@@ -132,6 +142,10 @@ hay que esconder algo al bajar, que no esté dentro del elemento pegado.
 
 Por eso el botón de limpiar filtros vive dentro de la fila del buscador y es más bajo que el
 campo: aparece y desaparece sin alterar la altura de nada.
+
+Las categorías sí se reparten en filas a partir de 900 px de ancho, y ahí sí se puede: esa
+altura cambia al redimensionar la ventana, no al bajar, y era el cambio durante el scroll el
+que provocaba el bucle.
 
 ## El formulario de propuestas
 

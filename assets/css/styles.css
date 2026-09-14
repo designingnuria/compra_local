@@ -220,6 +220,19 @@ a:hover { text-decoration-color: var(--accent); }
 }
 .chips::-webkit-scrollbar { display: none; }
 
+/* Con sitio de sobra se reparten en filas y se ven todas de una vez. Aquí sí
+   se puede: la altura cambia al redimensionar la ventana, no al bajar, y es
+   el cambio durante el scroll el que provocaba el bucle. */
+@media (min-width: 900px) {
+  .chips {
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding-bottom: 0;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
 .chips[data-borde~="derecha"] {
   -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
   mask-image: linear-gradient(to right, #000 calc(100% - 36px), transparent);
