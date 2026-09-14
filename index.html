@@ -6,6 +6,8 @@
 <title>Consume Local · Negocios con alma en Madrid</title>
 <meta name="description" content="Directorio de tiendas y talleres independientes de Madrid. Sin franquicias: solo negocios de barrio regentados por quienes los levantaron.">
 <meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#FBF9F5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141210" media="(prefers-color-scheme: dark)">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Consume Local · Negocios con alma en Madrid">
@@ -15,7 +17,12 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏪</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+<!-- Las fuentes se cargan sin bloquear el pintado: si Google tarda o falla,
+     la página sale igual con la tipografía de reserva en vez de quedarse en
+     blanco. Medido: con la hoja bloqueante el primer pintado se iba a 13 s. -->
+<link rel="stylesheet" media="print" onload="this.media='all'"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap"></noscript>
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -48,6 +55,7 @@
       </svg>
       <label class="visually-hidden" for="q">Buscar negocios</label>
       <input id="q" type="search" autocomplete="off" spellcheck="false"
+             autocapitalize="off" autocorrect="off" enterkeyhint="search"
              placeholder="Busca por nombre, oficio o barrio… («quesos», «enmarcar cuadros», «Lavapiés»)">
       <button id="q-clear" class="search__clear" type="button" hidden aria-label="Borrar búsqueda">&times;</button>
     </div>
@@ -79,6 +87,8 @@
 
   <section id="resultados" aria-label="Resultados">
     <ul class="grid" id="grid"></ul>
+
+    <button class="mas" id="mas" type="button" hidden>Ver más negocios</button>
 
     <div class="empty" id="empty" hidden>
       <p class="empty__title">Aquí todavía no hay nada</p>

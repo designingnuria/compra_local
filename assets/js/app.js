@@ -25,7 +25,8 @@
     controles: $(".controls"),
     centinela: $("#centinela"),
     controles: $(".controls"),
-    resultados: $("#resultados")
+    resultados: $("#resultados"),
+    mas: $("#mas")
   };
 
   var estado = { q: "", categoria: "", barrio: "", orden: "relevancia" };
@@ -385,22 +386,57 @@
     if (arriba < -1) window.scrollTo(0, Math.max(0, window.scrollY + arriba));
   }
 
+  /* ------------------------------------------------------- por tandas
+
+     Con 229 fichas, construirlas todas en cada tecla costaba más de un
+     segundo en un móvil de gama media. Se pintan de veinticuatro en
+     veinticuatro y el resto llega según bajas. El contador sigue diciendo
+     el total de resultados, no lo que hay pintado. */
+
+  var PORTANDA = 24;
+  var listaActual = [];
+  var pintadas = 0;
+  var terminosActuales = [];
+
+  function pintarTanda() {
+    var hasta = Math.min(pintadas + PORTANDA, listaActual.length);
+    var fragmento = document.createDocumentFragment();
+    for (var i = pintadas; i < hasta; i++) {
+      fragmento.appendChild(tarjeta(listaActual[i], terminosActuales));
+    }
+    els.grid.appendChild(fragmento);
+    pintadas = hasta;
+    els.mas.hidden = pintadas >= listaActual.length;
+  }
+
+  /* Si tras pintar una tanda el final sigue a la vista, se encadena otra:
+     con una ventana alta o pocas fichas, el observador no volvería a saltar. */
+  function seguirPintando() {
+    if (els.mas.hidden) return;
+    pintarTanda();
+    requestAnimationFrame(function () {
+      if (els.mas.hidden) return;
+      var alto = window.innerHeight || document.documentElement.clientHeight;
+      if (els.mas.getBoundingClientRect().top < alto + 600) seguirPintando();
+    });
+  }
+
   function pintar(reencuadra) {
     var yAntes = window.scrollY;
-    var lista = filtrar();
+    listaActual = filtrar();
+
     var ts = terminos();
     // Para subrayar también lo que se encontró por la raíz de la palabra.
-    ts = ts.concat(ts.map(raiz).filter(Boolean));
+    terminosActuales = ts.concat(ts.map(raiz).filter(Boolean));
 
     els.grid.innerHTML = "";
-    var fragmento = document.createDocumentFragment();
-    lista.forEach(function (n) { fragmento.appendChild(tarjeta(n, ts)); });
-    els.grid.appendChild(fragmento);
+    pintadas = 0;
+    pintarTanda();
 
-    els.empty.hidden = lista.length > 0;
-    els.count.textContent = lista.length === 0
+    els.empty.hidden = listaActual.length > 0;
+    els.count.textContent = listaActual.length === 0
       ? "Ningún negocio"
-      : lista.length === 1 ? "1 negocio" : lista.length + " negocios";
+      : listaActual.length === 1 ? "1 negocio" : listaActual.length + " negocios";
 
     var hayFiltros = !!(estado.q || estado.categoria || estado.barrio);
     els.reset.hidden = !hayFiltros;
@@ -410,6 +446,8 @@
     guardarEnURL();
     medirBarra();
     if (reencuadra) reencuadrar(yAntes);
+    // Si la primera tanda no llena la pantalla, se sigue pintando.
+    requestAnimationFrame(seguirPintando);
   }
 
   /* --------------------------------------------------------- controles */
@@ -598,6 +636,13 @@
       pintar(true);
       els.q.focus();
     });
+
+    els.mas.addEventListener("click", seguirPintando);
+    if (window.IntersectionObserver) {
+      new IntersectionObserver(function (entradas) {
+        if (entradas[0].isIntersecting) seguirPintando();
+      }, { rootMargin: "600px 0px" }).observe(els.mas);
+    }
 
     // "/" enfoca el buscador, como en tantas webs de documentación.
     document.addEventListener("keydown", function (e) {

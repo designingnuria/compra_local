@@ -24,7 +24,10 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
 - Los filtros viven en la URL, así que cualquier búsqueda se puede compartir tal cual.
 - **Formulario para proponer negocios** que se envía solo, sin abrirle a nadie el programa de
   correo. Si el envío falla, enseña el texto para copiarlo y no perder la propuesta.
-- Modo claro y oscuro, responsive, sin cookies ni rastreo.
+- Modo claro y oscuro, sin cookies ni rastreo.
+- **Pensada para el móvil**, que es desde donde se mira casi siempre: el buscador se queda
+  fijo arriba, las fichas se pintan de veinticuatro en veinticuatro según bajas y las fuentes
+  no bloquean el pintado.
 
 ## Cómo se usa
 
@@ -75,6 +78,29 @@ encaja con los criterios.
 
 Las fichas guardan la coordenada en `coords` aunque ahora mismo no se dibuje ningún mapa: son
 datos costosos de reunir y estarán ahí el día que el mapa vuelva.
+
+## Rendimiento en móvil
+
+Medido con la CPU a un cuarto de velocidad y 3G rápida, que es lo que tiene un móvil de gama
+media. Antes y después de la optimización:
+
+| | antes | después |
+|---|---|---|
+| Primer pintado (con las fuentes lentas) | 13,0 s | 0,7 s |
+| Nodos del DOM | 5.016 | 1.269 |
+| Alto del documento | 89.700 px | 22.700 px |
+| Repintado al teclear | 1.198 ms | ~180 ms |
+
+Tres cambios lo explican:
+
+- **Las fuentes no bloquean el pintado.** La hoja de Google Fonts se carga con
+  `media="print"` y se activa al terminar. Si Google va lento o falla, la página sale con la
+  tipografía de reserva en vez de quedarse en blanco. Esto solo valía trece segundos.
+- **Las fichas se pintan por tandas** de veinticuatro, y el resto llegan según bajas. Construir
+  las 229 en cada tecla era lo que costaba más de un segundo.
+- **`content-visibility: auto`** en las fichas: el navegador se salta la maquetación y el
+  pintado de lo que queda fuera de pantalla. Ojo con `contain-intrinsic-size`, que aplica la
+  medida a los dos ejes; aquí hay que fijar solo la altura o las fichas se salen de la pantalla.
 
 ## El formulario de propuestas
 
