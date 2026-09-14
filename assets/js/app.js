@@ -481,11 +481,149 @@
     });
   }
 
+
+  /* ------------------------------------------------------- formulario
+
+     Las propuestas se mandan por correo. Es la única forma de que esto
+     funcione en una web sin servidor sin meter por medio un servicio de
+     terceros al que enviarle los datos de quien rellena el formulario.
+     Si algún día hay backend, basta con cambiar `enviar()`. */
+
+  var DESTINO = ["designingnuria", "gmail.com"].join("@");
+
+  var form = {
+    raiz: $("#form-propuesta"),
+    categoria: $("#f-categoria"),
+    error: $("#form-error"),
+    hecho: $("#form-hecho"),
+    texto: $("#form-texto"),
+    copiar: $("#form-copiar"),
+    correo: $("#form-correo")
+  };
+
+  function prepararFormulario() {
+    if (!form.raiz) return;
+
+    form.categoria.innerHTML = '<option value="">Elige una…</option>' +
+      CATEGORIAS.map(function (c) {
+        return '<option value="' + escapar(c.nombre) + '">' + escapar(c.nombre) + "</option>";
+      }).join("") +
+      '<option value="Otra">Otra / no lo tengo claro</option>';
+
+    form.raiz.addEventListener("submit", alEnviar);
+    form.copiar.addEventListener("click", copiarTexto);
+
+    // Al corregir un campo se le quita la marca de error.
+    form.raiz.addEventListener("input", function (e) {
+      if (e.target.getAttribute("aria-invalid") === "true") {
+        e.target.removeAttribute("aria-invalid");
+      }
+    });
+  }
+
+  function valor(id) {
+    var el = $("#" + id);
+    return el ? el.value.trim() : "";
+  }
+
+  function alEnviar(e) {
+    e.preventDefault();
+
+    var datos = {
+      nombre: valor("f-nombre"),
+      categoria: valor("f-categoria"),
+      barrio: valor("f-barrio"),
+      direccion: valor("f-direccion"),
+      web: valor("f-web"),
+      descripcion: valor("f-descripcion"),
+      quien: valor("f-quien")
+    };
+
+    var faltan = [];
+    [["f-nombre", datos.nombre, "el nombre"],
+     ["f-categoria", datos.categoria, "la categoría"],
+     ["f-barrio", datos.barrio, "el barrio"],
+     ["f-descripcion", datos.descripcion, "qué lo hace especial"]
+    ].forEach(function (campo) {
+      var el = $("#" + campo[0]);
+      if (campo[1]) { el.removeAttribute("aria-invalid"); return; }
+      el.setAttribute("aria-invalid", "true");
+      faltan.push(campo[2]);
+    });
+
+    if (faltan.length) {
+      form.error.textContent = "Falta " + listar(faltan) + ".";
+      form.error.hidden = false;
+      var primero = form.raiz.querySelector('[aria-invalid="true"]');
+      if (primero) primero.focus();
+      return;
+    }
+
+    form.error.hidden = true;
+    enviar(datos);
+  }
+
+  function listar(partes) {
+    if (partes.length === 1) return partes[0];
+    return partes.slice(0, -1).join(", ") + " y " + partes[partes.length - 1];
+  }
+
+  function redactar(d) {
+    var lineas = [
+      "Propongo este negocio para Compra Local:",
+      "",
+      "Nombre: " + d.nombre,
+      "Categoría: " + d.categoria,
+      "Barrio: " + d.barrio
+    ];
+    if (d.direccion) lineas.push("Dirección: " + d.direccion);
+    if (d.web) lineas.push("Web o Instagram: " + d.web);
+    lineas.push("", "Qué lo hace especial:", d.descripcion);
+    if (d.quien) lineas.push("", "Lo propone: " + d.quien);
+    return lineas.join("\n");
+  }
+
+  function enviar(d) {
+    var cuerpo = redactar(d);
+    var enlace = "mailto:" + DESTINO +
+      "?subject=" + encodeURIComponent("Compra Local · propuesta: " + d.nombre) +
+      "&body=" + encodeURIComponent(cuerpo);
+
+    form.texto.textContent = "Para: " + DESTINO + "\n\n" + cuerpo;
+    form.correo.href = enlace;
+    form.hecho.hidden = false;
+    form.copiar.textContent = "Copiar el texto";
+
+    window.location.href = enlace;
+    form.hecho.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  }
+
+  function copiarTexto() {
+    var texto = form.texto.textContent;
+    var hecho = function () { form.copiar.textContent = "Copiado"; };
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(texto).then(hecho, seleccionar);
+    } else {
+      seleccionar();
+    }
+
+    function seleccionar() {
+      var rango = document.createRange();
+      rango.selectNodeContents(form.texto);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(rango);
+      form.copiar.textContent = "Selecciónalo y copia";
+    }
+  }
+
   /* ---------------------------------------------------------- arranque */
 
   els.heroCount.textContent = NEGOCIOS.length;
   construirChips();
   construirBarrios();
+  prepararFormulario();
   leerDeURL();
   enlazarEventos();
   pintar();

@@ -34,7 +34,7 @@
     <p class="hero__meta">
       <a href="#criterios">Qué entra y qué no</a>
       <span aria-hidden="true">·</span>
-      <a href="#contribuir">Proponer un negocio</a>
+      <a href="#proponer">Proponer un negocio</a>
     </p>
   </div>
 </header>
@@ -83,7 +83,7 @@
       <p class="empty__title">Aquí todavía no hay nada</p>
       <p class="empty__text">
         Prueba con otra palabra o quita algún filtro. Y si conoces un negocio que debería estar,
-        <a href="#contribuir">cuéntanoslo</a>: el directorio se construye entre todos.
+        <a href="#proponer">cuéntanoslo</a>: el directorio se construye entre todos.
       </p>
     </div>
   </section>
@@ -122,27 +122,77 @@
     </p>
   </section>
 
-  <section class="prose" id="contribuir">
+  <section class="prose" id="proponer">
     <h2>Proponer un negocio</h2>
     <p>
-      Cada negocio es una entrada en <code>data/negocios.js</code>. Añadir uno es escribir unas
-      pocas líneas y abrir una propuesta de cambio en el repositorio; no hace falta base de datos
-      ni panel de administración.
+      ¿Conoces una tienda o un taller que debería estar aquí? Cuéntanoslo. El directorio se
+      hace entre todos, y las mejores fichas casi siempre las trae alguien del barrio.
     </p>
-    <pre><code>{
-  id: "queseria-cultivo",
-  nombre: "Quesería Cultivo",
-  categoria: "alimentacion",
-  descripcion: "Quesos artesanos de pequeños productores...",
-  barrio: "Conde Duque",
-  direccion: "C/ Conde Duque, 15",
-  web: "https://queseriacultivo.com",
-  desde: 2014,
-  etiquetas: ["quesos", "catas"]
-}</code></pre>
+
+    <form class="form" id="form-propuesta" novalidate>
+      <div class="form__fila">
+        <p class="campo">
+          <label for="f-nombre">Nombre del negocio <span class="campo__req" aria-hidden="true">*</span></label>
+          <input id="f-nombre" name="nombre" type="text" required autocomplete="organization">
+        </p>
+        <p class="campo">
+          <label for="f-categoria">Categoría <span class="campo__req" aria-hidden="true">*</span></label>
+          <select id="f-categoria" name="categoria" required></select>
+        </p>
+      </div>
+
+      <div class="form__fila">
+        <p class="campo">
+          <label for="f-barrio">Barrio <span class="campo__req" aria-hidden="true">*</span></label>
+          <input id="f-barrio" name="barrio" type="text" required
+                 placeholder="Malasaña, Chamberí, La Latina…">
+        </p>
+        <p class="campo">
+          <label for="f-direccion">Dirección</label>
+          <input id="f-direccion" name="direccion" type="text" placeholder="Solo si la sabes seguro">
+        </p>
+      </div>
+
+      <p class="campo">
+        <label for="f-web">Web o Instagram</label>
+        <input id="f-web" name="web" type="text" placeholder="https://… o @usuario">
+      </p>
+
+      <p class="campo">
+        <label for="f-descripcion">¿Qué lo hace especial? <span class="campo__req" aria-hidden="true">*</span></label>
+        <textarea id="f-descripcion" name="descripcion" rows="4" required
+                  placeholder="Qué venden y por qué merece la pena. Una o dos frases bastan."></textarea>
+      </p>
+
+      <p class="campo">
+        <label for="f-quien">Tu nombre o tu correo <span class="campo__opt">opcional</span></label>
+        <input id="f-quien" name="quien" type="text" placeholder="Por si hay que preguntarte algo">
+      </p>
+
+      <p class="form__error" id="form-error" role="alert" hidden></p>
+
+      <div class="form__pie">
+        <button class="btn" type="submit">Enviar propuesta</button>
+        <span class="form__nota">Se abrirá tu programa de correo con el mensaje ya escrito.</span>
+      </div>
+    </form>
+
+    <div class="aviso" id="form-hecho" hidden>
+      <p class="aviso__titulo">Ya casi está</p>
+      <p>
+        Debería haberse abierto tu programa de correo con la propuesta escrita; solo queda darle
+        a enviar. Si no se ha abierto nada, copia este texto y mándalo a mano:
+      </p>
+      <pre id="form-texto"></pre>
+      <p class="aviso__acciones">
+        <button class="btn btn--secundario" type="button" id="form-copiar">Copiar el texto</button>
+        <a class="btn btn--secundario" id="form-correo" href="#">Abrir el correo otra vez</a>
+      </p>
+    </div>
+
     <p class="note">
-      Antes de proponerlo, comprueba que sigue abierto y que la dirección es la de hoy: los
-      barrios cambian rápido y las fichas envejecen mal.
+      Antes de proponerlo, comprueba que sigue abierto y que no es una franquicia. Los criterios
+      están <a href="#criterios">un poco más arriba</a>.
     </p>
   </section>
 

@@ -1,6 +1,6 @@
 # Compra Local
 
-Directorio de tiendas y talleres **independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **106 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -19,6 +19,8 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
 - **Orden** alfabético, por antigüedad del negocio o aleatorio, para descubrir sin buscar.
 - **Fichas** con nombre, descripción, categoría, barrio, dirección, web y enlace al mapa.
 - Los filtros viven en la URL, así que cualquier búsqueda se puede compartir tal cual.
+- **Formulario para proponer negocios**, que compone el correo y lo manda a quien mantiene
+  el directorio. Sin servidor y sin pasar los datos de nadie por un servicio de terceros.
 - Modo claro y oscuro, responsive, sin cookies ni rastreo.
 
 ## Cómo se usa
@@ -40,14 +42,28 @@ assets/css/styles.css   Estilos, con paleta en variables CSS
 assets/js/app.js        Buscador, filtros y pintado de tarjetas
 data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
+scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
+vercel.json             Cabeceras de caché para el despliegue
 ```
 
 Todo es HTML, CSS y JavaScript sin dependencias. Se puede publicar tal cual en GitHub Pages,
 Netlify, Vercel o cualquier hosting estático.
 
+## Publicar la web
+
+Es una web estática: sirve cualquier hosting sin configurar nada.
+
+**Vercel** (recomendado). En [vercel.com/new](https://vercel.com/new) se importa el repositorio
+y se le da a *Deploy*. No hay que tocar ningún ajuste: no hay framework ni comando de build, y
+`vercel.json` ya trae las cabeceras de caché. A partir de ahí, cada push actualiza la web sola
+y se le puede enchufar un dominio propio.
+
+Netlify, Cloudflare Pages o GitHub Pages funcionan igual de bien con el mismo repositorio.
+
 ## Añadir un negocio
 
-Se edita `data/negocios.js` y se añade una ficha:
+Desde la propia web hay un formulario que compone el correo con la propuesta. Para añadirlo al
+directorio se edita `data/negocios.js`:
 
 ```js
 {
@@ -79,6 +95,7 @@ contrastado con una fuente fiable (la web del propio negocio, el registro de com
 centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
 `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
 
+De las 106 fichas, 61 están verificadas y 45 siguen pendientes.
 El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
 este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
 Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que
@@ -89,7 +106,7 @@ corrígelo: es la contribución más valiosa que se puede hacer aquí.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Verificar las 31 fichas que están «por confirmar».
+- [ ] Verificar las 45 fichas que están «por confirmar».
 - [ ] Mapa con todos los negocios situados.
 - [ ] Página propia por negocio, con fotos y horarios.
 - [ ] Formulario para proponer negocios sin pasar por GitHub.

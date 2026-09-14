@@ -39,7 +39,7 @@ const CATEGORIAS = [
   { id: "vinos", nombre: "Vinos", icono: "🍷",
     sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "licor", "destilados"] },
   { id: "hogar", nombre: "Cerámica y hogar", icono: "🏺",
-    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria"] },
+    sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta"] },
   { id: "papeleria", nombre: "Papelería", icono: "✏️",
     sinonimos: ["papel", "papeleria", "cuaderno", "libreta", "boligrafo", "pluma", "escribir", "encuadernar", "encuadernacion", "postal", "bellas artes"] },
   { id: "arte", nombre: "Arte y enmarcación", icono: "🖼️",
@@ -53,7 +53,13 @@ const CATEGORIAS = [
   { id: "plantas", nombre: "Plantas y flores", icono: "🌿",
     sinonimos: ["planta", "plantas", "flor", "flores", "floristeria", "jardin", "maceta", "ramo"] },
   { id: "juguetes", nombre: "Juguetes y regalos", icono: "🧸",
-    sinonimos: ["juguete", "juguetes", "juego", "juegos", "regalo", "regalos", "ninos"] }
+    sinonimos: ["juguete", "juguetes", "juego", "juegos", "regalo", "regalos", "ninos"] },
+  { id: "comics", nombre: "Cómics y juegos", icono: "💥",
+    sinonimos: ["comic", "comics", "tebeo", "manga", "juegos de mesa", "rol", "cartas", "coleccionismo"] },
+  { id: "foto", nombre: "Fotografía", icono: "📷",
+    sinonimos: ["foto", "fotografia", "analogica", "carrete", "revelar", "revelado", "camara", "camaras", "pelicula"] },
+  { id: "vintage", nombre: "Vintage y anticuarios", icono: "🪑",
+    sinonimos: ["vintage", "antiguedades", "anticuario", "mueble", "muebles", "segunda mano", "retro", "decoracion", "rastro"] }
 ];
 
 const NEGOCIOS = [
@@ -671,10 +677,535 @@ const NEGOCIOS = [
     nombre: "Kamchatka Magic Toys",
     categoria: "juguetes",
     descripcion: "Juguetes de madera, reediciones vintage y juegos raros que no vas a encontrar en una juguetería normal. Tan bonita que da pena comprar.",
-    barrio: "Chueca",
-    direccion: "C/ de Regueros, 10",
+    barrio: "Centro",
     etiquetas: ["juguetes", "madera", "vintage", "regalo"],
     verificado: false
+  },
+
+  /* ------------------------------------------ librerías (ampliación) */
+  {
+    id: "cuesta-de-moyano",
+    nombre: "Casetas de la Cuesta de Moyano",
+    categoria: "librerias",
+    descripcion: "Treinta casetas de libro viejo junto al Botánico, en pie desde 1925. Cada una es un negocio distinto con su manía: una tira al ensayo, otra al cómic, otra al infantil antiguo.",
+    barrio: "Retiro",
+    direccion: "C/ de Claudio Moyano",
+    desde: 1925,
+    etiquetas: ["libro viejo", "segunda mano", "descatalogado", "histórica"],
+    verificado: true
+  },
+  {
+    id: "libreria-san-gines",
+    nombre: "Librería San Ginés",
+    categoria: "librerias",
+    descripcion: "Caseta de libro usado encajada en el pasadizo de San Ginés, en una esquina donde se venden libros desde hace siglos. Fondo revuelto y precios de saldo.",
+    barrio: "Centro",
+    direccion: "Pasadizo de San Ginés",
+    etiquetas: ["libro viejo", "segunda mano", "histórica", "saldo"],
+    verificado: false
+  },
+  {
+    id: "libreria-perez-galdos",
+    nombre: "Librería Pérez Galdós",
+    categoria: "librerias",
+    descripcion: "Librería de viejo para libros raros, agotados y descatalogados. De las de preguntar por un título imposible y que te lo busquen.",
+    barrio: "Chueca",
+    etiquetas: ["libro viejo", "raro", "descatalogado", "segunda mano"],
+    verificado: false
+  },
+  {
+    id: "el-rincon-de-lectura",
+    nombre: "El Rincón de Lectura",
+    categoria: "librerias",
+    descripcion: "Compra-venta de libros de segunda mano y de ocasión junto a la plaza del Dos de Mayo. También compran bibliotecas enteras.",
+    barrio: "Malasaña",
+    etiquetas: ["segunda mano", "ocasión", "compra-venta"],
+    verificado: false
+  },
+  {
+    id: "lata-peinada",
+    nombre: "Lata Peinada",
+    categoria: "librerias",
+    descripcion: "Librería dedicada en exclusiva a la literatura latinoamericana, con editoriales que no suelen cruzar el charco. Programan clubes de lectura y presentaciones.",
+    barrio: "Las Letras",
+    etiquetas: ["latinoamérica", "narrativa", "editoriales pequeñas"],
+    verificado: false
+  },
+  {
+    id: "la-fugitiva",
+    nombre: "La Fugitiva",
+    categoria: "librerias",
+    descripcion: "Librería café con fondo de narrativa y ensayo y una programación cultural constante. De las que funcionan como sala de estar del barrio.",
+    barrio: "Lavapiés",
+    etiquetas: ["narrativa", "café", "ensayo", "barrio"],
+    verificado: false
+  },
+  {
+    id: "enclave-de-libros",
+    nombre: "Enclave de Libros",
+    categoria: "librerias",
+    descripcion: "Librería y espacio cultural con fondo de pensamiento crítico, poesía y edición independiente. Acogen talleres, recitales y presentaciones casi a diario.",
+    barrio: "Centro",
+    etiquetas: ["ensayo", "poesía", "edición independiente", "talleres"],
+    verificado: false
+  },
+  {
+    id: "berkana",
+    nombre: "Librería Berkana",
+    categoria: "librerias",
+    descripcion: "La librería LGTB de Madrid, abierta en 1993 y punto de referencia del barrio desde entonces. Narrativa, ensayo, cómic y fondo difícil de encontrar en otra parte.",
+    barrio: "Chueca",
+    desde: 1993,
+    etiquetas: ["lgtb", "narrativa", "ensayo", "histórica"],
+    verificado: false
+  },
+
+  /* -------------------------------------------------- cómics y juegos */
+  {
+    id: "generacion-x",
+    nombre: "Generación X",
+    categoria: "comics",
+    descripcion: "Cómic, manga, juegos de mesa y rol desde 1994. Dos plantas de exposición, cafetería dentro y torneos casi cada semana.",
+    barrio: "Centro",
+    direccion: "C/ del Conde de Romanones",
+    web: "https://www.generacionx.es",
+    desde: 1994,
+    etiquetas: ["cómic", "manga", "juegos de mesa", "rol"],
+    verificado: true
+  },
+  {
+    id: "akira-comics",
+    nombre: "Akira Cómics",
+    categoria: "comics",
+    descripcion: "Abierta por la familia Marugán en 1993 y premiada con un Eisner. Catálogo hondo de Marvel, DC, manga y cómic europeo, con gente detrás del mostrador que se lo ha leído.",
+    barrio: "Malasaña",
+    desde: 1993,
+    etiquetas: ["cómic", "manga", "europeo", "coleccionismo"],
+    verificado: true
+  },
+  {
+    id: "madrid-comics",
+    nombre: "Madrid Cómics",
+    categoria: "comics",
+    descripcion: "Tienda veterana de cómic con mucho fondo de saldo y grapa antigua. Buen sitio para completar colecciones descabaladas.",
+    barrio: "Centro",
+    etiquetas: ["cómic", "grapa", "saldo", "colecciones"],
+    verificado: false
+  },
+
+  /* ------------------------------------------------------- fotografía */
+  {
+    id: "la-peliculera",
+    nombre: "La Peliculera",
+    categoria: "foto",
+    descripcion: "Tienda y laboratorio de fotografía analógica: revelan carrete, hacen copias y venden cámaras lomográficas y de segunda mano.",
+    barrio: "Chueca",
+    web: "https://lapeliculera.com",
+    etiquetas: ["analógica", "carrete", "revelado", "cámaras"],
+    verificado: true
+  },
+  {
+    id: "cuarto-color-lab",
+    nombre: "Cuarto Color Lab",
+    categoria: "foto",
+    descripcion: "Laboratorio de analógico con revelado profesional, venta de película, reparación de cámaras y talleres. Atienden carrete a carrete.",
+    barrio: "Centro",
+    web: "https://cuartocolorlab.com",
+    etiquetas: ["analógica", "revelado", "laboratorio", "talleres"],
+    verificado: true
+  },
+  {
+    id: "sales-de-plata",
+    nombre: "Sales de Plata",
+    categoria: "foto",
+    descripcion: "Tienda, estudio y laboratorio en el Barrio de las Letras: compra-venta de cámaras, cursos, alquiler de equipo y reparación.",
+    barrio: "Las Letras",
+    web: "https://www.salesdeplata.com",
+    etiquetas: ["analógica", "cámaras", "cursos", "alquiler"],
+    verificado: true
+  },
+  {
+    id: "lab35",
+    nombre: "Lab35",
+    categoria: "foto",
+    descripcion: "Laboratorio de revelado en Malasaña donde dejas el carrete y lo recoges escaneado en un par de horas. Precios claros y sin misterio.",
+    barrio: "Malasaña",
+    etiquetas: ["revelado", "escaneado", "carrete", "analógica"],
+    verificado: true
+  },
+  {
+    id: "revelab",
+    nombre: "Revelab Studio",
+    categoria: "foto",
+    descripcion: "Laboratorio y tienda de fotografía química: película de todo tipo, revelado en color y blanco y negro, y accesorios de analógico.",
+    barrio: "Madrid",
+    web: "https://www.revelab.es",
+    etiquetas: ["analógica", "película", "revelado", "blanco y negro"],
+    verificado: true
+  },
+
+  /* -------------------------------------------- alimentación (amplía) */
+  {
+    id: "casa-gonzalez",
+    nombre: "Casa González",
+    categoria: "alimentacion",
+    descripcion: "Ultramarinos de 1931 con mostrador de mármol: quesos, embutidos, conservas y vinos, seleccionados con el criterio de tres generaciones.",
+    barrio: "Las Letras",
+    direccion: "C/ del León, 12",
+    desde: 1931,
+    etiquetas: ["ultramarinos", "quesos", "conservas", "embutidos"],
+    verificado: false
+  },
+  {
+    id: "lhardy",
+    nombre: "Lhardy",
+    categoria: "alimentacion",
+    descripcion: "Tienda de comestibles finos abierta en 1839, con su samovar de consomé en la entrada. Fiambres, croquetas, empanadas y dulces para llevar.",
+    barrio: "Centro",
+    direccion: "Carrera de San Jerónimo, 8",
+    desde: 1839,
+    etiquetas: ["comestibles", "consomé", "centenario", "fiambres"],
+    verificado: false
+  },
+  {
+    id: "spicy-yuli",
+    nombre: "Spicy Yuli",
+    categoria: "alimentacion",
+    descripcion: "Especias a granel de medio mundo, tés e infusiones, en una tienda diminuta donde te dejan oler todo antes de comprar.",
+    barrio: "Malasaña",
+    direccion: "C/ de Valverde, 42",
+    etiquetas: ["especias", "granel", "té", "infusiones"],
+    verificado: true
+  },
+
+  /* -------------------------------------------- pan y dulces (amplía) */
+  {
+    id: "pasteleria-ascaso",
+    nombre: "Pastelería Ascaso",
+    categoria: "panaderia",
+    descripcion: "Obrador familiar nacido en Huesca en 1890 y asentado en Madrid desde los setenta. Bombonería y pastelería clásica hecha en casa.",
+    barrio: "Chamberí",
+    direccion: "C/ de Orellana, 4",
+    desde: 1890,
+    etiquetas: ["pastelería", "bombones", "obrador", "centenario"],
+    verificado: true
+  },
+  {
+    id: "bomboneria-la-pajarita",
+    nombre: "Bombonería La Pajarita",
+    categoria: "panaderia",
+    descripcion: "Bombones y caramelos artesanos desde 1852, envueltos en las mismas cajas de siempre. Los caramelos de frutas siguen haciéndose a mano.",
+    barrio: "Salamanca",
+    direccion: "C/ de Villanueva, 14",
+    desde: 1852,
+    etiquetas: ["bombones", "caramelos", "centenario", "regalo"],
+    verificado: false
+  },
+  {
+    id: "heladeria-kalua",
+    nombre: "Kalúa",
+    categoria: "panaderia",
+    descripcion: "Heladería con obrador propio y helado de textura muy cremosa. Sabores que rotan con la temporada, sin colorantes de feria.",
+    barrio: "Retiro",
+    direccion: "C/ de Narváez, 62",
+    etiquetas: ["helado", "artesano", "obrador"],
+    verificado: true
+  },
+  {
+    id: "brando-helado",
+    nombre: "Brando",
+    categoria: "panaderia",
+    descripcion: "Heladería abierta en 2021 que elabora el cien por cien de sus helados en obrador propio, con producto de temporada y muy poca azúcar añadida.",
+    barrio: "Madrid",
+    web: "https://www.brandohelado.com",
+    desde: 2021,
+    etiquetas: ["helado", "artesano", "obrador", "temporada"],
+    verificado: true
+  },
+  {
+    id: "heladeria-los-alpes",
+    nombre: "Heladería Los Alpes",
+    categoria: "panaderia",
+    descripcion: "Heladería de barrio de las de toda la vida en Chamberí, con horchata, granizados y los sabores clásicos bien hechos.",
+    barrio: "Chamberí",
+    etiquetas: ["helado", "horchata", "granizado", "barrio"],
+    verificado: false
+  },
+
+  /* ---------------------------------------------- café y té (amplía) */
+  {
+    id: "golden-tips",
+    nombre: "Golden Tips",
+    categoria: "cafe",
+    descripcion: "Tienda de té a granel con fondo largo de tés de origen y accesorios para prepararlos. Aconsejan según cómo lo vayas a hacer en casa.",
+    barrio: "Chueca",
+    direccion: "C/ de Argensola, 6",
+    etiquetas: ["té", "granel", "teteras", "infusiones"],
+    verificado: true
+  },
+  {
+    id: "la-chaiteca",
+    nombre: "La Chaiteca",
+    categoria: "cafe",
+    descripcion: "Té y café a granel en Chamberí, pesado delante de ti. Tienda pequeña, catálogo largo y explicaciones sin prisa.",
+    barrio: "Chamberí",
+    etiquetas: ["té", "café", "granel", "chai"],
+    verificado: true
+  },
+  {
+    id: "cafetearte",
+    nombre: "CaféTéArte",
+    categoria: "cafe",
+    descripcion: "Tienda especializada en tés e infusiones de calidad, con asesoramiento de verdad sobre orígenes, cortes y temperaturas.",
+    barrio: "Chamberí",
+    direccion: "Avenida de la Reina Victoria, 52",
+    web: "https://www.cafetearte.es",
+    etiquetas: ["té", "infusiones", "granel", "café"],
+    verificado: true
+  },
+
+  /* ------------------------------------------------- hogar (amplía) */
+  {
+    id: "ferreteria-del-olmo",
+    nombre: "Ferretería del Olmo",
+    categoria: "hogar",
+    descripcion: "Antigua Ferretería Subero, abierta en 1862: cajones de tornillos sueltos, herramienta de oficio y gente que sabe qué pieza necesitas con solo describirla.",
+    barrio: "La Latina",
+    direccion: "Ronda de Segovia, 4",
+    desde: 1862,
+    etiquetas: ["ferretería", "herramienta", "centenario", "tornillos"],
+    verificado: true
+  },
+  {
+    id: "almacenes-el-botijo",
+    nombre: "Almacenes El Botijo",
+    categoria: "hogar",
+    descripcion: "Droguería y perfumería con origen en 1754, nacida como bazar donde se vendía de todo: mimbre, esparto, cordelería, botería. Sigue oliendo a jabón de siempre.",
+    barrio: "La Latina",
+    direccion: "C/ de Toledo, 35",
+    desde: 1754,
+    etiquetas: ["droguería", "perfumería", "cordelería", "centenario"],
+    verificado: true
+  },
+
+  /* --------------------------------------------- vintage y anticuarios */
+  {
+    id: "marantikk",
+    nombre: "Marantikk",
+    categoria: "vintage",
+    descripcion: "Más de 250 metros en pleno Rastro con muebles de diseño, antigüedades y piezas de decoración de casi cualquier década del siglo XX.",
+    barrio: "Rastro",
+    web: "https://www.marantikk.com",
+    etiquetas: ["antigüedades", "muebles", "diseño", "decoración"],
+    verificado: true
+  },
+  {
+    id: "indoors-madrid",
+    nombre: "Indoors Madrid",
+    categoria: "vintage",
+    descripcion: "Anticuario de setenta metros en el Rastro con mobiliario y decoración desde el siglo XIX hasta los años setenta, seleccionado pieza a pieza.",
+    barrio: "Rastro",
+    web: "http://indoorsmadrid.com",
+    etiquetas: ["anticuario", "muebles", "decoración", "siglo xx"],
+    verificado: true
+  },
+  {
+    id: "juanma-lizana",
+    nombre: "Juanma Lizana",
+    categoria: "vintage",
+    descripcion: "Anticuario con un revoltijo estupendo de aparadores mid-century, sillas tubulares de los setenta y lámparas imposibles de encontrar en otro sitio.",
+    barrio: "Rastro",
+    direccion: "C/ de Mira el Río Alta, 16",
+    etiquetas: ["anticuario", "mid-century", "muebles", "lámparas"],
+    verificado: true
+  },
+  {
+    id: "rastroarte",
+    nombre: "RastroArte",
+    categoria: "vintage",
+    descripcion: "Antigüedades, arte decorativo y piezas de colección conviviendo en el mismo local, con mobiliario clásico y objetos singulares.",
+    barrio: "Rastro",
+    direccion: "Ribera de Curtidores, 26",
+    etiquetas: ["antigüedades", "arte", "coleccionismo", "muebles"],
+    verificado: true
+  },
+  {
+    id: "la-recova",
+    nombre: "La Recova",
+    categoria: "vintage",
+    descripcion: "De las primeras del Rastro en apostar por la estética nórdica: muebles y decoración de mediados del siglo XX, restaurados con criterio.",
+    barrio: "Rastro",
+    etiquetas: ["nórdico", "mid-century", "muebles", "restaurado"],
+    verificado: true
+  },
+  {
+    id: "el-8-rastro",
+    nombre: "El 8",
+    categoria: "vintage",
+    descripcion: "Local mítico y minúsculo que regenta Máximo, donde mezcla muebles vintage restaurados con diseños propios. Poca pieza y muy escogida.",
+    barrio: "Rastro",
+    etiquetas: ["vintage", "muebles", "restauración", "diseño propio"],
+    verificado: true
+  },
+
+  /* ------------------------------------------------- moda (amplía) */
+  {
+    id: "la-intrusa",
+    nombre: "La Intrusa",
+    categoria: "moda",
+    descripcion: "Abierta en 2008 para dar salida a diseñadores emergentes: ropa hecha a mano, complementos y objetos de diseño de creadores que empiezan.",
+    barrio: "Malasaña",
+    web: "http://laintrusashowroom.com",
+    desde: 2008,
+    etiquetas: ["diseñadores", "hecho a mano", "complementos", "emergentes"],
+    verificado: true
+  },
+  {
+    id: "misia-sert",
+    nombre: "Misia Sert",
+    categoria: "moda",
+    descripcion: "Multimarca nacida para comprar menos pero mejor: marcas independientes, sostenibles y atemporales, la mayoría dirigidas por mujeres.",
+    barrio: "Conde Duque",
+    etiquetas: ["sostenible", "multimarca", "atemporal", "independiente"],
+    verificado: true
+  },
+  {
+    id: "sportivo",
+    nombre: "Sportivo",
+    categoria: "moda",
+    descripcion: "Tienda de ropa de hombre con una selección muy personal de marcas japonesas y europeas que casi no se ven en España.",
+    barrio: "Conde Duque",
+    etiquetas: ["hombre", "japonesa", "selección", "multimarca"],
+    verificado: false
+  },
+
+  /* ----------------------------------------------- música (amplía) */
+  {
+    id: "hazen",
+    nombre: "Hazen",
+    categoria: "musica",
+    descripcion: "Casa de instrumentos con raíces en el siglo XIX, junto al Palacio Real. Pianos, cuerda y trato con luthiers independientes de primera fila.",
+    barrio: "Ópera",
+    etiquetas: ["pianos", "instrumentos", "cuerda", "histórica"],
+    verificado: true
+  },
+  {
+    id: "garrido-bailen",
+    nombre: "Garrido Bailén",
+    categoria: "musica",
+    descripcion: "Tienda veterana de instrumentos y accesorios, con venta y alquiler. De las de entrar a por unas cuerdas y salir sabiendo más.",
+    barrio: "Centro",
+    direccion: "C/ Mayor, 88",
+    etiquetas: ["instrumentos", "alquiler", "accesorios", "cuerdas"],
+    verificado: true
+  },
+  {
+    id: "la-guitarreria-de-madrid",
+    nombre: "La Guitarrería de Madrid",
+    categoria: "musica",
+    descripcion: "Guitarras españolas, clásicas, flamencas y acústicas hechas a mano por los mejores luthiers del país, en una selección muy cuidada.",
+    barrio: "Lavapiés",
+    direccion: "C/ de Atocha, 99",
+    web: "https://laguitarreriademadrid.es",
+    etiquetas: ["guitarras", "luthier", "flamenca", "clásica"],
+    verificado: true
+  },
+
+  /* ---------------------------------------------- oficios (amplía) */
+  {
+    id: "rejilleria-lopez",
+    nombre: "Rejillería López",
+    categoria: "oficios",
+    descripcion: "Desde 1911 tejen a mano la rejilla y la anea de las sillas. Un oficio que casi no queda nadie que sepa hacer, y aquí se sigue haciendo igual.",
+    barrio: "Centro",
+    direccion: "C/ de Isabel la Católica, 7",
+    desde: 1911,
+    etiquetas: ["rejilla", "anea", "sillas", "centenario"],
+    verificado: true
+  },
+  {
+    id: "sanatorio-de-munecos",
+    nombre: "El Sanatorio de Muñecos",
+    categoria: "oficios",
+    descripcion: "Hospital de muñecas desde 1916: reponen ojos, pelo y brazos a muñecos de varias generaciones. También venden piezas sueltas y juguetes antiguos.",
+    barrio: "Centro",
+    direccion: "C/ de Preciados",
+    desde: 1916,
+    etiquetas: ["muñecas", "restauración", "centenario", "reparación"],
+    verificado: true
+  },
+  {
+    id: "sanchez-reparacion-calzado",
+    nombre: "Sánchez Reparación y Calzado",
+    categoria: "oficios",
+    descripcion: "Zapatería de reparación abierta por Mariano Sánchez en 1978, especializada en calzado y marroquinería y en el arte de la pátina a mano.",
+    barrio: "Chamberí",
+    desde: 1978,
+    etiquetas: ["zapatero", "reparación", "pátina", "marroquinería"],
+    verificado: true
+  },
+  {
+    id: "taller-luis-mancho",
+    nombre: "Taller Luis Mancho",
+    categoria: "oficios",
+    descripcion: "Taller de zapatería en Argüelles con mucha mano para los arreglos difíciles, incluido el calzado ortopédico.",
+    barrio: "Argüelles",
+    web: "https://www.tallerzapateriamadrid.com",
+    etiquetas: ["zapatero", "reparación", "ortopédico", "arreglos"],
+    verificado: true
+  },
+
+  /* ---------------------------------------------- plantas (amplía) */
+  {
+    id: "cacto-cacto",
+    nombre: "Cacto Cacto",
+    categoria: "plantas",
+    descripcion: "Floristería especializada en cactus y suculentas, con variedades raras y consejo honesto sobre cuánta luz y cuánta agua aguanta cada una.",
+    barrio: "Madrid",
+    etiquetas: ["cactus", "suculentas", "plantas", "macetas"],
+    verificado: true
+  },
+  {
+    id: "columelas",
+    nombre: "Columelas Floristería",
+    categoria: "plantas",
+    descripcion: "Floristería de barrio con ramos, plantas de interior y reparto a domicilio el mismo día. Trabajan mucho la flor de temporada.",
+    barrio: "Madrid",
+    web: "https://columelas.com",
+    etiquetas: ["flores", "ramos", "plantas", "a domicilio"],
+    verificado: false
+  },
+
+  /* --------------------------------------------- juguetes (amplía) */
+  {
+    id: "circo-kids",
+    nombre: "Circo Kids",
+    categoria: "juguetes",
+    descripcion: "Juguetería pequeña y coqueta con juguetes de madera, cartón y plástico reciclado, además de juegos de mesa y libros ilustrados.",
+    barrio: "Chueca",
+    direccion: "C/ de Argensola, 2",
+    etiquetas: ["juguetes", "madera", "reciclado", "libros ilustrados"],
+    verificado: true
+  },
+  {
+    id: "wonderland",
+    nombre: "Wonderland",
+    categoria: "juguetes",
+    descripcion: "Especialistas en juguete de madera, con material de manualidades, decoración infantil y accesorios escogidos uno a uno.",
+    barrio: "Lavapiés",
+    direccion: "C/ de Santa Isabel, 11",
+    etiquetas: ["juguetes", "madera", "manualidades", "infantil"],
+    verificado: true
+  },
+  {
+    id: "lobo-feliz",
+    nombre: "Lobo Feliz",
+    categoria: "juguetes",
+    descripcion: "Juguetería especializada en juego educativo, en pleno Malasaña. Te preguntan por el niño antes de recomendarte nada.",
+    barrio: "Malasaña",
+    direccion: "C/ de San Mateo, 28",
+    etiquetas: ["juguetes", "educativo", "infantil", "madera"],
+    verificado: true
   }
 
 ];

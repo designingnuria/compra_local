@@ -31,6 +31,11 @@ estropea el directorio más de lo que una de menos lo empobrece.
 
 ## Cómo se añade
 
+Si solo quieres proponer un negocio y no te apetece tocar código, usa el formulario del final
+de la web: rellenas cuatro campos y te deja el correo escrito.
+
+Para añadirlo tú al directorio:
+
 1. Abre `data/negocios.js`.
 2. Copia una ficha existente y cámbiale los datos. El `id` tiene que ser único, en
    minúsculas y con guiones.
