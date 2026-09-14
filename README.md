@@ -54,6 +54,7 @@ scripts/validar.js      Comprueba que los datos están bien antes de subirlos
 scripts/revisar.js      Genera REVISAR.md: qué negocios toca comprobar
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
 scripts/versionar.js    Sella los assets de index.html con ?v=<hash> (caché)
+scripts/dominio.js      Cambia la dirección de la web en todos los sitios a la vez
 assets/og.html          Plantilla de la imagen que sale al compartir el enlace
 assets/og.png           Esa imagen ya generada, a 1200x630
 sitemap.xml, robots.txt Para los buscadores
