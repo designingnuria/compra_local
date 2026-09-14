@@ -145,6 +145,14 @@ console.log(
   `   (node scripts/revisar.js)`
 );
 
+/* Los assets no llevan hash en el nombre: si index.html no los sella con el
+   ?v= correcto, un navegador puede mezclar HTML nuevo con app.js viejo. */
+try {
+  require("child_process").execFileSync(process.execPath, [__dirname + "/versionar.js"], { stdio: "pipe" });
+} catch (e) {
+  errores.push("los ?v= de index.html están desfasados (node scripts/versionar.js --escribir)");
+}
+
 if (avisos.length) {
   console.log(`\nAvisos (${avisos.length}):`);
   avisos.forEach((a) => console.log(`  · ${a}`));

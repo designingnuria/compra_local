@@ -25,7 +25,7 @@ const path = require("path");
 const raiz = path.join(__dirname, "..");
 const dist = path.join(raiz, "dist");
 
-const leer = (rel) => fs.readFileSync(path.join(raiz, rel), "utf8");
+const leer = (rel) => fs.readFileSync(path.join(raiz, rel.split("?")[0]), "utf8");
 
 /* Un "</script>" dentro del código cerraría la etiqueta antes de tiempo. */
 const aSalvo = (js) => js.replace(/<\/script/gi, "<\\/script");

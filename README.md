@@ -53,6 +53,7 @@ data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
 scripts/revisar.js      Genera REVISAR.md: qué negocios toca comprobar
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
+scripts/versionar.js    Sella los assets de index.html con ?v=<hash> (caché)
 assets/og.html          Plantilla de la imagen que sale al compartir el enlace
 assets/og.png           Esa imagen ya generada, a 1200x630
 sitemap.xml, robots.txt Para los buscadores
@@ -225,6 +226,26 @@ De las 206 fichas, 156 están verificadas y solo 3 tienen comprobación reciente
 ```bash
 node scripts/revisar.js   # genera REVISAR.md
 ```
+
+## La caché de los assets
+
+`styles.css`, `app.js` y `negocios.js` se llaman siempre igual, así que el
+navegador no tiene forma de saber que han cambiado. Durante unos días se
+sirvieron encima con `max-age=31536000, immutable`: quien entró en la web en esa
+ventana se quedó con una copia guardada **durante un año**, y al desplegar
+cambios veía el HTML nuevo con el JavaScript viejo. Eso rompía la página entera
+(el script petaba al arrancar y no salía ni un negocio).
+
+La solución es que la URL cambie cuando cambia el contenido:
+
+```bash
+node scripts/versionar.js --escribir   # index.html → assets/js/app.js?v=78ca4113
+```
+
+El hash sale del propio archivo, así que basta con ejecutarlo tras tocar el CSS,
+el JS o los datos. `scripts/validar.js` lo comprueba y falla si está desfasado,
+para que no se cuele un despliegue sin sellar.
+
 
 Produce una lista ordenada por urgencia con un enlace de Google Maps por negocio. Se abre,
 se mira si sigue abierto y se anota `revisado: "AAAA-MM"` en la ficha; si ha cerrado, se borra.
