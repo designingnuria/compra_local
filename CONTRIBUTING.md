@@ -69,6 +69,7 @@ Para añadirlo tú al directorio:
 | `etiquetas` | No | Palabras sueltas para el buscador |
 | `coords` | No | `[latitud, longitud]` si la conoces con precisión. La ficha saldrá en su punto exacto del mapa en vez de sumarse al círculo de su barrio |
 | `verificado` | Sí | `true` **solo** si has comprobado los datos hoy en una fuente fiable |
+| `revisado` | No | Mes `AAAA-MM` en que comprobaste que **sigue abierto**. No es lo mismo que `verificado`: una dirección buena puede ser la de un local cerrado |
 
 ## Sobre `verificado`
 
@@ -91,6 +92,17 @@ Cuenta **qué hace especial al negocio**, no lo que se ve desde la puerta.
 
 Sin superlativos de folleto («el mejor», «imprescindible», «único»), sin adjetivos
 vacíos y sin copiar el texto de su web.
+
+## Comprobar que siguen abiertos
+
+Es la tarea más útil y la más aburrida, así que hay un script para hacerla llevadera:
+
+```bash
+node scripts/revisar.js
+```
+
+Genera `REVISAR.md`, una lista ordenada por urgencia con un enlace de Google Maps por negocio.
+Abres, miras y anotas `revisado: "AAAA-MM"`. Si pone «cerrado permanentemente», borra la ficha.
 
 ## Corregir y dar de baja
 

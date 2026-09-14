@@ -1,6 +1,6 @@
 # Consume Local
 
-Directorio de **211 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **206 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -45,6 +45,7 @@ assets/css/styles.css   Estilos, con paleta en variables CSS
 assets/js/app.js        Buscador, filtros y pintado de tarjetas
 data/negocios.js        LA BASE DE DATOS. Aquí se añaden negocios
 scripts/validar.js      Comprueba que los datos están bien antes de subirlos
+scripts/revisar.js      Genera REVISAR.md: qué negocios toca comprobar
 scripts/construir.js    Empaqueta todo en un único archivo HTML (opcional)
 vercel.json             Cabeceras de caché para el despliegue
 ```
@@ -133,22 +134,48 @@ Los criterios de qué entra y qué no están en [CONTRIBUTING.md](CONTRIBUTING.m
 
 ## Sobre la fiabilidad de los datos
 
-Cada ficha tiene un campo `verificado`. Está en `true` solo cuando los datos se han
-contrastado con una fuente fiable (la web del propio negocio, el registro de comercios
-centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
-`verificado: false` aparecen marcadas como **«por confirmar»** en la web.
+Cada ficha lleva dos campos que dicen cuánto fiarse de ella:
 
-De las 211 fichas, 161 están verificadas y 50 siguen pendientes.
-El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
-este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
-Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que
-conviene revisar las fichas de vez en cuando. Si ves un dato equivocado o un cierre,
-corrígelo: es la contribución más valiosa que se puede hacer aquí.
+- **`verificado`** — si los datos (dirección, año, web) se han contrastado con una fuente
+  fiable. Las fichas con `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
+- **`revisado`** — el mes en que alguien comprobó por última vez que el negocio **sigue
+  abierto**. Son cosas distintas: una dirección puede estar perfectamente contrastada y
+  corresponder a un local que cerró el año pasado.
+
+De las 206 fichas, 156 están verificadas y solo 3 tienen comprobación reciente de apertura.
+
+### Revisar los cierres
+
+```bash
+node scripts/revisar.js   # genera REVISAR.md
+```
+
+Produce una lista ordenada por urgencia con un enlace de Google Maps por negocio. Se abre,
+se mira si sigue abierto y se anota `revisado: "AAAA-MM"` en la ficha; si ha cerrado, se borra.
+
+### Por qué hace falta
+
+El comercio de barrio cierra constantemente, y una ficha de un negocio cerrado es peor que no
+tener ficha. **El registro de comercios centenarios del Ayuntamiento no sirve para esto: es un
+archivo histórico, no un listado de quién sigue abierto.** Al repasarlo aparecieron cinco
+comercios que ya habían cerrado y que estaban publicados aquí:
+
+| Negocio | Cerró |
+|---|---|
+| Papelería Salazar | verano de 2020, tras 115 años |
+| Madrid Cómics | febrero de 2022 |
+| Cerería Víctor Ortega | 31 de diciembre de 2024, la última cerería artesanal de Madrid |
+| Bazar Arribas | 31 de marzo de 2026 |
+| Tejidos Bober | 2026, tras casi dos siglos |
+
+Discos La Metralleta sigue abierta pero anunció que dejaba el centro, así que se le ha quitado
+la dirección hasta confirmar dónde está.
 
 ## Hacia dónde puede ir
 
 Ideas que quedan pendientes, por orden de utilidad:
 
+- [ ] Comprobar en Google Maps las 203 fichas sin revisar (`node scripts/revisar.js`).
 - [ ] Verificar las 50 fichas que están «por confirmar».
 - [ ] Recuperar la vista de mapa. Ya hay 88 fichas con coordenada exacta, así que esta vez
       puede ser un mapa de calles de verdad y no un esquema de barrios.

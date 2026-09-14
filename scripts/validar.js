@@ -10,7 +10,7 @@
 const { CATEGORIAS, NEGOCIOS } = require("../data/negocios.js");
 
 const OBLIGATORIOS = ["id", "nombre", "categoria", "descripcion"];
-const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado", "coords"];
+const OPCIONALES = ["barrio", "direccion", "web", "instagram", "desde", "etiquetas", "verificado", "coords", "revisado"];
 const PERMITIDOS = new Set([...OBLIGATORIOS, ...OPCIONALES]);
 
 const errores = [];
@@ -83,6 +83,10 @@ NEGOCIOS.forEach((n, i) => {
     }
   }
 
+  if (n.revisado !== undefined && !/^\d{4}-(0[1-9]|1[0-2])$/.test(n.revisado)) {
+    errores.push(`${donde}: "revisado" debe ser un mes con formato AAAA-MM`);
+  }
+
   if (n.etiquetas !== undefined) {
     if (!Array.isArray(n.etiquetas) || n.etiquetas.some((t) => typeof t !== "string")) {
       errores.push(`${donde}: "etiquetas" debe ser una lista de textos`);
@@ -101,12 +105,17 @@ const huerfanas = CATEGORIAS.filter(
 if (huerfanas.length) avisos.push(`Categorías sin ningún negocio: ${huerfanas.join(", ")}`);
 
 const sinVerificar = NEGOCIOS.filter((n) => n.verificado === false).length;
+const sinRevisar = NEGOCIOS.filter((n) => !n.revisado).length;
 const sinBarrio = NEGOCIOS.filter((n) => !n.barrio).length;
 if (sinBarrio) avisos.push(`Fichas sin barrio (se muestran solo como "Madrid"): ${sinBarrio}`);
 
 console.log(`Negocios: ${NEGOCIOS.length}  ·  categorías: ${CATEGORIAS.length}`);
 console.log(
   `Verificados: ${NEGOCIOS.length - sinVerificar}  ·  pendientes de comprobar: ${sinVerificar}`
+);
+console.log(
+  `Comprobado que siguen abiertos: ${NEGOCIOS.length - sinRevisar}  ·  sin comprobar: ${sinRevisar}` +
+  `   (node scripts/revisar.js)`
 );
 
 if (avisos.length) {

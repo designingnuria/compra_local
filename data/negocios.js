@@ -453,18 +453,6 @@ const NEGOCIOS = [
 
   /* ---------------------------------------------------- papelería */
   {
-    id: "papeleria-salazar",
-    nombre: "Papelería Salazar",
-    categoria: "papeleria",
-    descripcion: "Papelería de 1905 en manos de la misma familia, especializada en material de bellas artes, plumas y artículos religiosos. Un museo que además vende.",
-    barrio: "Centro",
-    direccion: "C/ de la Luna, 7",
-    web: "https://www.papeleriasalazar.es",
-    desde: 1905,
-    etiquetas: ["papelería", "bellas artes", "plumas", "centenario"],
-    verificado: true
-  },
-  {
     id: "casa-postal",
     nombre: "Casa Postal",
     categoria: "papeleria",
@@ -556,6 +544,7 @@ const NEGOCIOS = [
     web: "http://casadediego.info/es",
     desde: 1858,
     etiquetas: ["abanicos", "paraguas", "bastones", "centenario"],
+    revisado: "2025-12",
     verificado: true
   },
   {
@@ -587,12 +576,12 @@ const NEGOCIOS = [
     id: "discos-la-metralleta",
     nombre: "Discos La Metralleta",
     categoria: "musica",
-    descripcion: "Treinta años comprando y vendiendo discos en el sótano de las Descalzas. Miles de vinilos y CDs de segunda mano donde perderse una tarde entera.",
+    descripcion: "Treinta años comprando y vendiendo discos en el sótano de las Descalzas. Miles de vinilos y CDs de segunda mano donde perderse una tarde entera. Anunciaron que dejaban el centro, así que conviene confirmar dónde están antes de ir.",
     barrio: "Centro",
-    direccion: "Postigo de San Martín, 1",
     web: "https://www.discoslametralleta.com",
     etiquetas: ["vinilos", "segunda mano", "CDs", "coleccionismo"],
-    verificado: true
+    revisado: "2026-09",
+    verificado: false
   },
   {
     id: "escridiscos",
@@ -812,15 +801,6 @@ const NEGOCIOS = [
     desde: 1993,
     etiquetas: ["cómic", "manga", "europeo", "coleccionismo"],
     verificado: true
-  },
-  {
-    id: "madrid-comics",
-    nombre: "Madrid Cómics",
-    categoria: "papeleria",
-    descripcion: "Tienda veterana de cómic con mucho fondo de saldo y grapa antigua. Buen sitio para completar colecciones descabaladas.",
-    barrio: "Centro",
-    etiquetas: ["cómic", "grapa", "saldo", "colecciones"],
-    verificado: false
   },
 
   /* ------------------------------------------------------- fotografía */
@@ -2132,18 +2112,6 @@ const NEGOCIOS = [
     verificado: true
   },
   {
-    id: "tejidos-bober",
-    nombre: "Tejidos Bober",
-    categoria: "moda",
-    descripcion: "Tejidos al corte desde 1834: telas para cortina, tapicería y confección, medidas a la vara.",
-    barrio: "Centro",
-    direccion: "C/ Imperial, 12",
-    coords: [40.415200, -3.707330],
-    desde: 1834,
-    etiquetas: ["tejidos","telas","tapicería","centenario"],
-    verificado: true
-  },
-  {
     id: "casa-el-valenciano",
     nombre: "Casa El Valenciano",
     categoria: "moda",
@@ -2299,19 +2267,6 @@ const NEGOCIOS = [
     verificado: true
   },
   {
-    id: "cereria-victor-ortega",
-    nombre: "Cerería Victor Ortega",
-    categoria: "oficios",
-    descripcion: "Cerería de 1893 donde siguen fabricando las velas que venden, de cera virgen y a la medida que pidas.",
-    barrio: "Embajadores",
-    direccion: "C/ Toledo, 43",
-    coords: [40.412422, -3.707734],
-    web: "https://cereriaortega.es",
-    desde: 1893,
-    etiquetas: ["velas","cera","artesano","centenario"],
-    verificado: true
-  },
-  {
     id: "santa-rufina",
     nombre: "Santa Rufina",
     categoria: "oficios",
@@ -2335,18 +2290,6 @@ const NEGOCIOS = [
     web: "https://www.el-angel.com",
     desde: 1867,
     etiquetas: ["orfebrería","imaginería","restauración","centenario"],
-    verificado: true
-  },
-  {
-    id: "bazar-arribas",
-    nombre: "Bazar Arribas",
-    categoria: "hogar",
-    descripcion: "Bazar de 1919 en la Plaza Mayor, con quincalla, juguete antiguo y cosas que no sabías que existían.",
-    barrio: "Centro",
-    direccion: "Plaza Mayor, 16",
-    coords: [40.415504, -3.708142],
-    desde: 1919,
-    etiquetas: ["bazar","quincalla","juguetes","centenario"],
     verificado: true
   },
   {
@@ -2439,6 +2382,7 @@ const NEGOCIOS = [
     web: "https://drogueriariesgo.com",
     desde: 1866,
     etiquetas: ["pigmentos", "bellas artes", "restauración", "droguería", "centenario"],
+    revisado: "2026-09",
     verificado: true
   },
   {
