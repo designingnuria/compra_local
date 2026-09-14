@@ -1,0 +1,20 @@
+DESCRIPTION >
+    Lo que la gente busca y no encuentra. Cada fila es un negocio que
+    falta en el directorio, dicho por quien lo estaba buscando.
+
+NODE resultado
+SQL >
+    %
+    SELECT
+        JSONExtractString(payload, 'termino') AS termino,
+        count() AS veces,
+        max(timestamp) AS ultima_vez
+    FROM analytics_events
+    WHERE action = 'busqueda'
+      AND JSONExtractInt(payload, 'resultados') = 0
+      AND timestamp > now() - INTERVAL {{Int32(dias, 30)}} DAY
+    GROUP BY termino
+    ORDER BY veces DESC
+    LIMIT {{Int32(limite, 100)}}
+
+TYPE ENDPOINT

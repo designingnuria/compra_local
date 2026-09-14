@@ -1,0 +1,19 @@
+DESCRIPTION >
+    Visitas, sesiones y búsquedas por día. El panorama general.
+
+NODE resultado
+SQL >
+    %
+    SELECT
+        toDate(timestamp) AS dia,
+        countIf(action = 'page_hit') AS visitas,
+        uniqExact(session_id) AS sesiones,
+        countIf(action = 'busqueda') AS busquedas,
+        countIf(action = 'negocio') AS clics_a_negocios,
+        countIf(action = 'propuesta') AS propuestas
+    FROM analytics_events
+    WHERE timestamp > now() - INTERVAL {{Int32(dias, 30)}} DAY
+    GROUP BY dia
+    ORDER BY dia DESC
+
+TYPE ENDPOINT

@@ -1,0 +1,22 @@
+DESCRIPTION >
+    Eventos de uso de Consume Local: visitas, búsquedas, filtros y clics
+    hacia los negocios. Sin cookies y sin nada que identifique a nadie.
+    El esquema es el del kit de analítica web de Tinybird, para poder
+    reaprovechar sus plantillas de cuadro de mando.
+
+SCHEMA >
+    `timestamp` DateTime `json:$.timestamp`,
+    `session_id` String `json:$.session_id`,
+    `action` LowCardinality(String) `json:$.action`,
+    `version` LowCardinality(String) `json:$.version`,
+    `payload` String `json:$.payload`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(timestamp)"
+ENGINE_SORTING_KEY "timestamp"
+ENGINE_TTL "timestamp + toIntervalDay(730)"
+
+# Este es el token que va escrito en la web. Solo puede añadir filas aquí:
+# ni leer, ni borrar, ni tocar nada más del workspace. Nace con el
+# despliegue, no se crea a mano.
+TOKEN "tracker web" APPEND

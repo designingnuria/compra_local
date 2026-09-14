@@ -1,40 +1,53 @@
 # Analítica en Tinybird
 
-Qué se mide, cómo se enciende y qué preguntas responde.
+En Tinybird Forward los recursos no se crean desde la interfaz: se declaran
+como archivos y nacen en el despliegue. Este directorio **es** ese proyecto.
+
+```
+datasources/analytics_events.datasource   la tabla y el token de escritura
+endpoints/*.pipe                          tres consultas ya hechas
+```
 
 ## Encenderla
 
-1. **Crea un workspace** en Tinybird para esta web (separado del de tu otra
-   página, así los datos no se mezclan).
+El despliegue lo hace GitHub solo, con `.github/workflows/tinybird.yml`. No
+hace falta instalar el CLI en ningún ordenador.
 
-2. **Crea el Data Source** con el nombre `analytics_events` y el esquema de
-   `analytics_events.datasource`. En la interfaz: *Data Sources* → *Create
-   Data Source* → *Events API*, y pega el esquema.
+1. **Guarda dos secretos en el repositorio**, en *Settings → Secrets and
+   variables → Actions → New repository secret*:
 
-3. **Crea un token de escritura**: *Tokens* → *Create token*. Dale permiso
-   **solo de `APPEND` sobre `analytics_events`**, nada más.
+   | Nombre | Valor |
+   |---|---|
+   | `TB_ADMIN_TOKEN` | el *Workspace admin token* de Tinybird |
+   | `TB_HOST` | el API host de tu región, p. ej. `https://api.tinybird.co` |
 
-   Esto importa: el token va escrito en el código de la página y cualquiera
-   puede leerlo. Con un token de append lo peor que puede pasar es que alguien
-   te meta filas falsas. Con un token de admin ahí, alguien podría leer o
-   borrar el workspace entero.
+   Ese token de admin abre el workspace entero, así que va ahí y en ningún
+   otro sitio: GitHub lo guarda cifrado, no se puede volver a leer una vez
+   guardado y aparece tachado en los registros.
 
-4. **Copia el host de tu región** (arriba a la derecha, *Copy API host*). Es
-   algo tipo `https://api.europe-west2.gcp.tinybird.co`, y **no es el mismo
-   para todos los workspaces**.
+2. **Lanza el despliegue**: pestaña *Actions* → *Desplegar Tinybird* → *Run
+   workflow*. A partir de ahí se dispara solo cada vez que cambie algo de
+   `tinybird/`.
 
-5. Pon los dos valores en `assets/js/analitica.js`:
+   Eso crea el Data Source `analytics_events`, los tres endpoints y un token
+   llamado **tracker web** con permiso únicamente de `APPEND` sobre esa tabla.
+
+3. **Copia el token `tracker web`** desde *Tokens* en Tinybird y ponlo en
+   `assets/js/analitica.js`, junto al API host:
 
    ```js
    var API   = "https://api.tu-region.tinybird.co";
-   var TOKEN = "p.tu_token_de_append";
+   var TOKEN = "p.el_token_tracker_web";
    ```
 
-6. `node scripts/versionar.js --escribir` y sube. Ese paso vuelve a sellar el
-   archivo para que los navegadores no se queden con la versión antigua.
+   Ese sí acaba a la vista en el código de la web, y no pasa nada: con permiso
+   de append lo peor que puede hacer alguien es meter filas falsas.
 
-Mientras `TOKEN` esté vacío, el archivo no hace nada: se puede tener subido en
-producción sin configurar y no manda ni una petición.
+4. `node scripts/versionar.js --escribir` y sube. Ese paso vuelve a sellar el
+   archivo para que ningún navegador se quede con la versión antigua.
+
+Mientras `TOKEN` esté vacío, la web no manda ni una petición: se puede tener
+el archivo subido a producción sin configurar.
 
 ## Qué se manda
 

@@ -1,0 +1,20 @@
+DESCRIPTION >
+    Qué fichas se pulsan de verdad hacia la web o el Instagram del negocio.
+    Es la medida de si el directorio le sirve a alguien.
+
+NODE resultado
+SQL >
+    %
+    SELECT
+        JSONExtractString(payload, 'id') AS negocio,
+        countIf(JSONExtractString(payload, 'destino') = 'web') AS clics_web,
+        countIf(JSONExtractString(payload, 'destino') = 'instagram') AS clics_instagram,
+        count() AS total
+    FROM analytics_events
+    WHERE action = 'negocio'
+      AND timestamp > now() - INTERVAL {{Int32(dias, 30)}} DAY
+    GROUP BY negocio
+    ORDER BY total DESC
+    LIMIT {{Int32(limite, 100)}}
+
+TYPE ENDPOINT
