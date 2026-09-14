@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compra Local · Negocios con alma en Madrid</title>
+<meta name="description" content="Directorio de tiendas y talleres independientes de Madrid. Sin franquicias: solo negocios de barrio regentados por quienes los levantaron.">
+<meta name="color-scheme" content="light dark">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Compra Local · Negocios con alma en Madrid">
+<meta property="og:description" content="Directorio de tiendas y talleres independientes de Madrid. Sin franquicias.">
+<meta property="og:locale" content="es_ES">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏪</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#resultados">Saltar al listado</a>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="hero__eyebrow">Madrid · <span id="hero-count">—</span> negocios</p>
+    <h1 class="hero__title">Compra <em>local</em></h1>
+    <p class="hero__lead">
+      Un directorio de tiendas y talleres independientes de Madrid. Sin franquicias ni cadenas:
+      solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
+      despacio y con cariño.
+    </p>
+    <p class="hero__meta">
+      <a href="#criterios">Qué entra y qué no</a>
+      <span aria-hidden="true">·</span>
+      <a href="#contribuir">Proponer un negocio</a>
+    </p>
+  </div>
+</header>
+
+<div id="centinela" aria-hidden="true"></div>
+<div class="controls">
+  <section class="wrap" aria-label="Buscador y filtros">
+    <div class="search">
+      <svg class="search__icon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path>
+      </svg>
+      <label class="visually-hidden" for="q">Buscar negocios</label>
+      <input id="q" type="search" autocomplete="off" spellcheck="false"
+             placeholder="Busca por nombre, oficio o barrio… («quesos», «enmarcar cuadros», «Lavapiés»)">
+      <button id="q-clear" class="search__clear" type="button" hidden aria-label="Borrar búsqueda">&times;</button>
+    </div>
+
+    <div class="chips" id="chips" role="group" aria-label="Filtrar por categoría"></div>
+
+    <div class="toolbar">
+      <div class="field">
+        <label for="barrio">Barrio</label>
+        <select id="barrio"></select>
+      </div>
+      <div class="field">
+        <label for="orden">Ordenar</label>
+        <select id="orden">
+          <option value="relevancia">Relevancia</option>
+          <option value="alfabetico">A–Z</option>
+          <option value="antiguos">Más veteranos primero</option>
+          <option value="azar">Sorpréndeme</option>
+        </select>
+      </div>
+      <button id="reset" class="btn-ghost" type="button" hidden>Limpiar filtros</button>
+      <p class="count" id="count" role="status" aria-live="polite"></p>
+    </div>
+  </section>
+</div>
+
+<main class="wrap">
+
+  <section id="resultados" aria-label="Resultados">
+    <ul class="grid" id="grid"></ul>
+
+    <div class="empty" id="empty" hidden>
+      <p class="empty__title">Aquí todavía no hay nada</p>
+      <p class="empty__text">
+        Prueba con otra palabra o quita algún filtro. Y si conoces un negocio que debería estar,
+        <a href="#contribuir">cuéntanoslo</a>: el directorio se construye entre todos.
+      </p>
+    </div>
+  </section>
+
+  <section class="prose" id="criterios">
+    <h2>Qué entra y qué no</h2>
+    <p>
+      Este directorio tiene una regla por encima de todas: el negocio tiene que ser de alguien.
+      De una persona, una familia, un par de socios. Alguien a quien le puedes preguntar y te
+      contesta con conocimiento de causa.
+    </p>
+    <div class="criteria">
+      <div class="criteria__col criteria__col--yes">
+        <h3>Sí</h3>
+        <ul>
+          <li>Tiendas y talleres de propiedad independiente, con uno o muy pocos locales.</li>
+          <li>Oficios: encuadernar, enmarcar, afinar, reparar, tallar, coser.</li>
+          <li>Producto seleccionado con criterio propio, no por catálogo de central.</li>
+          <li>Comercios históricos que siguen en manos de la familia.</li>
+          <li>Proyectos jóvenes con una idea clara detrás.</li>
+        </ul>
+      </div>
+      <div class="criteria__col criteria__col--no">
+        <h3>No</h3>
+        <ul>
+          <li>Franquicias y cadenas, por pequeñas o bonitas que parezcan.</li>
+          <li>Negocios de mero paso: locutorios, bazares, kebabs, tiendas de souvenirs.</li>
+          <li>Locales sin nada propio que contar, aunque sean independientes.</li>
+          <li>Puro restaurante o bar: esto va de comprar cosas, no de salir a cenar.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note">
+      Empezamos solo por Madrid capital, a propósito. Mejor cien fichas buenas de una ciudad
+      que mil flojas de veinte.
+    </p>
+  </section>
+
+  <section class="prose" id="contribuir">
+    <h2>Proponer un negocio</h2>
+    <p>
+      Cada negocio es una entrada en <code>data/negocios.js</code>. Añadir uno es escribir unas
+      pocas líneas y abrir una propuesta de cambio en el repositorio; no hace falta base de datos
+      ni panel de administración.
+    </p>
+    <pre><code>{
+  id: "queseria-cultivo",
+  nombre: "Quesería Cultivo",
+  categoria: "alimentacion",
+  descripcion: "Quesos artesanos de pequeños productores...",
+  barrio: "Conde Duque",
+  direccion: "C/ Conde Duque, 15",
+  web: "https://queseriacultivo.com",
+  desde: 2014,
+  etiquetas: ["quesos", "catas"]
+}</code></pre>
+    <p class="note">
+      Antes de proponerlo, comprueba que sigue abierto y que la dirección es la de hoy: los
+      barrios cambian rápido y las fichas envejecen mal.
+    </p>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <p>
+      <strong>Compra Local</strong> — hecho para no perder de vista las tiendas que hacen barrio.
+    </p>
+    <p class="footer__note">
+      Los datos los mantiene la comunidad y pueden quedar desactualizados. Si ves un error o un
+      cierre, avísanos. Sin cookies, sin rastreo, sin publicidad.
+    </p>
+  </div>
+</footer>
+
+<script src="data/negocios.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

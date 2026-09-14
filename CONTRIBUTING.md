@@ -1,0 +1,81 @@
+# Cómo contribuir
+
+Gracias por querer sumar. Este directorio vale exactamente lo que valen sus fichas, así
+que se cuidan mucho dos cosas: **qué negocios entran** y **que los datos sean ciertos**.
+
+## Criterios
+
+### Sí entra
+
+- Tiendas y talleres de **propiedad independiente**, con uno o muy pocos locales, donde
+  quien atiende tiene algo que ver con el negocio.
+- **Oficios**: encuadernar, enmarcar, afinar, reparar, tallar, coser, tostar, afilar.
+- Producto **seleccionado con criterio propio**, no por catálogo de una central.
+- **Comercios históricos** que siguen en manos de la familia.
+- **Proyectos jóvenes** con una idea clara detrás.
+
+### No entra
+
+- **Franquicias y cadenas**, por pequeñas o bonitas que parezcan. Si puedes abrir una
+  pagando un canon, no entra.
+- Negocios de mero paso: **locutorios, bazares, kebabs, tiendas de souvenirs**.
+- Locales sin nada propio que contar, aunque sean independientes.
+- **Restaurantes y bares**: esto va de comprar cosas, no de salir a cenar. Una cafetería
+  que tuesta y vende su café sí entra; un bar de tapas no.
+
+### La duda razonable
+
+Si no sabes si algo es franquicia, busca «*nombre* + franquicia» o mira si su web tiene
+sección de «únete a nosotros». Ante la duda, mejor dejarlo fuera: una ficha de más
+estropea el directorio más de lo que una de menos lo empobrece.
+
+## Cómo se añade
+
+1. Abre `data/negocios.js`.
+2. Copia una ficha existente y cámbiale los datos. El `id` tiene que ser único, en
+   minúsculas y con guiones.
+3. Ejecuta `node scripts/validar.js` y arregla lo que salga.
+4. Abre una propuesta de cambio explicando de dónde sacaste los datos.
+
+## Los campos
+
+| Campo | ¿Obligatorio? | Notas |
+|---|---|---|
+| `id` | Sí | Único. Minúsculas y guiones: `queseria-cultivo` |
+| `nombre` | Sí | Como se llama, tal cual aparece en la fachada |
+| `categoria` | Sí | Uno de los `id` de `CATEGORIAS`, arriba del mismo archivo |
+| `descripcion` | Sí | Una o dos frases: qué venden y por qué merece la pena |
+| `barrio` | Sí | Barrio o zona reconocible: `Malasaña`, `Chamberí`, `La Latina` |
+| `direccion` | No | **Déjalo vacío si no estás seguro.** Una dirección mala es peor que ninguna |
+| `web` | No | URL completa con `https://` |
+| `instagram` | No | Solo el usuario, sin arroba |
+| `desde` | No | Año de apertura, si se conoce con certeza |
+| `etiquetas` | No | Palabras sueltas para el buscador |
+| `verificado` | Sí | `true` **solo** si has comprobado los datos hoy en una fuente fiable |
+
+## Sobre `verificado`
+
+Pon `true` únicamente si has mirado una de estas:
+
+- La web o el Instagram del propio negocio.
+- El registro de comercios centenarios del Ayuntamiento o la Comunidad de Madrid.
+- Un artículo periodístico reciente que confirme dirección y actividad.
+
+Si lo sabes «de haber pasado por delante», pon `false`: sigue siendo una aportación útil,
+solo que alguien tendrá que confirmarla.
+
+## Cómo escribir la descripción
+
+Cuenta **qué hace especial al negocio**, no lo que se ve desde la puerta.
+
+- Flojo: «Tienda de quesos en Conde Duque con buena variedad.»
+- Mejor: «Quesos artesanos de pequeños productores con nombre y apellidos, madurados en
+  su propia cava. Montan catas y maridajes en la sala del fondo.»
+
+Sin superlativos de folleto («el mejor», «imprescindible», «único»), sin adjetivos
+vacíos y sin copiar el texto de su web.
+
+## Corregir y dar de baja
+
+Si un negocio ha cerrado o se ha mudado, **es la contribución más valiosa**. Borra la
+ficha o corrígela y explícalo en la propuesta de cambio.
