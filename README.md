@@ -97,10 +97,12 @@ enviar nada y sin decírselo al robot.
 
 Es una web estática: sirve cualquier hosting sin configurar nada.
 
-**Vercel** (recomendado). En [vercel.com/new](https://vercel.com/new) se importa el repositorio
-y se le da a *Deploy*. No hay que tocar ningún ajuste: no hay framework ni comando de build, y
-`vercel.json` ya trae las cabeceras de caché. A partir de ahí, cada push actualiza la web sola
-y se le puede enchufar un dominio propio.
+Está publicada en **Vercel**, que despliega sola con cada push a `main`. No hay nada que
+configurar: no hay framework ni comando de build, y `vercel.json` ya trae las cabeceras de caché.
+
+Si alguna vez hay que rehacerlo, en [vercel.com/new](https://vercel.com/new) se importa el
+repositorio y se le da a *Deploy*. Si no aparece en la lista, es que la app de Vercel en GitHub
+solo tiene acceso a algunos repositorios: se arregla desde *Adjust GitHub App Permissions*.
 
 Netlify, Cloudflare Pages o GitHub Pages funcionan igual de bien con el mismo repositorio.
 
