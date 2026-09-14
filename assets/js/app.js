@@ -132,10 +132,18 @@
     return t.length >= 7 ? t.slice(0, t.length - 2) : null;
   }
 
+  /* La raíz solo vale al principio de una palabra. Si no, buscar «cuaderno»
+     sacaría los talleres de en-CUADERN-ación, que no es lo que se busca. */
+  var regexRaiz = {};
+  function empiezaPalabraPor(texto, r) {
+    if (!regexRaiz[r]) regexRaiz[r] = new RegExp("(^|[^a-z0-9])" + escaparRegex(r));
+    return regexRaiz[r].test(texto);
+  }
+
   function contiene(texto, t) {
     if (texto.indexOf(t) !== -1) return true;
     var r = raiz(t);
-    return !!r && texto.indexOf(r) !== -1;
+    return !!r && empiezaPalabraPor(texto, r);
   }
 
   /* Primero se busca solo en lo que dice la ficha. Los sinónimos de categoría

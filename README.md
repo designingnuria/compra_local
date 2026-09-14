@@ -1,6 +1,6 @@
 # Consume Local
 
-Directorio de **206 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **211 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -11,7 +11,8 @@ Desde una quesería a una librería de poesía, pasando por el taller donde te e
 - **Buscador** por nombre, oficio, barrio o etiqueta, insensible a mayúsculas y tildes
   (buscar `panaderia` encuentra «Panadería»).
 - Encuentra por **la raíz de la palabra**: buscar «encuadernar» da con los talleres que se
-  anuncian como «encuadernación», y «zapatería» con los que dicen «zapatero».
+  anuncian como «encuadernación», y «zapatería» con los que dicen «zapatero». La raíz solo
+  cuenta al principio de una palabra, para que «cuaderno» no acabe sacando encuadernadores.
 - Entiende **frases sueltas**: «busco un sitio para enmarcar cuadros» encuentra los tres
   talleres de enmarcación aunque ninguno use ese verbo. Cada categoría tiene una lista de
   sinónimos y las palabras de relleno («una», «para», «tienda») se descartan.
@@ -137,7 +138,7 @@ contrastado con una fuente fiable (la web del propio negocio, el registro de com
 centenarios del Ayuntamiento o una fuente periodística reciente). Las fichas con
 `verificado: false` aparecen marcadas como **«por confirmar»** en la web.
 
-De las 206 fichas, 157 están verificadas y 49 siguen pendientes.
+De las 211 fichas, 161 están verificadas y 50 siguen pendientes.
 El comercio de barrio cierra y se muda más de lo que nos gustaría —mientras se montaba
 este directorio, Tipos Infames anunció su cierre tras quince años en Malasaña, y El
 Flamenco Vive ya no está en la calle donde muchas guías lo siguen situando—, así que
@@ -148,7 +149,7 @@ corrígelo: es la contribución más valiosa que se puede hacer aquí.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Verificar las 49 fichas que están «por confirmar».
+- [ ] Verificar las 50 fichas que están «por confirmar».
 - [ ] Recuperar la vista de mapa. Ya hay 88 fichas con coordenada exacta, así que esta vez
       puede ser un mapa de calles de verdad y no un esquema de barrios.
 - [ ] Mapa con todos los negocios situados.

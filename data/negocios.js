@@ -40,10 +40,12 @@ const CATEGORIAS = [
     sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "licor", "destilados"] },
   { id: "hogar", nombre: "Cerámica y hogar", icono: "🏺",
     sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta"] },
-  { id: "papeleria", nombre: "Papelería", icono: "✏️",
-    sinonimos: ["papel", "papeleria", "cuaderno", "libreta", "boligrafo", "pluma", "escribir", "postal", "bellas artes"] },
-  { id: "arte", nombre: "Arte y enmarcación", icono: "🖼️",
-    sinonimos: ["enmarcar", "enmarcacion", "marco", "marcos", "cuadro", "cuadros", "lamina", "laminas", "poster", "espejo", "arte"] },
+  { id: "papeleria", nombre: "Papel y arte", icono: "✏️",
+    sinonimos: ["papel", "papeleria", "cuaderno", "libreta", "boligrafo", "pluma", "escribir",
+      "postal", "bellas artes", "dibujar", "pintura", "pigmentos", "acuarela",
+      "enmarcar", "enmarcacion", "marco", "marcos", "cuadro", "cuadros", "lamina", "laminas",
+      "poster", "espejo", "arte", "grabado",
+      "comic", "comics", "tebeo", "manga", "juegos de mesa", "rol", "cartas", "coleccionismo"] },
   { id: "moda", nombre: "Moda y complementos", icono: "🧣",
     sinonimos: ["ropa", "vestir", "moda", "complementos", "accesorios", "zapatos", "calzado", "sombrero", "sombreria", "bolso", "sastre", "sastreria", "guanteria"] },
   { id: "musica", nombre: "Música y discos", icono: "🎵",
@@ -54,8 +56,6 @@ const CATEGORIAS = [
     sinonimos: ["planta", "plantas", "flor", "flores", "floristeria", "jardin", "maceta", "ramo"] },
   { id: "juguetes", nombre: "Juguetes y regalos", icono: "🧸",
     sinonimos: ["juguete", "juguetes", "juego", "juegos", "regalo", "regalos", "ninos"] },
-  { id: "comics", nombre: "Cómics y juegos", icono: "💥",
-    sinonimos: ["comic", "comics", "tebeo", "manga", "juegos de mesa", "rol", "cartas", "coleccionismo"] },
   { id: "foto", nombre: "Fotografía", icono: "📷",
     sinonimos: ["foto", "fotografia", "analogica", "carrete", "revelar", "revelado", "camara", "camaras", "pelicula"] },
   { id: "vintage", nombre: "Vintage y anticuarios", icono: "🪑",
@@ -479,30 +479,30 @@ const NEGOCIOS = [
   {
     id: "ideas-arte",
     nombre: "Ideas Arte",
-    categoria: "arte",
+    categoria: "papeleria",
     descripcion: "Taller de enmarcación familiar en Malasaña desde 1980, ya por la tercera generación. Hacen marcos a medida en cualquier estilo y aconsejan de verdad.",
     barrio: "Malasaña",
     desde: 1980,
-    etiquetas: ["enmarcación", "marcos", "a medida", "familiar"],
+    etiquetas: ["enmarcación", "cuadros", "marcos", "a medida", "familiar"],
     verificado: true
   },
   {
     id: "subiron-cristal-y-arte",
     nombre: "Subirón Cristal y Arte",
-    categoria: "arte",
+    categoria: "papeleria",
     descripcion: "Taller familiar con más de cuarenta años enmarcando óleos, grabados, telas, espejos y prácticamente cualquier objeto que le lleves.",
     barrio: "Retiro",
     web: "https://www.subironcristalyarte.com",
-    etiquetas: ["enmarcación", "marcos", "espejos", "cristal"],
+    etiquetas: ["enmarcación", "cuadros", "marcos", "espejos", "cristal"],
     verificado: true
   },
   {
     id: "kino-marcos-molduras",
     nombre: "Kino Marcos y Molduras",
-    categoria: "arte",
+    categoria: "papeleria",
     descripcion: "Artesanos de la moldura con más de treinta años de oficio: trabajan los marcos a mano, uno a uno, incluida la caja americana.",
     web: "https://www.kinomarcosmolduras.com",
-    etiquetas: ["enmarcación", "molduras", "artesano", "caja americana"],
+    etiquetas: ["enmarcación", "cuadros", "molduras", "artesano", "caja americana"],
     verificado: true
   },
 
@@ -794,7 +794,7 @@ const NEGOCIOS = [
   {
     id: "generacion-x",
     nombre: "Generación X",
-    categoria: "comics",
+    categoria: "papeleria",
     descripcion: "Cómic, manga, juegos de mesa y rol desde 1994. Dos plantas de exposición, cafetería dentro y torneos casi cada semana.",
     barrio: "Centro",
     direccion: "C/ del Conde de Romanones",
@@ -806,7 +806,7 @@ const NEGOCIOS = [
   {
     id: "akira-comics",
     nombre: "Akira Cómics",
-    categoria: "comics",
+    categoria: "papeleria",
     descripcion: "Abierta por la familia Marugán en 1993 y premiada con un Eisner. Catálogo hondo de Marvel, DC, manga y cómic europeo, con gente detrás del mostrador que se lo ha leído.",
     barrio: "Malasaña",
     desde: 1993,
@@ -816,7 +816,7 @@ const NEGOCIOS = [
   {
     id: "madrid-comics",
     nombre: "Madrid Cómics",
-    categoria: "comics",
+    categoria: "papeleria",
     descripcion: "Tienda veterana de cómic con mucho fondo de saldo y grapa antigua. Buen sitio para completar colecciones descabaladas.",
     barrio: "Centro",
     etiquetas: ["cómic", "grapa", "saldo", "colecciones"],
@@ -2426,6 +2426,63 @@ const NEGOCIOS = [
     desde: 1900,
     etiquetas: ["partituras","instrumentos","editorial","centenario"],
     verificado: true
+  },
+
+  /* ------------------------------------------------ papel y bellas artes */
+  {
+    id: "drogueria-manuel-riesgo",
+    nombre: "Droguería Manuel Riesgo",
+    categoria: "papeleria",
+    descripcion: "Droguería de 1866 con quince mil referencias: pigmentos en polvo, barnices, resinas y químicos para bellas artes y restauración. Cerró en 2024 y la familia la reabrió.",
+    barrio: "Malasaña",
+    direccion: "C/ del Desengaño, 22",
+    web: "https://drogueriariesgo.com",
+    desde: 1866,
+    etiquetas: ["pigmentos", "bellas artes", "restauración", "droguería", "centenario"],
+    verificado: true
+  },
+  {
+    id: "drogueria-shanghai",
+    nombre: "Droguería Shanghai",
+    categoria: "papeleria",
+    descripcion: "Pigmentos en polvo, resinas, material de dorado y de grabado, y utensilios de restauración que no se encuentran en una tienda normal de bellas artes.",
+    barrio: "Chueca",
+    direccion: "C/ de Hortaleza, 15",
+    etiquetas: ["pigmentos", "bellas artes", "grabado", "dorado", "restauración"],
+    verificado: true
+  },
+  {
+    id: "bomagui",
+    nombre: "Bomagui",
+    categoria: "papeleria",
+    descripcion: "Papelería artesanal donde encuadernan ellos mismos: códices cosidos a mano, libretas con la portada pintada y plumas de caligrafía traídas de Florencia.",
+    barrio: "Malasaña",
+    direccion: "C/ del Noviciado, 9",
+    web: "https://bomagui.es",
+    etiquetas: ["papelería", "encuadernación", "caligrafía", "cuadernos", "artesanal"],
+    verificado: true
+  },
+  {
+    id: "papeleria-berno",
+    nombre: "Papelería Berno",
+    categoria: "papeleria",
+    descripcion: "Papelería y librería de 1947 especializada en estilográficas: las venden, las reparan y tienen mucha papelería japonesa.",
+    barrio: "Retiro",
+    direccion: "C/ de Narváez, 35",
+    web: "https://papeleriaberno.com",
+    desde: 1947,
+    etiquetas: ["plumas", "estilográficas", "reparación", "japonesa", "cuadernos"],
+    verificado: true
+  },
+  {
+    id: "papelmania",
+    nombre: "Papelmania",
+    categoria: "papeleria",
+    descripcion: "Papelería de barrio en Claudio Coello, de las que siguen atendiendo de una en una y saben qué papel le va a cada cosa.",
+    barrio: "Salamanca",
+    direccion: "C/ de Claudio Coello",
+    etiquetas: ["papelería", "cuadernos", "barrio", "regalo"],
+    verificado: false
   }
 
 ];
