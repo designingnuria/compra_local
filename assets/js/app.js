@@ -205,7 +205,9 @@
   var VACIAS = ["de", "del", "la", "el", "los", "las", "un", "una", "unos", "unas",
     "y", "o", "en", "con", "para", "por", "al", "a", "que", "donde", "me", "mi", "su",
     "tienda", "tiendas", "sitio", "sitios", "local", "locales", "negocio", "negocios",
-    "comprar", "compro", "busco", "quiero"];
+    "comprar", "compro", "busco", "quiero", "algo", "cosas", "cosa",
+    "producto", "productos", "tipico", "tipica", "tipicos", "tipicas",
+    "mejor", "mejores"];
 
   function terminos() {
     var brutos = normalizar(estado.q).split(/\s+/).filter(Boolean);

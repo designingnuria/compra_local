@@ -1,6 +1,6 @@
 # Consume Local
 
-Directorio de **206 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
+Directorio de **223 tiendas y talleres independientes de Madrid**. Sin franquicias ni cadenas:
 solo negocios pequeños, regentados por la gente que los levantó, donde las cosas se hacen
 despacio y con cariño.
 
@@ -177,8 +177,8 @@ la dirección hasta confirmar dónde está.
 
 Ideas que quedan pendientes, por orden de utilidad:
 
-- [ ] Comprobar en Google Maps las 203 fichas sin revisar (`node scripts/revisar.js`).
-- [ ] Verificar las 50 fichas que están «por confirmar».
+- [ ] Comprobar en Google Maps las 220 fichas sin revisar (`node scripts/revisar.js`).
+- [ ] Verificar las 56 fichas que están «por confirmar».
 - [ ] Recuperar la vista de mapa. Ya hay 88 fichas con coordenada exacta, así que esta vez
       puede ser un mapa de calles de verdad y no un esquema de barrios.
 - [ ] Mapa con todos los negocios situados.

@@ -11,20 +11,23 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 
 | | |
 |---|---|
-| Negocios en el directorio | 206 |
-| Sin comprobar nunca | 203 |
+| Negocios en el directorio | 223 |
+| Sin comprobar nunca | 220 |
 | Comprobados hace un año o más | 0 |
 | Al día | 3 |
 
-## Sin comprobar nunca (203)
+## Sin comprobar nunca (220)
 
 - [ ] [Arrebato Libros](https://www.google.com/maps/search/?api=1&query=Arrebato%20Libros%2C%20C%2F%20de%20la%20Palma%2C%2021%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · C/ de la Palma, 21 · **datos sin verificar**
 - [ ] [Azymun](https://www.google.com/maps/search/?api=1&query=Azymun%2C%20C%2F%20del%20General%20Per%C3%B3n%2C%2022%2C%20Tetu%C3%A1n%2C%20Madrid) — Pan y dulces · Tetuán · C/ del General Perón, 22 · **datos sin verificar**
-- [ ] [Bodega Santa Cecilia](https://www.google.com/maps/search/?api=1&query=Bodega%20Santa%20Cecilia%2C%20C%2F%20de%20Blasco%20de%20Garay%2C%2074%2C%20Chamber%C3%AD%2C%20Madrid) — Vinos · Chamberí · C/ de Blasco de Garay, 74 · **datos sin verificar**
+- [ ] [Be Hoppy](https://www.google.com/maps/search/?api=1&query=Be%20Hoppy%2C%20La%20Latina%2C%20Madrid) — Vinos y bebidas · La Latina · **datos sin verificar**
+- [ ] [Bodega Santa Cecilia](https://www.google.com/maps/search/?api=1&query=Bodega%20Santa%20Cecilia%2C%20C%2F%20de%20Blasco%20de%20Garay%2C%2074%2C%20Chamber%C3%AD%2C%20Madrid) — Vinos y bebidas · Chamberí · C/ de Blasco de Garay, 74 · **datos sin verificar**
 - [ ] [Bombonería Santa](https://www.google.com/maps/search/?api=1&query=Bomboner%C3%ADa%20Santa%2C%20Salamanca%2C%20Madrid) — Pan y dulces · Salamanca · **datos sin verificar**
+- [ ] [Carne Nostra](https://www.google.com/maps/search/?api=1&query=Carne%20Nostra%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
 - [ ] [Carnes Morán](https://www.google.com/maps/search/?api=1&query=Carnes%20Mor%C3%A1n%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
 - [ ] [Casa González](https://www.google.com/maps/search/?api=1&query=Casa%20Gonz%C3%A1lez%2C%20C%2F%20del%20Le%C3%B3n%2C%2012%2C%20Las%20Letras%2C%20Madrid) — Alimentación · Las Letras · C/ del León, 12 · **datos sin verificar**
 - [ ] [Casa Jiménez](https://www.google.com/maps/search/?api=1&query=Casa%20Jim%C3%A9nez%2C%20C%2F%20de%20Preciados%2C%2042%2C%20Centro%2C%20Madrid) — Moda y complementos · Centro · C/ de Preciados, 42 · **datos sin verificar**
+- [ ] [Casa Méndez](https://www.google.com/maps/search/?api=1&query=Casa%20M%C3%A9ndez%2C%20Madrid) — Alimentación · **datos sin verificar**
 - [ ] [Casa Postal](https://www.google.com/maps/search/?api=1&query=Casa%20Postal%2C%20C%2F%20de%20la%20Libertad%2C%2037%2C%20Chueca%2C%20Madrid) — Papel y arte · Chueca · C/ de la Libertad, 37 · **datos sin verificar**
 - [ ] [Cervantes y Compañía](https://www.google.com/maps/search/?api=1&query=Cervantes%20y%20Compa%C3%B1%C3%ADa%2C%20C%2F%20del%20Pez%2C%2027%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · C/ del Pez, 27 · **datos sin verificar**
 - [ ] [Cesáreo Gómez](https://www.google.com/maps/search/?api=1&query=Ces%C3%A1reo%20G%C3%B3mez%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
@@ -34,6 +37,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Delicatessen N](https://www.google.com/maps/search/?api=1&query=Delicatessen%20N%2C%20Cerca%20de%20la%20Puerta%20de%20Alcal%C3%A1%2C%20Madrid) — Alimentación · Cerca de la Puerta de Alcalá · **datos sin verificar**
 - [ ] [Desperate Literature](https://www.google.com/maps/search/?api=1&query=Desperate%20Literature%2C%20Centro%2C%20Madrid) — Librerías · Centro · **datos sin verificar**
 - [ ] [El Horno de Babette](https://www.google.com/maps/search/?api=1&query=El%20Horno%20de%20Babette%2C%20Malasa%C3%B1a%2C%20Madrid) — Pan y dulces · Malasaña · **datos sin verificar**
+- [ ] [El Rincón de la Empanada Gallega](https://www.google.com/maps/search/?api=1&query=El%20Rinc%C3%B3n%20de%20la%20Empanada%20Gallega%2C%20Madrid) — Alimentación · **datos sin verificar**
 - [ ] [El Rincón de Lectura](https://www.google.com/maps/search/?api=1&query=El%20Rinc%C3%B3n%20de%20Lectura%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · **datos sin verificar**
 - [ ] [Enclave de Libros](https://www.google.com/maps/search/?api=1&query=Enclave%20de%20Libros%2C%20Centro%2C%20Madrid) — Librerías · Centro · **datos sin verificar**
 - [ ] [Formaje](https://www.google.com/maps/search/?api=1&query=Formaje%2C%20Chamber%C3%AD%2C%20Madrid) — Alimentación · Chamberí · **datos sin verificar**
@@ -57,16 +61,18 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Panática](https://www.google.com/maps/search/?api=1&query=Pan%C3%A1tica%2C%20C%2F%20de%20Padilla%2C%2063%2C%20Salamanca%2C%20Madrid) — Pan y dulces · Salamanca · C/ de Padilla, 63 · **datos sin verificar**
 - [ ] [Panta Rhei](https://www.google.com/maps/search/?api=1&query=Panta%20Rhei%2C%20C%2F%20de%20Hern%C3%A1n%20Cort%C3%A9s%2C%207%2C%20Chueca%2C%20Madrid) — Librerías · Chueca · C/ de Hernán Cortés, 7 · **datos sin verificar**
 - [ ] [Papelmania](https://www.google.com/maps/search/?api=1&query=Papelmania%2C%20C%2F%20de%20Claudio%20Coello%2C%20Salamanca%2C%20Madrid) — Papel y arte · Salamanca · C/ de Claudio Coello · **datos sin verificar**
+- [ ] [Peña Maestros Carniceros](https://www.google.com/maps/search/?api=1&query=Pe%C3%B1a%20Maestros%20Carniceros%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
 - [ ] [Planthae](https://www.google.com/maps/search/?api=1&query=Planthae%2C%20Embajadores%2C%20Madrid) — Plantas y flores · Embajadores · **datos sin verificar**
 - [ ] [Radio City Discos](https://www.google.com/maps/search/?api=1&query=Radio%20City%20Discos%2C%20Malasa%C3%B1a%2C%20Madrid) — Música y discos · Malasaña · **datos sin verificar**
 - [ ] [Raza Nostra](https://www.google.com/maps/search/?api=1&query=Raza%20Nostra%2C%20Madrid) — Carnicería y pescadería · **datos sin verificar**
-- [ ] [Reserva y Cata](https://www.google.com/maps/search/?api=1&query=Reserva%20y%20Cata%2C%20C%2F%20del%20Conde%20de%20Xiquena%2C%2013%2C%20Chueca%2C%20Madrid) — Vinos · Chueca · C/ del Conde de Xiquena, 13 · **datos sin verificar**
+- [ ] [Reserva y Cata](https://www.google.com/maps/search/?api=1&query=Reserva%20y%20Cata%2C%20C%2F%20del%20Conde%20de%20Xiquena%2C%2013%2C%20Chueca%2C%20Madrid) — Vinos y bebidas · Chueca · C/ del Conde de Xiquena, 13 · **datos sin verificar**
 - [ ] [Restore7](https://www.google.com/maps/search/?api=1&query=Restore7%2C%20C%2F%20de%20Vallehermoso%2C%2041%2C%20Chamber%C3%AD%2C%20Madrid) — Peluquería y estética · Chamberí · C/ de Vallehermoso, 41 · **datos sin verificar**
 - [ ] [Sportivo](https://www.google.com/maps/search/?api=1&query=Sportivo%2C%20Conde%20Duque%2C%20Madrid) — Moda y complementos · Conde Duque · **datos sin verificar**
 - [ ] [Taller Puntera](https://www.google.com/maps/search/?api=1&query=Taller%20Puntera%2C%20Plaza%20del%20Conde%20de%20Barajas%2C%204%2C%20La%20Latina%2C%20Madrid) — Oficios y talleres · La Latina · Plaza del Conde de Barajas, 4 · **datos sin verificar**
 - [ ] [Toma Café](https://www.google.com/maps/search/?api=1&query=Toma%20Caf%C3%A9%2C%20C%2F%20de%20la%20Palma%2C%2049%2C%20Malasa%C3%B1a%2C%20Madrid) — Café y té · Malasaña · C/ de la Palma, 49 · **datos sin verificar**
 - [ ] [Traficantes de Sueños](https://www.google.com/maps/search/?api=1&query=Traficantes%20de%20Sue%C3%B1os%2C%20C%2F%20del%20Duque%20de%20Alba%2C%2013%2C%20La%20Latina%2C%20Madrid) — Librerías · La Latina · C/ del Duque de Alba, 13 · **datos sin verificar**
 - [ ] [Tres Rosas Amarillas](https://www.google.com/maps/search/?api=1&query=Tres%20Rosas%20Amarillas%2C%20Malasa%C3%B1a%2C%20Madrid) — Librerías · Malasaña · **datos sin verificar**
+- [ ] [Xantar Astur](https://www.google.com/maps/search/?api=1&query=Xantar%20Astur%2C%20La%20Latina%2C%20Madrid) — Alimentación · La Latina · **datos sin verificar**
 - [ ] [24 Onzas](https://www.google.com/maps/search/?api=1&query=24%20Onzas%2C%20C%2F%20de%20Espartinas%2C%20Salamanca%2C%20Madrid) — Pan y dulces · Salamanca · C/ de Espartinas
 - [ ] [Akira Cómics](https://www.google.com/maps/search/?api=1&query=Akira%20C%C3%B3mics%2C%20Malasa%C3%B1a%2C%20Madrid) — Papel y arte · Malasaña
 - [ ] [Aktual Taller de Joyería](https://www.google.com/maps/search/?api=1&query=Aktual%20Taller%20de%20Joyer%C3%ADa%2C%20Palacio%2C%20Madrid) — Joyería · Palacio
@@ -79,8 +85,10 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Antigua Relojería de la Sal](https://www.google.com/maps/search/?api=1&query=Antigua%20Relojer%C3%ADa%20de%20la%20Sal%2C%20C%2F%20Sal%2C%202%2C%20Centro%2C%20Madrid) — Joyería · Centro · C/ Sal, 2
 - [ ] [Artesanos Del Iberico Matas](https://www.google.com/maps/search/?api=1&query=Artesanos%20Del%20Iberico%20Matas%2C%20C%2F%20Calamina%2C%204%2C%20Villaverde%2C%20Madrid) — Alimentación · Villaverde · C/ Calamina, 4
 - [ ] [Azules de Vergara](https://www.google.com/maps/search/?api=1&query=Azules%20de%20Vergara%2C%20C%2F%20Jord%C3%A1n%2C%204%2C%20Chamber%C3%AD%2C%20Madrid) — Moda y complementos · Chamberí · C/ Jordán, 4
+- [ ] [Bendito](https://www.google.com/maps/search/?api=1&query=Bendito%2C%20Mercado%20de%20San%20Fernando%2C%20C%2F%20de%20Embajadores%2C%2041%2C%20Lavapi%C3%A9s%2C%20Madrid) — Vinos y bebidas · Lavapiés · Mercado de San Fernando, C/ de Embajadores, 41
 - [ ] [Blackstone](https://www.google.com/maps/search/?api=1&query=Blackstone%2C%20C%2F%20de%20Monte%20Esquinza%2C%2036%2C%20Chamber%C3%AD%2C%20Madrid) — Peluquería y estética · Chamberí · C/ de Monte Esquinza, 36
-- [ ] [Bodegas Mariano Madrueño](https://www.google.com/maps/search/?api=1&query=Bodegas%20Mariano%20Madrue%C3%B1o%2C%20C%2F%20Postigo%20de%20San%20Mart%C3%ADn%2C%206%2C%20Centro%2C%20Madrid) — Vinos · Centro · C/ Postigo de San Martín, 6
+- [ ] [Bodegabierta](https://www.google.com/maps/search/?api=1&query=Bodegabierta%2C%20Malasa%C3%B1a%2C%20Madrid) — Vinos y bebidas · Malasaña
+- [ ] [Bodegas Mariano Madrueño](https://www.google.com/maps/search/?api=1&query=Bodegas%20Mariano%20Madrue%C3%B1o%2C%20C%2F%20Postigo%20de%20San%20Mart%C3%ADn%2C%206%2C%20Centro%2C%20Madrid) — Vinos y bebidas · Centro · C/ Postigo de San Martín, 6
 - [ ] [Bomagui](https://www.google.com/maps/search/?api=1&query=Bomagui%2C%20C%2F%20del%20Noviciado%2C%209%2C%20Malasa%C3%B1a%2C%20Madrid) — Papel y arte · Malasaña · C/ del Noviciado, 9
 - [ ] [Bombonería La Pajarita](https://www.google.com/maps/search/?api=1&query=Bomboner%C3%ADa%20La%20Pajarita%2C%20C%2F%20Villanueva%2C%2014%2C%20Salamanca%2C%20Madrid) — Pan y dulces · Salamanca · C/ Villanueva, 14
 - [ ] [Brando](https://www.google.com/maps/search/?api=1&query=Brando%2C%20Madrid) — Pan y dulces
@@ -110,6 +118,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Coalla Gourmet](https://www.google.com/maps/search/?api=1&query=Coalla%20Gourmet%2C%20Madrid) — Alimentación
 - [ ] [Cocol](https://www.google.com/maps/search/?api=1&query=Cocol%2C%20Centro%2C%20Madrid) — Cerámica y hogar · Centro
 - [ ] [Colchonería Cuesta](https://www.google.com/maps/search/?api=1&query=Colchoner%C3%ADa%20Cuesta%2C%20C%2F%20Fuencarral%2C%2083%2C%20Chamber%C3%AD%2C%20Madrid) — Cerámica y hogar · Chamberí · C/ Fuencarral, 83
+- [ ] [Colmado Atlántico](https://www.google.com/maps/search/?api=1&query=Colmado%20Atl%C3%A1ntico%2C%20Mercado%20de%20Tirso%20de%20Molina%2C%20Lavapi%C3%A9s%2C%20Madrid) — Alimentación · Lavapiés · Mercado de Tirso de Molina
 - [ ] [Como En Casa](https://www.google.com/maps/search/?api=1&query=Como%20En%20Casa%2C%20C%2F%20Ruda%2C%204%2C%20Embajadores%2C%20Madrid) — Alimentación · Embajadores · C/ Ruda, 4
 - [ ] [Conde Hermanos](https://www.google.com/maps/search/?api=1&query=Conde%20Hermanos%2C%20C%2F%20Arrieta%2C%204%2C%20%C3%93pera%2C%20Madrid) — Oficios y talleres · Ópera · C/ Arrieta, 4
 - [ ] [Confecciones Zorrilla](https://www.google.com/maps/search/?api=1&query=Confecciones%20Zorrilla%2C%20C%2F%20Toledo%2C%2029%2C%20Centro%2C%20Madrid) — Moda y complementos · Centro · C/ Toledo, 29
@@ -127,6 +136,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [El Granel de Corredera](https://www.google.com/maps/search/?api=1&query=El%20Granel%20de%20Corredera%2C%20Malasa%C3%B1a%2C%20Madrid) — Alimentación · Malasaña
 - [ ] [El Jardín del Ángel](https://www.google.com/maps/search/?api=1&query=El%20Jard%C3%ADn%20del%20%C3%81ngel%2C%20C%2F%20Huertas%2C%202%2C%20Las%20Letras%2C%20Madrid) — Plantas y flores · Las Letras · C/ Huertas, 2
 - [ ] [El Kince](https://www.google.com/maps/search/?api=1&query=El%20Kince%2C%20C%2F%20Cuchilleros%2C%2015%2C%20Centro%2C%20Madrid) — Peluquería y estética · Centro · C/ Cuchilleros, 15
+- [ ] [El Rinconcito de la Vera](https://www.google.com/maps/search/?api=1&query=El%20Rinconcito%20de%20la%20Vera%2C%20C%2F%20de%20Oca%C3%B1a%2C%2071%2C%20Carabanchel%2C%20Madrid) — Alimentación · Carabanchel · C/ de Ocaña, 71
 - [ ] [El Sanatorio de Muñecos](https://www.google.com/maps/search/?api=1&query=El%20Sanatorio%20de%20Mu%C3%B1ecos%2C%20C%2F%20de%20Preciados%2C%20Centro%2C%20Madrid) — Oficios y talleres · Centro · C/ de Preciados
 - [ ] [Encuadernación Calero](https://www.google.com/maps/search/?api=1&query=Encuadernaci%C3%B3n%20Calero%2C%20C%2F%20Barbara%20de%20Braganza%2C%2011%2C%20Chueca%2C%20Madrid) — Oficios y talleres · Chueca · C/ Barbara de Braganza, 11
 - [ ] [Escridiscos](https://www.google.com/maps/search/?api=1&query=Escridiscos%2C%20C%2F%20de%20Navas%20de%20Tolosa%2C%204%2C%20Centro%2C%20Madrid) — Música y discos · Centro · C/ de Navas de Tolosa, 4
@@ -143,6 +153,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Guitarras Manuel Contreras](https://www.google.com/maps/search/?api=1&query=Guitarras%20Manuel%20Contreras%2C%20C%2F%20Mayor%2C%2080%2C%20Centro%2C%20Madrid) — Oficios y talleres · Centro · C/ Mayor, 80
 - [ ] [Hazen](https://www.google.com/maps/search/?api=1&query=Hazen%2C%20C%2F%20Arrieta%2C%208%2C%20%C3%93pera%2C%20Madrid) — Música y discos · Ópera · C/ Arrieta, 8
 - [ ] [Herbolario de Lafuente](https://www.google.com/maps/search/?api=1&query=Herbolario%20de%20Lafuente%2C%20C%2F%20Pelayo%2C%2070%2C%20Chueca%2C%20Madrid) — Alimentación · Chueca · C/ Pelayo, 70
+- [ ] [Hidden Beers](https://www.google.com/maps/search/?api=1&query=Hidden%20Beers%2C%20C%2F%20de%20Embajadores%2C%2023%2C%20Lavapi%C3%A9s%2C%20Madrid) — Vinos y bebidas · Lavapiés · C/ de Embajadores, 23
 - [ ] [Hola Coffee](https://www.google.com/maps/search/?api=1&query=Hola%20Coffee%2C%20C%2F%20del%20Doctor%20Fourquet%2C%2033%2C%20Lavapi%C3%A9s%2C%20Madrid) — Café y té · Lavapiés · C/ del Doctor Fourquet, 33
 - [ ] [Ideas Arte](https://www.google.com/maps/search/?api=1&query=Ideas%20Arte%2C%20Malasa%C3%B1a%2C%20Madrid) — Papel y arte · Malasaña
 - [ ] [Indoors Madrid](https://www.google.com/maps/search/?api=1&query=Indoors%20Madrid%2C%20Rastro%2C%20Madrid) — Vintage y anticuarios · Rastro
@@ -157,7 +168,9 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Juanma Lizana](https://www.google.com/maps/search/?api=1&query=Juanma%20Lizana%2C%20C%2F%20de%20Mira%20el%20R%C3%ADo%20Alta%2C%2016%2C%20Rastro%2C%20Madrid) — Vintage y anticuarios · Rastro · C/ de Mira el Río Alta, 16
 - [ ] [Kalúa](https://www.google.com/maps/search/?api=1&query=Kal%C3%BAa%2C%20C%2F%20de%20Narv%C3%A1ez%2C%2062%2C%20Retiro%2C%20Madrid) — Pan y dulces · Retiro · C/ de Narváez, 62
 - [ ] [Kino Marcos y Molduras](https://www.google.com/maps/search/?api=1&query=Kino%20Marcos%20y%20Molduras%2C%20Madrid) — Papel y arte
+- [ ] [La Buena Pinta](https://www.google.com/maps/search/?api=1&query=La%20Buena%20Pinta%2C%20Mercado%20de%20San%20Fernando%2C%20Lavapi%C3%A9s%2C%20Madrid) — Vinos y bebidas · Lavapiés · Mercado de San Fernando
 - [ ] [La Canela](https://www.google.com/maps/search/?api=1&query=La%20Canela%2C%20Madrid) — Peluquería y estética
+- [ ] [La Cervecista](https://www.google.com/maps/search/?api=1&query=La%20Cervecista%2C%20C%2F%20de%20Mej%C3%ADa%20Lequerica%2C%203%2C%20Chueca%2C%20Madrid) — Vinos y bebidas · Chueca · C/ de Mejía Lequerica, 3
 - [ ] [La Chaiteca](https://www.google.com/maps/search/?api=1&query=La%20Chaiteca%2C%20Chamber%C3%AD%2C%20Madrid) — Café y té · Chamberí
 - [ ] [La Esquina del Granel](https://www.google.com/maps/search/?api=1&query=La%20Esquina%20del%20Granel%2C%20Madrid) — Alimentación
 - [ ] [La Favorita](https://www.google.com/maps/search/?api=1&query=La%20Favorita%2C%20Plaza%20Mayor%2C%2025%2C%20Centro%2C%20Madrid) — Moda y complementos · Centro · Plaza Mayor, 25
@@ -174,6 +187,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [La Sánchez](https://www.google.com/maps/search/?api=1&query=La%20S%C3%A1nchez%2C%20Las%20Letras%2C%20Madrid) — Joyería · Las Letras
 - [ ] [La Violeta](https://www.google.com/maps/search/?api=1&query=La%20Violeta%2C%20Plaza%20Canalejas%2C%206%2C%20Centro%2C%20Madrid) — Alimentación · Centro · Plaza Canalejas, 6
 - [ ] [Lab35](https://www.google.com/maps/search/?api=1&query=Lab35%2C%20Malasa%C3%B1a%2C%20Madrid) — Fotografía · Malasaña
+- [ ] [Labirratorium](https://www.google.com/maps/search/?api=1&query=Labirratorium%2C%20C%2F%20de%20Vallehermoso%2C%2034%2C%20Chamber%C3%AD%2C%20Madrid) — Vinos y bebidas · Chamberí · C/ de Vallehermoso, 34
 - [ ] [Librería Rafael Alberti](https://www.google.com/maps/search/?api=1&query=Librer%C3%ADa%20Rafael%20Alberti%2C%20C%2F%20de%20Tutor%2C%2057%2C%20Arg%C3%BCelles%2C%20Madrid) — Librerías · Argüelles · C/ de Tutor, 57
 - [ ] [Librería San Ginés](https://www.google.com/maps/search/?api=1&query=Librer%C3%ADa%20San%20Gin%C3%A9s%2C%20Pasadizo%20de%20San%20Gin%C3%A9s%2C%202%2C%20Centro%2C%20Madrid) — Librerías · Centro · Pasadizo de San Ginés, 2
 - [ ] [Lobo Feliz](https://www.google.com/maps/search/?api=1&query=Lobo%20Feliz%2C%20C%2F%20de%20San%20Mateo%2C%2028%2C%20Malasa%C3%B1a%2C%20Madrid) — Juguetes y regalos · Malasaña · C/ de San Mateo, 28
@@ -181,6 +195,7 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [Lucio J&M](https://www.google.com/maps/search/?api=1&query=Lucio%20J%26M%2C%20C%2F%20Imperial%2C%206%2C%20Centro%2C%20Madrid) — Cerámica y hogar · Centro · C/ Imperial, 6
 - [ ] [Mantequería Andrés](https://www.google.com/maps/search/?api=1&query=Mantequer%C3%ADa%20Andr%C3%A9s%2C%20Paseo%20de%20Olmos%2C%203%2C%20Arganzuela%2C%20Madrid) — Alimentación · Arganzuela · Paseo de Olmos, 3
 - [ ] [Marantikk](https://www.google.com/maps/search/?api=1&query=Marantikk%2C%20Rastro%2C%20Madrid) — Vintage y anticuarios · Rastro
+- [ ] [Más que Cervezas](https://www.google.com/maps/search/?api=1&query=M%C3%A1s%20que%20Cervezas%2C%20Las%20Letras%2C%20Madrid) — Vinos y bebidas · Las Letras
 - [ ] [Matarranz](https://www.google.com/maps/search/?api=1&query=Matarranz%2C%20C%2F%20Serrano%2C%2030%2C%20Salamanca%2C%20Madrid) — Moda y complementos · Salamanca · C/ Serrano, 30
 - [ ] [Mercado de Antón Martín](https://www.google.com/maps/search/?api=1&query=Mercado%20de%20Ant%C3%B3n%20Mart%C3%ADn%2C%20Lavapi%C3%A9s%2C%20Madrid) — Alimentación · Lavapiés
 - [ ] [Mercado de la Cebada](https://www.google.com/maps/search/?api=1&query=Mercado%20de%20la%20Cebada%2C%20Plaza%20Cebada%2C%20Las%20Letras%2C%20Madrid) — Alimentación · Las Letras · Plaza Cebada
@@ -206,12 +221,14 @@ Abre el enlace de cada negocio, mira en Google Maps si sigue abierto y:
 - [ ] [RastroArte](https://www.google.com/maps/search/?api=1&query=RastroArte%2C%20Ribera%20de%20Curtidores%2C%2026%2C%20Rastro%2C%20Madrid) — Vintage y anticuarios · Rastro · Ribera de Curtidores, 26
 - [ ] [Rejillería López](https://www.google.com/maps/search/?api=1&query=Rejiller%C3%ADa%20L%C3%B3pez%2C%20C%2F%20Isabel%20la%20Cat%C3%B3lica%2C%207%2C%20Centro%2C%20Madrid) — Oficios y talleres · Centro · C/ Isabel la Católica, 7
 - [ ] [Revelab Studio](https://www.google.com/maps/search/?api=1&query=Revelab%20Studio%2C%20Madrid) — Fotografía
+- [ ] [Root Concept](https://www.google.com/maps/search/?api=1&query=Root%20Concept%2C%20Malasa%C3%B1a%2C%20Madrid) — Vinos y bebidas · Malasaña
 - [ ] [Saboli Taboli](https://www.google.com/maps/search/?api=1&query=Saboli%20Taboli%2C%20Mercado%20de%20los%20Mostenses%2C%20puestos%2035%20y%2036%2C%20Centro%2C%20Madrid) — Carnicería y pescadería · Centro · Mercado de los Mostenses, puestos 35 y 36
 - [ ] [Sales de Plata](https://www.google.com/maps/search/?api=1&query=Sales%20de%20Plata%2C%20Las%20Letras%2C%20Madrid) — Fotografía · Las Letras
 - [ ] [Sánchez Reparación y Calzado](https://www.google.com/maps/search/?api=1&query=S%C3%A1nchez%20Reparaci%C3%B3n%20y%20Calzado%2C%20Chamber%C3%AD%2C%20Madrid) — Oficios y talleres · Chamberí
 - [ ] [Santa Rufina](https://www.google.com/maps/search/?api=1&query=Santa%20Rufina%2C%20C%2F%20Paz%2C%209%2C%20Centro%2C%20Madrid) — Oficios y talleres · Centro · C/ Paz, 9
 - [ ] [Sastrería Cornejo](https://www.google.com/maps/search/?api=1&query=Sastrer%C3%ADa%20Cornejo%2C%20C%2F%20Rufino%20Gonzalez%2C%204%2C%20San%20Blas%2C%20Madrid) — Moda y complementos · San Blas · C/ Rufino Gonzalez, 4
 - [ ] [Sastrería Palomeque](https://www.google.com/maps/search/?api=1&query=Sastrer%C3%ADa%20Palomeque%2C%20C%2F%20Duque%20de%20Alba%2C%205%2C%20Embajadores%2C%20Madrid) — Moda y complementos · Embajadores · C/ Duque de Alba, 5
+- [ ] [Serrín Ultramarinos](https://www.google.com/maps/search/?api=1&query=Serr%C3%ADn%20Ultramarinos%2C%20Chamber%C3%AD%2C%20Madrid) — Alimentación · Chamberí
 - [ ] [Sombrerería Casa Yustas](https://www.google.com/maps/search/?api=1&query=Sombrerer%C3%ADa%20Casa%20Yustas%2C%20Plaza%20Mayor%2C%2030%2C%20Centro%2C%20Madrid) — Moda y complementos · Centro · Plaza Mayor, 30
 - [ ] [Sombrerería Medrano](https://www.google.com/maps/search/?api=1&query=Sombrerer%C3%ADa%20Medrano%2C%20C%2F%20Imperial%2C%2012%2C%20Centro%2C%20Madrid) — Moda y complementos · Centro · C/ Imperial, 12
 - [ ] [Spicy Yuli](https://www.google.com/maps/search/?api=1&query=Spicy%20Yuli%2C%20C%2F%20de%20Valverde%2C%2042%2C%20Malasa%C3%B1a%2C%20Madrid) — Alimentación · Malasaña · C/ de Valverde, 42

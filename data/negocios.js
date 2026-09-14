@@ -36,8 +36,10 @@ const CATEGORIAS = [
     sinonimos: ["pan", "panaderia", "obrador", "masa madre", "dulce", "dulces", "pasteleria", "confiteria", "postre", "tarta", "bolleria", "horno"] },
   { id: "cafe", nombre: "Café y té", icono: "☕",
     sinonimos: ["cafe", "cafeteria", "tostador", "tueste", "grano", "cafetera", "te", "teteria"] },
-  { id: "vinos", nombre: "Vinos", icono: "🍷",
-    sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "licor", "destilados"] },
+  { id: "vinos", nombre: "Vinos y bebidas", icono: "🍷",
+    sinonimos: ["vino", "vinos", "bodega", "vinoteca", "bebida", "bebidas", "beber",
+      "cerveza", "cervezas", "artesana", "birra", "licor", "licores", "destilados",
+      "vermut", "sidra", "ginebra", "coctel", "catas"] },
   { id: "hogar", nombre: "Cerámica y hogar", icono: "🏺",
     sinonimos: ["casa", "hogar", "menaje", "cocina", "vajilla", "plato", "decoracion", "loza", "artesania", "alfareria", "ferreteria", "drogueria", "herramienta"] },
   { id: "papeleria", nombre: "Papel y arte", icono: "✏️",
@@ -2426,6 +2428,175 @@ const NEGOCIOS = [
     barrio: "Salamanca",
     direccion: "C/ de Claudio Coello",
     etiquetas: ["papelería", "cuadernos", "barrio", "regalo"],
+    verificado: false
+  },
+
+  /* --------------------------- despensa de otras provincias */
+  {
+    id: "serrin-ultramarinos",
+    nombre: "Serrín Ultramarinos",
+    categoria: "alimentacion",
+    descripcion: "Ultramarinos gallego con el género que llega de allí: empanada, lacón, grelos, patata gallega, quesos, conservas y leche fresca. Tienen puesto en el mercado de Pacífico y tienda en Chamberí.",
+    barrio: "Chamberí",
+    web: "https://serrinultramarinos.com",
+    etiquetas: ["gallego", "galicia", "empanada", "lacón", "conservas", "ultramarinos"],
+    verificado: true
+  },
+  {
+    id: "colmado-atlantico",
+    nombre: "Colmado Atlántico",
+    categoria: "alimentacion",
+    descripcion: "Colmado gallego dentro del Mercado de Tirso de Molina: conservas de las buenas, empanada, embutidos, quesos y aceites escogidos uno a uno.",
+    barrio: "Lavapiés",
+    direccion: "Mercado de Tirso de Molina",
+    etiquetas: ["gallego", "galicia", "conservas", "quesos", "mercado"],
+    verificado: true
+  },
+  {
+    id: "rincon-empanada-gallega",
+    nombre: "El Rincón de la Empanada Gallega",
+    categoria: "alimentacion",
+    descripcion: "Tienda diminuta a la que llegan cada mañana las empanadas desde Galicia para hornearlas aquí. También quesos, chorizos, miel y mermeladas.",
+    etiquetas: ["gallego", "empanada", "galicia", "quesos", "miel"],
+    verificado: false
+  },
+  {
+    id: "casa-mendez-productos",
+    nombre: "Casa Méndez",
+    categoria: "alimentacion",
+    descripcion: "Ciento cincuenta metros de producto del norte: Galicia, Asturias, Cantabria y León bajo el mismo techo, con mostrador de quesos y embutidos.",
+    etiquetas: ["gallego", "asturiano", "cantabria", "quesos", "embutidos"],
+    verificado: false
+  },
+  {
+    id: "xantar-astur",
+    nombre: "Xantar Astur",
+    categoria: "alimentacion",
+    descripcion: "Tienda de producto asturiano: cabrales, gamonéu, fabes, chorizo a la sidra y sidra de la buena, con varias tiendas repartidas por Madrid.",
+    barrio: "La Latina",
+    etiquetas: ["asturiano", "asturias", "sidra", "quesos", "fabada"],
+    verificado: false
+  },
+  {
+    id: "rinconcito-de-la-vera",
+    nombre: "El Rinconcito de la Vera",
+    categoria: "alimentacion",
+    descripcion: "Tienda de producto extremeño en Carabanchel: ibérico de dehesa, queso de la Serena, pimentón de la Vera y conservas de la zona.",
+    barrio: "Carabanchel",
+    direccion: "C/ de Ocaña, 71",
+    etiquetas: ["extremeño", "extremadura", "ibérico", "pimentón", "queso"],
+    verificado: true
+  },
+
+  /* ------------------------------------------ cerveza artesana */
+  {
+    id: "labirratorium",
+    nombre: "Labirratorium",
+    categoria: "vinos",
+    descripcion: "Unas quinientas referencias de cerveza artesana desde 2012, con catas, charlas y talleres. De las que te preguntan qué te gusta antes de recomendarte nada.",
+    barrio: "Chamberí",
+    direccion: "C/ de Vallehermoso, 34",
+    desde: 2012,
+    etiquetas: ["cerveza", "artesana", "catas", "importación"],
+    verificado: true
+  },
+  {
+    id: "la-cervecista",
+    nombre: "La Cervecista",
+    categoria: "vinos",
+    descripcion: "Más de cuatrocientas cervezas entre artesanas nacionales e importación difícil de encontrar, en una tienda pequeña y bien ordenada.",
+    barrio: "Chueca",
+    direccion: "C/ de Mejía Lequerica, 3",
+    etiquetas: ["cerveza", "artesana", "importación"],
+    verificado: true
+  },
+  {
+    id: "mas-que-cervezas",
+    nombre: "Más que Cervezas",
+    categoria: "vinos",
+    descripcion: "Unas quinientas cervezas en un local mínimo del Barrio de las Letras, y además vinos, licores y lo que haga falta para una coctelera.",
+    barrio: "Las Letras",
+    etiquetas: ["cerveza", "artesana", "licores", "coctelería"],
+    verificado: true
+  },
+  {
+    id: "la-buena-pinta",
+    nombre: "La Buena Pinta",
+    categoria: "vinos",
+    descripcion: "Puesto en el Mercado de San Fernando con más de doscientas cervezas artesanas nacionales e importadas. Se puede beber allí mismo.",
+    barrio: "Lavapiés",
+    direccion: "Mercado de San Fernando",
+    etiquetas: ["cerveza", "artesana", "mercado"],
+    verificado: true
+  },
+  {
+    id: "hidden-beers",
+    nombre: "Hidden Beers",
+    categoria: "vinos",
+    descripcion: "Selección corta y muy escogida de cerveza artesana nacional e internacional, con rotación constante de novedades.",
+    barrio: "Lavapiés",
+    direccion: "C/ de Embajadores, 23",
+    web: "https://hiddenbeers.com",
+    etiquetas: ["cerveza", "artesana", "novedades"],
+    verificado: true
+  },
+  {
+    id: "be-hoppy",
+    nombre: "Be Hoppy",
+    categoria: "vinos",
+    descripcion: "Cerveza artesana española de microcervecerías pequeñas, muchas de ellas de productores que no distribuyen fuera de su provincia.",
+    barrio: "La Latina",
+    etiquetas: ["cerveza", "artesana", "española", "microcervecería"],
+    verificado: false
+  },
+
+  /* -------------------------------------------------- vino */
+  {
+    id: "bodegabierta",
+    nombre: "Bodegabierta",
+    categoria: "vinos",
+    descripcion: "Vinoteca de Malasaña con más de doscientas referencias, casi todas de productores pequeños que no llegan a las grandes superficies.",
+    barrio: "Malasaña",
+    web: "https://www.bodegabierta.es",
+    etiquetas: ["vino", "pequeños productores", "catas", "vinoteca"],
+    verificado: true
+  },
+  {
+    id: "root-concept",
+    nombre: "Root Concept",
+    categoria: "vinos",
+    descripcion: "Tienda de vino natural en Malasaña donde dejan probar y cuentan quién hay detrás de cada botella. Trabajan con viticultores minúsculos.",
+    barrio: "Malasaña",
+    web: "https://rootconcept.eu",
+    etiquetas: ["vino natural", "catas", "pequeños productores", "café"],
+    verificado: true
+  },
+  {
+    id: "bendito-vinos",
+    nombre: "Bendito",
+    categoria: "vinos",
+    descripcion: "Puesto de vinos en el Mercado de San Fernando con una selección muy personal, fuerte en natural y en botellas de poca tirada.",
+    barrio: "Lavapiés",
+    direccion: "Mercado de San Fernando, C/ de Embajadores, 41",
+    etiquetas: ["vino", "natural", "mercado", "pequeños productores"],
+    verificado: true
+  },
+
+  /* ------------------------------------------------- carne */
+  {
+    id: "carne-nostra",
+    nombre: "Carne Nostra",
+    categoria: "carniceria",
+    descripcion: "Carnicería que trabaja razas y ganaderías concretas, con maduraciones propias y despiece hecho en la tienda.",
+    etiquetas: ["carnicería", "madurada", "ganadería", "despiece"],
+    verificado: false
+  },
+  {
+    id: "pena-maestros-carniceros",
+    nombre: "Peña Maestros Carniceros",
+    categoria: "carniceria",
+    descripcion: "Casa de carnes con mucho oficio detrás del mostrador: te preparan la pieza como se la pidas y aconsejan según cómo la vayas a hacer.",
+    etiquetas: ["carnicería", "despiece", "vacuno", "cordero"],
     verificado: false
   }
 
