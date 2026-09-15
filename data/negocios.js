@@ -2716,6 +2716,72 @@ const NEGOCIOS = [
     direccion: "C/ de Fernando VI",
     etiquetas: ["decoración", "concept store", "regalo", "papelería", "café"],
     verificado: false
+  },
+  /* ------------------------------- propuestas de la gente (2026-09) */
+  {
+    id: "marilians-records",
+    nombre: "Marilians Records",
+    categoria: "musica",
+    descripcion: "Vinilo nuevo y de segunda mano en un local de Noviciado donde además montan entrevistas a grupos, showcases acústicos y presentaciones de discos, siempre a puerta abierta.",
+    barrio: "Noviciado",
+    direccion: "C/ del Noviciado, 9, local 7",
+    web: "https://www.marilians.com",
+    instagram: "marilians_records",
+    etiquetas: ["vinilos", "segunda mano", "conciertos", "discos"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "la-queseria-blasco-de-garay",
+    nombre: "La Quesería",
+    categoria: "alimentacion",
+    descripcion: "Más de doscientos quesos europeos y embutido de León hecho por la propia familia. Abierta en 1999 por una pareja que sigue al frente, y con catas y talleres durante todo el año.",
+    barrio: "Chamberí",
+    direccion: "C/ de Blasco de Garay, 30",
+    web: "https://laqueseria.es",
+    desde: 1999,
+    etiquetas: ["quesos", "embutido", "catas", "familiar", "León"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "panadario",
+    nombre: "Panadarío",
+    categoria: "panaderia",
+    descripcion: "Obrador a la vista tras el cristal: masa madre, harinas ecológicas y fermentaciones de un día entero, sin aditivos ni levadura. Lo abrió un arquitecto que se pasó al pan, y sus panetones tienen cola en Navidad.",
+    barrio: "La Guindalera",
+    direccion: "C/ de Alonso Heredia, 25",
+    web: "https://panadario.es",
+    desde: 2015,
+    etiquetas: ["masa madre", "ecológico", "obrador", "panetone", "bollería"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "sin-tarima-libros",
+    nombre: "Sin Tarima Libros",
+    categoria: "librerias",
+    descripcion: "Librería de barrio con fondo cuidado de narrativa, poesía, historia y filosofía, y un calendario de actividades que no para. Trato cercano y cero postureo.",
+    barrio: "Lavapiés",
+    direccion: "C/ de la Magdalena, 32",
+    instagram: "sintarimalibros",
+    desde: 2008,
+    etiquetas: ["narrativa", "poesía", "filosofía", "barrio", "actividades"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "aroma-style-home",
+    nombre: "Aroma Style Home",
+    categoria: "hogar",
+    descripcion: "Tienda pequeña y especializada en aromas para la casa: velas, esencias, difusores y saquitos de hierbas, además de colonias. De las de entrar a preguntar y salir con lo que buscabas.",
+    barrio: "Salamanca",
+    direccion: "C/ de Hermosilla, 62",
+    web: "https://aromastylehome.com",
+    instagram: "aromastylehome",
+    etiquetas: ["velas", "esencias", "aromas", "difusores", "regalo"],
+    verificado: true,
+    revisado: "2026-09"
   }
 
 ];
