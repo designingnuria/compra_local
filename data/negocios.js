@@ -3040,6 +3040,19 @@ const NEGOCIOS = [
     etiquetas: ["canario", "canarias", "gofio", "mojo", "quesos", "mercado"],
     verificado: true,
     revisado: "2026-09"
+  },
+  {
+    id: "alimentacion-mediavilla",
+    nombre: "Alimentación Mediavilla",
+    categoria: "alimentacion",
+    descripcion: "Ultramarinos de 1917 con los cajones originales todavía en uso, por la cuarta generación de la familia. Famoso en medio Madrid por sus legumbres, y con bacalao, quesos y pasta a la altura.",
+    barrio: "Chamberí",
+    direccion: "C/ de García de Paredes, 48",
+    web: "https://alimentacionmediavilla.com",
+    desde: 1917,
+    etiquetas: ["ultramarinos", "legumbres", "bacalao", "quesos", "centenario", "familiar"],
+    verificado: true,
+    revisado: "2026-09"
   }
 
 ];
