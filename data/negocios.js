@@ -2782,6 +2782,54 @@ const NEGOCIOS = [
     etiquetas: ["velas", "esencias", "aromas", "difusores", "regalo"],
     verificado: true,
     revisado: "2026-09"
+  },
+  {
+    id: "el-halcon-maltes",
+    nombre: "El Halcón Maltés",
+    categoria: "librerias",
+    descripcion: "Librería y galería de arte a la vez, con club de lectura, presentaciones y hasta vermut literario. El dueño recomienda a quien se lo pida, y también a quien no.",
+    barrio: "Chamberí",
+    direccion: "C/ de Fernando el Católico, 3",
+    web: "https://www.halconmaltes.com",
+    etiquetas: ["novela gráfica", "ensayo", "galería", "club de lectura", "presentaciones"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "libreria-polifemo",
+    nombre: "Librería Polifemo",
+    categoria: "librerias",
+    descripcion: "Librería y editorial a la vez desde 1980, especializada en historia y humanidades: Al-Ándalus, Sefarad, Siglo de Oro, libros de viajes y libros sobre libros.",
+    barrio: "La Guindalera",
+    direccion: "Av. de Bruselas, 44",
+    web: "https://www.polifemo.com",
+    desde: 1980,
+    etiquetas: ["historia", "humanidades", "ensayo", "editorial", "Al-Ándalus"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "libreria-celama",
+    nombre: "Librería Celama",
+    categoria: "librerias",
+    descripcion: "La levantó una ilustradora que se hizo librera, y se nota: ediciones bonitas, cuentos que no están en otras partes, una sección de libros sobre libros y láminas dibujadas por ella.",
+    barrio: "Salamanca",
+    direccion: "C/ de Don Ramón de la Cruz, 93",
+    web: "https://www.libreriacelama.com",
+    etiquetas: ["ilustración", "infantil", "narrativa", "láminas", "ediciones cuidadas"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "peluqueria-duque-de-sevilla",
+    nombre: "Peluquería de Caballeros",
+    categoria: "belleza",
+    descripcion: "Peluquería de caballeros de las de siempre, llevada por un padre y un hijo con muchísimos años de oficio detrás. Negocio familiar y de barrio del que quedan pocos.",
+    barrio: "El Viso",
+    direccion: "C/ del Duque de Sevilla, 18",
+    etiquetas: ["peluquería", "caballeros", "barbería", "familiar", "barrio"],
+    verificado: true,
+    revisado: "2026-09"
   }
 
 ];
