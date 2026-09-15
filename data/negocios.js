@@ -2830,6 +2830,20 @@ const NEGOCIOS = [
     etiquetas: ["peluquería", "caballeros", "barbería", "familiar", "barrio"],
     verificado: true,
     revisado: "2026-09"
+  },
+  {
+    id: "libreria-la-lumbre",
+    nombre: "Librería La Lumbre",
+    categoria: "librerias",
+    descripcion: "Librería de barrio en Pacífico, abierta en 2017 por una librera que recomienda de una en una. Club de lectura todos los meses y actividades a menudo.",
+    barrio: "Pacífico",
+    direccion: "C/ de Granada, 48",
+    web: "https://www.librerialalumbre.com",
+    instagram: "librerialalumbre",
+    desde: 2017,
+    etiquetas: ["narrativa", "club de lectura", "barrio", "recomendaciones"],
+    verificado: true,
+    revisado: "2026-09"
   }
 
 ];
