@@ -809,10 +809,12 @@ const NEGOCIOS = [
     nombre: "Akira Cómics",
     categoria: "papeleria",
     descripcion: "Abierta por la familia Marugán en 1993 y premiada con un Eisner. Catálogo hondo de Marvel, DC, manga y cómic europeo, con gente detrás del mostrador que se lo ha leído.",
-    barrio: "Malasaña",
+    barrio: "Barrio del Pilar",
+    direccion: "Av. de Betanzos, 74",
     desde: 1993,
     etiquetas: ["cómic", "manga", "europeo", "coleccionismo"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
 
   /* ------------------------------------------------------- fotografía */
