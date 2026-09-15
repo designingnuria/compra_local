@@ -1,94 +1,39 @@
 /* ---------------------------------------------------------------
-   Consume Local — analítica en Tinybird.
+   Consume Local — analítica.
 
-   Manda eventos al Events API de Tinybird. Sin cookies, sin perfiles,
-   sin terceros más allá del propio Tinybird, y sin nada que identifique
-   a una persona: ni IP guardada por nosotros, ni huella del navegador.
+   Qué se mide y qué no: la visita, las búsquedas con su número de
+   resultados, los filtros, los clics hacia cada negocio y las propuestas.
+   Sin cookies, sin perfiles, sin nada que identifique a una persona.
 
-   Mientras TOKEN esté vacío, este archivo no hace absolutamente nada,
-   así que se puede subir a producción sin configurar.
-
-   Para ponerlo en marcha hacen falta dos datos del workspace de Tinybird
-   (Workspace → ... → Copy API host, y Tokens → el token de escritura):
-
-       API      el host de tu región, p. ej. https://api.europe-west2.gcp.tinybird.co
-       TOKEN    un token con permiso SOLO de append sobre el Data Source
-
-   El token queda a la vista en el código de la página: es así a propósito y
-   es como funciona el kit de analítica web de Tinybird. Por eso tiene que ser
-   de append y nada más. Con un token de admin ahí, cualquiera podría leer o
-   borrar los datos del workspace.
+   El envío en sí no está aquí: lo comparte con el formulario en
+   assets/js/enviar.js, que se carga antes. Así el token vive en un solo
+   sitio y, si un bloqueador tumba este archivo, las propuestas de negocios
+   se siguen guardando.
    --------------------------------------------------------------- */
 
 (function () {
   "use strict";
 
-  var API    = "https://api.europe-west2.gcp.tinybird.co";
-  var TOKEN  = "p.eyJ1IjogIjAwNzIwOGFjLTIyMmQtNGNkNi04NmIxLTVkZmM0OTNmZDgxYSIsICJpZCI6ICJlZmExMGVmMC1mMzk5LTQ5ODYtYTFiOC1kNGEyYTU2YWFlMzUiLCAiaG9zdCI6ICJnY3AtZXVyb3BlLXdlc3QyIn0.iPqeCsgn-Gz7R9dAKWJ-FhBSOSD0bH6TkNgAO7L9MH4";
-  /* Es el token "tracker web": solo puede añadir filas a analytics_events.
-     Está a la vista a propósito, como en cualquier analítica de navegador. */
-  var FUENTE = "analytics_events";   // nombre del Data Source
   var VERSION = "1";
 
-  /* -------------------------------------------------- cuándo no medir */
+  /* El envío vive en enviar.js, que se carga antes y lo comparte con el
+     formulario de propuestas. Si un bloqueador tumba este archivo, las
+     propuestas se siguen guardando igual. */
+  if (!window.TB || !window.TB.activo) return;
 
-  /* Sin configurar no se hace nada: el archivo puede estar subido y en paz. */
-  if (!API || !TOKEN) return;
-
-  /* Si el navegador pide no ser rastreado, se respeta y punto. */
   var nav = window.navigator || {};
+
+  /* Si el navegador pide no ser rastreado, se respeta y punto. Esto vale
+     para la analítica; una propuesta que alguien escribe a propósito no es
+     rastreo y se guarda igualmente. */
   if (nav.doNotTrack === "1" || nav.globalPrivacyControl === true) return;
 
-  /* Las pruebas en local no ensucian los datos de verdad. */
-  var local = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
-  if (local || location.protocol === "file:") return;
-
-  /* --------------------------------------------------------- sesión */
-
-  /* Un identificador que vive lo que la pestaña: ni cookie, ni permanente,
-     ni compartido entre sitios. Sirve para no contar diez veces a la misma
-     persona; cuando cierra la pestaña, desaparece. */
-  var sesion = (function () {
-    var clave = "cl_sesion";
-    var nuevo = (window.crypto && crypto.randomUUID)
-      ? crypto.randomUUID()
-      : String(Date.now()) + "-" + Math.random().toString(36).slice(2);
-    try {
-      var guardado = sessionStorage.getItem(clave);
-      if (guardado) return guardado;
-      sessionStorage.setItem(clave, nuevo);
-    } catch (e) {
-      /* Modo privado o almacenamiento bloqueado: se usa y ya está. */
-    }
-    return nuevo;
-  })();
-
-  /* --------------------------------------------------------- envío */
-
-  var destino = API.replace(/\/+$/, "") +
-    "/v0/events?name=" + encodeURIComponent(FUENTE) +
-    "&token=" + encodeURIComponent(TOKEN);
-
   function mandar(accion, datos) {
-    var fila = JSON.stringify({
-      timestamp: new Date().toISOString().replace("T", " ").slice(0, 23),
-      action: accion,
-      version: VERSION,
-      session_id: sesion,
-      payload: JSON.stringify(datos || {})
-    });
-
     try {
-      /* keepalive deja que la petición termine aunque la página se cierre,
-         que es justo lo que pasa al pulsar el enlace de un negocio. El token
-         va en la URL y no en una cabecera a propósito: así el navegador no
-         tiene que pedir permiso antes (CORS) y no se pierden eventos. */
-      fetch(destino, {
-        method: "POST",
-        body: fila,
-        keepalive: true,
-        mode: "cors",
-        headers: { "Content-Type": "text/plain" }
+      window.TB.mandar("analytics_events", {
+        action: accion,
+        version: VERSION,
+        payload: JSON.stringify(datos || {})
       }).catch(function () {});
     } catch (e) {
       /* Que la analítica falle no puede romper la web. */

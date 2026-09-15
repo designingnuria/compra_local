@@ -781,6 +781,45 @@
     form.ok.hidden = true;
     form.hecho.hidden = true;
 
+    /* Dos caminos a la vez, y con uno que llegue basta.
+
+       El correo depende de un servicio ajeno que puede fallar en silencio:
+       ya pasó una vez, y las propuestas de esa gente se perdieron. Tinybird
+       es el almacén propio y guarda la propuesta entera, así que aunque el
+       correo no salga, nada se pierde. */
+    var resultados = { almacen: null, correo: null };
+
+    function decidir() {
+      if (resultados.almacen === null || resultados.correo === null) return;
+      ocupado(false);
+      if (resultados.almacen || resultados.correo) exito();
+      else fallo(d);
+    }
+
+    function anotar(cual) {
+      return function (bien) {
+        resultados[cual] = bien;
+        decidir();
+      };
+    }
+
+    /* 1. El almacén propio. */
+    var guardar = (window.TB && window.TB.mandar)
+      ? window.TB.mandar("propuestas", {
+          nombre: d.nombre,
+          categoria: d.categoria,
+          barrio: d.barrio,
+          direccion: d.direccion || "",
+          web: d.web || "",
+          descripcion: d.descripcion,
+          quien: d.quien || ""
+        }, { esperar: true })
+      : Promise.reject(new Error("sin almacén"));
+
+    guardar.then(function () { anotar("almacen")(true); },
+                 function () { anotar("almacen")(false); });
+
+    /* 2. El correo. */
     var envio = {
       _subject: "Consume Local · propuesta: " + d.nombre,
       _template: "table",
@@ -807,15 +846,14 @@
         /* Un 200 no significa que se haya enviado. Cuando el formulario no
            está activado, FormSubmit contesta 200 con success:"false" y el
            aviso de que hay que activarlo. Si nos quedamos en el código de
-           estado, la persona ve "enviada", su texto se pierde y a ti no te
-           llega nada: es exactamente lo que pasó. */
+           estado, la persona ve "enviada" y a ti no te llega nada: es
+           exactamente lo que pasó. */
         var bien = !datos || datos.success === undefined ||
           datos.success === true || String(datos.success).toLowerCase() === "true";
         if (!bien) throw new Error(datos.message || "el envío no se completó");
-        exito();
+        anotar("correo")(true);
       })
-      .catch(function () { fallo(d); })
-      .then(function () { ocupado(false); }, function () { ocupado(false); });
+      .catch(function () { anotar("correo")(false); });
   }
 
   function ocupado(si) {

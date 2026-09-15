@@ -1,0 +1,24 @@
+DESCRIPTION >
+    Propuestas de negocios enviadas desde el formulario de la web.
+    Este es el almacén de verdad: el correo es solo una copia de cortesía.
+    Aquí no hay TTL a propósito — una propuesta no caduca, y perder una es
+    perder a alguien que se molestó en escribirla.
+
+SCHEMA >
+    `timestamp` DateTime `json:$.timestamp`,
+    `session_id` String `json:$.session_id`,
+    `nombre` String `json:$.nombre`,
+    `categoria` String `json:$.categoria`,
+    `barrio` String `json:$.barrio`,
+    `direccion` String `json:$.direccion`,
+    `web` String `json:$.web`,
+    `descripcion` String `json:$.descripcion`,
+    `quien` String `json:$.quien`
+
+ENGINE "MergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(timestamp)"
+ENGINE_SORTING_KEY "timestamp"
+
+# El mismo token que la analítica, para que la web lleve uno solo. Sigue
+# siendo de append: puede escribir aquí, no leer ni borrar.
+TOKEN "tracker web" APPEND

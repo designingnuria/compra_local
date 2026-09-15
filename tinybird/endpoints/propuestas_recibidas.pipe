@@ -1,0 +1,23 @@
+DESCRIPTION >
+    Las propuestas que ha mandado la gente, de la más reciente a la más
+    antigua. Es la lista que hay que ir vaciando.
+
+NODE resultado
+SQL >
+    %
+    SELECT
+        timestamp,
+        nombre,
+        categoria,
+        barrio,
+        direccion,
+        web,
+        descripcion,
+        quien
+    FROM propuestas
+    ORDER BY timestamp DESC
+    LIMIT {{Int32(limite, 200)}}
+
+TYPE ENDPOINT
+
+TOKEN "panel" READ
