@@ -803,7 +803,17 @@
         if (!r.ok) throw new Error("respuesta " + r.status);
         return r.json();
       })
-      .then(function () { exito(); })
+      .then(function (datos) {
+        /* Un 200 no significa que se haya enviado. Cuando el formulario no
+           está activado, FormSubmit contesta 200 con success:"false" y el
+           aviso de que hay que activarlo. Si nos quedamos en el código de
+           estado, la persona ve "enviada", su texto se pierde y a ti no te
+           llega nada: es exactamente lo que pasó. */
+        var bien = !datos || datos.success === undefined ||
+          datos.success === true || String(datos.success).toLowerCase() === "true";
+        if (!bien) throw new Error(datos.message || "el envío no se completó");
+        exito();
+      })
       .catch(function () { fallo(d); })
       .then(function () { ocupado(false); }, function () { ocupado(false); });
   }

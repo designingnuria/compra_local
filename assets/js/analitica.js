@@ -165,4 +165,14 @@
       if (!ok.hidden) mandar("propuesta", {});
     }).observe(ok, { attributes: true, attributeFilter: ["hidden"] });
   }
+
+  /* 6. Y las que NO salen. Si el envío falla, la persona ve el panel de
+        rescate; que quede registrado, porque un formulario roto en silencio
+        es peor que no tener formulario. */
+  var falloPanel = $("#form-hecho");
+  if (falloPanel && window.MutationObserver) {
+    new MutationObserver(function () {
+      if (!falloPanel.hidden) mandar("propuesta_fallida", {});
+    }).observe(falloPanel, { attributes: true, attributeFilter: ["hidden"] });
+  }
 })();
