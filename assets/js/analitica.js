@@ -111,7 +111,17 @@
     }).observe(ok, { attributes: true, attributeFilter: ["hidden"] });
   }
 
-  /* 6. Y las que NO salen. Si el envío falla, la persona ve el panel de
+  /* 6. El botón de proponer que sale cuando una búsqueda no encuentra nada.
+        Comparado con las búsquedas sin resultados, dice qué parte de la gente
+        que no encuentra lo suyo se molesta en contarlo. */
+  var botonVacio = $("#empty-proponer");
+  if (botonVacio && q) {
+    botonVacio.addEventListener("click", function () {
+      mandar("proponer_desde_vacio", { termino: q.value.trim().slice(0, 80) });
+    });
+  }
+
+  /* 7. Y las que NO salen. Si el envío falla, la persona ve el panel de
         rescate; que quede registrado, porque un formulario roto en silencio
         es peor que no tener formulario. */
   var falloPanel = $("#form-hecho");

@@ -21,6 +21,8 @@
     count: $("#count"),
     grid: $("#grid"),
     empty: $("#empty"),
+    emptyTexto: $("#empty-texto"),
+    emptyBoton: $("#empty-proponer"),
     heroCount: $("#hero-count"),
     controles: $(".controls"),
     controles: $(".controls"),
@@ -452,6 +454,11 @@
     pintarTanda();
 
     els.empty.hidden = listaActual.length > 0;
+    if (!els.empty.hidden && els.emptyTexto) {
+      els.emptyTexto.innerHTML = estado.q
+        ? "No hay nada para <strong>" + escapar(estado.q) + "</strong>. Prueba con otra palabra o quita algún filtro."
+        : "Prueba con otra palabra o quita algún filtro.";
+    }
     els.count.textContent = listaActual.length === 0
       ? "Ningún negocio"
       : listaActual.length === 1 ? "1 negocio" : listaActual.length + " negocios";
@@ -600,6 +607,18 @@
     };
   }
 
+  /* Cuando una búsqueda no encuentra nada, esa persona es justo la que sabe
+     qué falta. El botón la lleva al formulario con el cursor ya puesto. */
+  function irAProponer() {
+    var destino = $("#proponer");
+    if (!destino) return;
+    destino.scrollIntoView({ behavior: "smooth", block: "start" });
+    var campo = $("#f-nombre");
+    if (!campo) return;
+    /* Se espera a que termine el desplazamiento: enfocar antes lo corta. */
+    setTimeout(function () { campo.focus({ preventScroll: true }); }, 600);
+  }
+
   function enlazarEventos() {
     els.q.addEventListener("input", conRetardo(function () {
       estado.q = els.q.value.trim();
@@ -620,6 +639,8 @@
       els.q.focus();
       pintar(true);
     });
+
+    if (els.emptyBoton) els.emptyBoton.addEventListener("click", irAProponer);
 
     els.barrio.addEventListener("change", function () {
       estado.barrio = els.barrio.value;
