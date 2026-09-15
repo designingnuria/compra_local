@@ -2965,6 +2965,81 @@ const NEGOCIOS = [
     etiquetas: ["narrativa", "club de lectura", "barrio", "recomendaciones"],
     verificado: true,
     revisado: "2026-09"
+  },
+  {
+    id: "la-antigua-bacaladera",
+    nombre: "La Antigua Bacaladera",
+    categoria: "alimentacion",
+    descripcion: "Bacalao en salazón desde 1917, por la tercera generación de la misma familia. Te lo cortan según lo vayas a cocinar y te explican cómo desalarlo. Tienen también legumbres con denominación y frutos secos.",
+    barrio: "Tetuán",
+    direccion: "C/ de Lope de Haro, 11",
+    web: "https://laantiguabacaladera.com",
+    desde: 1917,
+    etiquetas: ["bacalao", "salazón", "legumbres", "centenario", "familiar"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "pescaderia-ernesto-prieto",
+    nombre: "Pescadería Ernesto Prieto",
+    categoria: "alimentacion",
+    descripcion: "Uno de los mostradores de pescado y marisco más grandes de Madrid, en el Mercado de Chamartín. Empezó de aprendiz en 1937, abrió lo suyo en 1956 y van ya por la tercera generación.",
+    barrio: "Chamartín",
+    direccion: "Mercado de Chamartín, C/ de Bolivia, 9",
+    web: "https://www.ernestoprieto.com",
+    desde: 1956,
+    etiquetas: ["pescadería", "pescado", "marisco", "mercado", "familiar"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "casqueria-luis",
+    nombre: "Casquería Luis",
+    categoria: "alimentacion",
+    descripcion: "Casquería de las que quedan pocas: callos, mollejas, criadillas, hígado y todo lo que la carnicería moderna dejó de mirar. Tercera generación en el oficio, en el mercado de Santa María de la Cabeza.",
+    barrio: "Arganzuela",
+    direccion: "Mercado de Santa María de la Cabeza",
+    web: "https://casquerialuis.es",
+    etiquetas: ["casquería", "callos", "mercado", "familiar", "oficio"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "kaicao",
+    nombre: "Kaicao",
+    categoria: "alimentacion",
+    descripcion: "Fábrica de chocolate del grano a la tableta en pleno Lavapiés: compran el cacao, lo tuestan y lo trabajan ellos. Se puede ver el taller y hacer una tableta con tus manos.",
+    barrio: "Lavapiés",
+    direccion: "C/ de las Dos Hermanas, 14",
+    web: "https://kaicaochocolate.com",
+    etiquetas: ["chocolate", "cacao", "bean to bar", "taller", "artesano"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "pasta-fresca-madrid",
+    nombre: "Pasta Fresca Madrid",
+    categoria: "alimentacion",
+    descripcion: "Obrador de pasta fresca a la vista tras el escaparate. Lo montó un arquitecto que dejó los planos, se fue a aprender el oficio y volvió a hacer raviolis a mano.",
+    barrio: "Chamberí",
+    direccion: "Glorieta de Quevedo",
+    web: "https://pastafrescamadrid.com",
+    desde: 2014,
+    etiquetas: ["pasta fresca", "obrador", "italiana", "raviolis", "artesano"],
+    verificado: true,
+    revisado: "2026-09"
+  },
+  {
+    id: "la-ventita-del-foodie",
+    nombre: "La Ventita del Foodie",
+    categoria: "alimentacion",
+    descripcion: "Puesto familiar de producto canario en el Mercado de Ibiza: mojos, gofio, quesos de las islas, almogrote y miel de palma, todo de productores pequeños del archipiélago.",
+    barrio: "Retiro",
+    direccion: "Mercado de Ibiza, C/ de Ibiza, 8",
+    web: "https://www.laventitadelfoodie.com",
+    etiquetas: ["canario", "canarias", "gofio", "mojo", "quesos", "mercado"],
+    verificado: true,
+    revisado: "2026-09"
   }
 
 ];
