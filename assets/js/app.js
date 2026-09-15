@@ -325,13 +325,15 @@
 
     /* Ni el barrio ni la dirección son obligatorios: cuando no se sabe con
        certeza, es preferible dejarlo en blanco a inventárselo. */
+    /* Primero el barrio y luego la calle: quien busca una tienda suele pensar
+       en la zona antes que en el número del portal. */
     var donde;
-    if (negocio.direccion && negocio.barrio) {
-      donde = resaltar(negocio.direccion, ts) + " <span>· " + resaltar(negocio.barrio, ts) + "</span>";
+    if (negocio.barrio && negocio.direccion) {
+      donde = resaltar(negocio.barrio, ts) + " <span>· " + resaltar(negocio.direccion, ts) + "</span>";
+    } else if (negocio.barrio) {
+      donde = resaltar(negocio.barrio, ts);
     } else if (negocio.direccion) {
       donde = resaltar(negocio.direccion, ts);
-    } else if (negocio.barrio) {
-      donde = "<span>" + resaltar(negocio.barrio, ts) + "</span>";
     } else {
       donde = "<span>Madrid</span>";
     }
