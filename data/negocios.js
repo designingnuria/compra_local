@@ -240,7 +240,8 @@ const NEGOCIOS = [
     web: "https://www.casamira.es",
     desde: 1842,
     etiquetas: ["turrón", "navidad", "centenario", "artesano"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "la-violeta",
@@ -268,7 +269,8 @@ const NEGOCIOS = [
     web: "https://antiguapasteleriadelpozo.com",
     desde: 1830,
     etiquetas: ["pastelería", "hojaldre", "centenario", "horno de leña"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "confiteria-el-riojano",
@@ -281,7 +283,8 @@ const NEGOCIOS = [
     web: "https://confiteriaelriojano.com",
     desde: 1855,
     etiquetas: ["confitería", "pastas", "centenario", "rosquillas"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "el-horno-de-babette",
@@ -513,7 +516,8 @@ const NEGOCIOS = [
     web: "https://www.casahernanz.es",
     desde: 1840,
     etiquetas: ["alpargatas", "esparto", "centenario", "calzado"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "capas-sesena",
@@ -728,7 +732,8 @@ const NEGOCIOS = [
     coords: [40.417322, -3.706733],
     desde: 1650,
     etiquetas: ["libro viejo", "segunda mano", "histórica", "saldo"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "libreria-perez-galdos",
@@ -881,7 +886,8 @@ const NEGOCIOS = [
     direccion: "Carrera de San Jerónimo, 8",
     desde: 1839,
     etiquetas: ["comestibles", "consomé", "centenario", "fiambres"],
-    verificado: false
+    verificado: false,
+    revisado: "2026-09"
   },
   {
     id: "spicy-yuli",
@@ -917,7 +923,8 @@ const NEGOCIOS = [
     web: "https://bombonerialapajarita.es/?utm_source=mybusiness&utm_medium=boton&utm_campaign=ficha",
     desde: 1852,
     etiquetas: ["bombones", "caramelos", "centenario", "regalo"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "heladeria-kalua",
@@ -993,7 +1000,8 @@ const NEGOCIOS = [
     web: "http://ferreteriadelolmo.es",
     desde: 1862,
     etiquetas: ["ferretería", "herramienta", "centenario", "tornillos"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "almacenes-el-botijo",
@@ -1112,7 +1120,8 @@ const NEGOCIOS = [
     web: "https://www.hazen.es/es/home",
     desde: 1814,
     etiquetas: ["pianos", "instrumentos", "cuerda", "histórica"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "garrido-bailen",
@@ -1148,7 +1157,8 @@ const NEGOCIOS = [
     web: "https://www.rejillerialopez.es",
     desde: 1877,
     etiquetas: ["rejilla", "anea", "sillas", "centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "sanatorio-de-munecos",
@@ -1579,7 +1589,8 @@ const NEGOCIOS = [
     coords: [40.416043, -3.706339],
     desde: 1837,
     etiquetas: ["carnicería","centenario","carne"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "como-en-casa",
@@ -1604,7 +1615,8 @@ const NEGOCIOS = [
     web: "http://www.herbolariolafuente.com",
     desde: 1856,
     etiquetas: ["herbolario","plantas","granel","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "jamoneria-lopez-pascual",
@@ -1655,7 +1667,8 @@ const NEGOCIOS = [
     web: "http://www.mantequeriaandres.com",
     desde: 1870,
     etiquetas: ["ultramarinos","quesos","conservas","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "moderna-apicultura",
@@ -1681,7 +1694,8 @@ const NEGOCIOS = [
     web: "https://mercadodelacebada.com",
     desde: 1875,
     etiquetas: ["mercado","carnicería","pescadería","frutería"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "mercado-de-la-paz",
@@ -1700,14 +1714,15 @@ const NEGOCIOS = [
     id: "la-mexicana",
     nombre: "La Mexicana",
     categoria: "bebidas",
-    descripcion: "Tostadero de café y té desde 1837, de los primeros de Madrid. Se huele la tienda desde la calle.",
+    descripcion: "Tostadero de café y té desde 1890, de los primeros de Madrid. Llegó a tener el récord Guinness de la tienda que más café vende del mundo, y se huele desde la calle.",
     barrio: "Centro",
     direccion: "C/ Preciados, 24",
     coords: [40.418754, -3.704897],
     web: "https://www.lamexicana.es",
-    desde: 1837,
+    desde: 1890,
     etiquetas: ["café","té","tostadero","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "la-flor-del-pan",
@@ -1757,7 +1772,8 @@ const NEGOCIOS = [
     coords: [40.415650, -3.698627],
     desde: 1866,
     etiquetas: ["pan","obrador","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "el-kince",
@@ -1783,7 +1799,8 @@ const NEGOCIOS = [
     web: "https://peluqueriamoderna.com",
     desde: 1881,
     etiquetas: ["peluquería","centenario","clásica"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "peluqueria-vallejo",
@@ -1822,7 +1839,8 @@ const NEGOCIOS = [
     web: "http://sombrereriamedrano.com",
     desde: 1832,
     etiquetas: ["sombreros","panamá","centenario","gorras"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "la-favorita",
@@ -1848,7 +1866,8 @@ const NEGOCIOS = [
     web: "https://www.antiguacasacrespo.com",
     desde: 1863,
     etiquetas: ["alpargatas","esparto","calzado","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "calzados-toledo",
@@ -1861,7 +1880,8 @@ const NEGOCIOS = [
     web: "https://zapateriasoriano.es/calzados-toledo",
     desde: 1857,
     etiquetas: ["calzado","zapatos","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "casa-vega",
@@ -1874,7 +1894,8 @@ const NEGOCIOS = [
     web: "http://www.casavega.es",
     desde: 1860,
     etiquetas: ["calzado","zapatos","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "calzados-lobo",
@@ -2041,7 +2062,8 @@ const NEGOCIOS = [
     web: "http://www.fieltrosolleros.com",
     desde: 1863,
     etiquetas: ["fieltro","paño","tejidos","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "confecciones-zorrilla",
@@ -2054,7 +2076,8 @@ const NEGOCIOS = [
     web: "https://www.confeccioneszorrilla.com",
     desde: 1870,
     etiquetas: ["ropa","centenario","barrio"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "casa-pajares",
@@ -2066,7 +2089,8 @@ const NEGOCIOS = [
     coords: [40.423437, -3.698132],
     desde: 1873,
     etiquetas: ["ropa","centenario","familiar"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "matarranz",
@@ -2142,7 +2166,8 @@ const NEGOCIOS = [
     web: "http://www.antiguarelojeria.com",
     desde: 1880,
     etiquetas: ["relojería","reparación","centenario","mecánico"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "joyeria-ansorena",
@@ -2155,7 +2180,8 @@ const NEGOCIOS = [
     web: "https://www.ansorena.com",
     desde: 1845,
     etiquetas: ["joyas","taller","a medida","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "joyeria-duran",
@@ -2181,7 +2207,8 @@ const NEGOCIOS = [
     web: "http://yanesmadrid.com/es",
     desde: 1881,
     etiquetas: ["joyas","taller","diseño","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "joyeria-granados",
@@ -2297,20 +2324,22 @@ const NEGOCIOS = [
     web: "https://www.el-angel.com",
     desde: 1867,
     etiquetas: ["orfebrería","imaginería","restauración","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "lucio-j-m",
     nombre: "Lucio J&M",
     categoria: "hogar",
-    descripcion: "Casa de decoración desde 1872, con artículos de menaje y regalo escogidos con criterio antiguo.",
+    descripcion: "Telas para casa y jardín desde 1872: tapicería, alfombras, toldos, lonas y estores, por metros y a medida.",
     barrio: "Centro",
     direccion: "C/ Imperial, 6",
     coords: [40.415803, -3.706907],
     web: "https://www.luciojm.es",
     desde: 1872,
     etiquetas: ["decoración","menaje","regalo","centenario"],
-    verificado: true
+    verificado: true,
+    revisado: "2026-09"
   },
   {
     id: "casa-silverio",
